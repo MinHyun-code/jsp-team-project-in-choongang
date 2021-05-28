@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Board;
 import dao.BoardDao;
 
-public class CommunityListAction implements CommandProcess{
+public class CommunityListAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
@@ -51,11 +51,12 @@ public class CommunityListAction implements CommandProcess{
 			System.out.println("pageSize-->" + pageSize);  // /ch16/list.do
 			System.out.println("pageCnt-->" + pageCnt);  // /ch16/list.do
 			System.out.println("startPage-->" + startPage);  // /ch16/list.do
-			System.out.println("endPage-->" + endPage);  // /ch16/list.do			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("endPage-->" + endPage);  // /ch16/list.do
+		} catch(Exception e) { 
+			System.out.println(e.getMessage()); 
 		}
-		return null;
+		return "community/community.jsp";
+//		return "list.jsp";
 	}
 
 }

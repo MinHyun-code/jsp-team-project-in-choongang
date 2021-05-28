@@ -2,7 +2,7 @@
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/login/join.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/log/join.css">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>

@@ -21,7 +21,7 @@
 					style="cursor: pointer; text-align: center; font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
-				<a href="#">채용공고</a> <a href="#" style="bgcolor: #235594">회사검색</a> <a href="community.html">커뮤니티</a> <a
+				<a href="#">채용공고</a> <a href="#" style="bgcolor: #235594">회사검색</a> <a href="${pageContext.request.contextPath}/list.do">커뮤니티</a> <a
 					href="mypage.jsp">마이페이지</a> <a href="#">로그인</a>
 			</nav>
 			<table id="searchBox">

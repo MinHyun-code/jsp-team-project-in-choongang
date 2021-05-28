@@ -1,6 +1,6 @@
 package dao;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Board {
 	private int bd_code;
@@ -10,7 +10,7 @@ public class Board {
 	private String content;
 	private int category;
 	private int read_count;
-	private Date reg_date;
+	private Timestamp reg_date;
 	private String tags;
 	private int is_adopted;
 	private String file_name;
@@ -59,10 +59,10 @@ public class Board {
 	public void setRead_count(int read_count) {
 		this.read_count = read_count;
 	}
-	public Date getReg_date() {
+	public Timestamp getReg_date() {
 		return reg_date;
 	}
-	public void setReg_date(Date reg_date) {
+	public void setReg_date(Timestamp reg_date) {
 		this.reg_date = reg_date;
 	}
 	public String getTags() {

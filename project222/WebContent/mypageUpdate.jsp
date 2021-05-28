@@ -17,7 +17,7 @@
 			<nav>
 				<a href="#">채용공고</a> 
 				<a href="searchHire.jsp">회사검색</a> 
-				<a href="community.html">커뮤니티</a> 
+				<a href="${pageContext.request.contextPath}/list.do">커뮤니티</a> 
 				<a href="mypage.jsp" style="background-color: #235594">마이페이지</a> 
 			</nav>
 		</header>

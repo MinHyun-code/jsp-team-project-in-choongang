@@ -49,10 +49,10 @@ public class JoinAction implements CommandProcess {
 		}
 		if (joinResult == 1) {
 			request.setAttribute("joinResult", joinResult);
-			return "login/login.jsp";
+			return "log/login.jsp";
 		} else {
 			request.setAttribute("joinResult", 0);
-			return "join/join.jsp";
+			return "log/join.jsp";
 		}
 	}
 

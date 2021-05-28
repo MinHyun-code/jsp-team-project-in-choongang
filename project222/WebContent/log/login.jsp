@@ -7,7 +7,7 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/login/login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/log/login.css">
 	<c:if test="${sessionID != null }">
 		<script type="text/javascript">
 			alert("이미 로그인 중입니다.");

@@ -36,7 +36,7 @@ public class LoginAction implements CommandProcess {
 			return "main.jsp";
 		} else {
 			request.setAttribute("loginResult", loginResult);
-			return "login/login.jsp";
+			return "log/login.jsp";
 		}
 	}
 

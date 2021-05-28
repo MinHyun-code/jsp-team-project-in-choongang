@@ -7,11 +7,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Community Page</title>
-<script type="text/javascript">
-	function popUp() {
-		window.open('popUpHire.jsp', 'Hire', 'width=800, height=1600');
-	}
-</script>
+<c:if test="${sessionID != null }">
+	<script type="text/javascript">
+		alert("로그인이 필요합니다.");
+		location.href = "${pageContext.request.contextPath}/log/login.jsp";
+	</script>
+</c:if>
 </head>
 
 <body>
@@ -22,11 +23,16 @@
 				font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
-				<a href="#">채용공고</a>
-				<a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a>
-				<a href="#">커뮤니티</a>
-				<a href="#">마이페이지</a>
-				<a href="#">로그인</a>
+				<a href="#">채용공고</a> 
+				<a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a> 
+				<a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a> 
+				<a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a> 
+				<c:if test="${sessionID != null }">
+					<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
+				</c:if>
+				<c:if test="${sessionID == null }">
+					<a href="${pageContext.request.contextPath}/log/login.jsp">로그인</a>
+				</c:if>
 			</nav>
 		</header>
 		<div id="container">
@@ -93,14 +99,22 @@
 							<th>&nbsp;제목&nbsp;</th>
 							<th>&nbsp;작성자&nbsp;</th>
 							<th>&nbsp;등록 날짜&nbsp;</th>
+							<th>&nbsp;조회수&nbsp;</th>
 						</thead>
 						<c:if test="${totCnt > 0 }">
 							<c:forEach var="board" items="${list }">
 								<tr>
-									<td>${startNum }</td>
-									<td>${board.subject }</td>
-									<td>${board.m_id }</td>
-									<td>${board.reg_date }</td>
+									<%-- <td>${startNum }</td> --%>
+									<c:if test="${board.bd_code == 1 }">
+										<td>정보 공유 </td>
+									</c:if>
+									<c:if test="${board.bd_code == 2 }">
+										<td>취준 톡톡 </td>
+									</c:if>
+									<td><a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a></td>
+									<td>${board.m_id}</td>
+									<td>${board.reg_date}</td>
+									<td>${board.read_count}</td>
 								</tr>
 								<c:set var="startNum" value="${startNum - 1 }" />
 							</c:forEach>
@@ -108,12 +122,12 @@
 					</table>
 					<div class="pageNum">
 						<ul>
-							<c:forEach var="i" begin="${startPage}" end="${endPage}">
+							<c:forEach var="i" begin="${startPage}" end="${5}">
 								<c:if test="${currentPage == i}">
-									<li><a href='${pageContext.request.contextPath}/list.do?pageNum=${i}' id="pageSelected">${i}</a></li>
+									<li><a href='${pageContext.request.contextPath}/communityList.do?pageNum=${i}' id="pageSelected">${i}</a></li>
 								</c:if>
 								<c:if test="${currentPage != i}">
-									<li><a href='${pageContext.request.contextPath}/list.do?pageNum=${i}'>${i}</a></li>
+									<li><a href='${pageContext.request.contextPath}/communityList.do?pageNum=${i}'>${i}</a></li>
 								</c:if>
 							</c:forEach>
 						</ul>
@@ -121,13 +135,13 @@
 				</article>
 			</section>
 		</div>
-		<aside id="left">
+		<aside id="right">
 			<ul>
 				<li id="asideMenuCommunity"><a href="#">커뮤니티</a></li>
 				<li id="asideMenuWrite"> <a href="#">글 작성하기</a></li>
 				<li id="asideMenuInfo"> <a href="#">정보 공유</a></li>
 				<li id="asideMenuToktok"> <a href="#">취준 톡톡</a></li>
-				<li id="asideMenuMyTok"> <a href="#">&nbsp; ㄴ 내 질문 보기</a></li>
+				<li id="asideMenuMyTok"> <a href="#">내 질문 보기</a></li>
 			</ul>
 		</aside>
 		<footer> Copyright & copy </footer>
