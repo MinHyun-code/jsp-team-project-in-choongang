@@ -19,7 +19,7 @@
 		<header>
 			<div>
 				<h1 onclick="location.href='${pageContext.request.contextPath}/main.jsp'" style="cursor: pointer; text-align: center;
-				font-size: 130px; color: #235594; margin-bottom: 40px;">다JOB아</h1>
+				font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
 				<a href="#">채용공고</a>
@@ -94,50 +94,31 @@
 							<th>&nbsp;작성자&nbsp;</th>
 							<th>&nbsp;등록 날짜&nbsp;</th>
 						</thead>
-						<tr>
-							<td>정보 공유</td>
-							<td><a href="#">[HOT] 언택트 집.콕. 취준 꿀팁</a></td>
-							<td>가나다</td>
-							<td>2020-03-21</td>
-						</tr>
-						<tr>
-							<td>취준 톡톡</td>
-							<td><a href="#">이력서 궁금한 점이 있는데요</a></td>
-							<td>라마바</td>
-							<td>2020-03-21</td>
-						</tr>
-						<tr>
-							<td>정보 공유</td>
-							<td><a href="#">브랜드 홍보의 달인, 마케팅 기획자</a></td>
-							<td>사아자</td>
-							<td>2020-03-21</td>
-						</tr>
-						<tr>
-							<td>정보 공유</td>
-							<td><a href="#"><기업별 연봉 인기순위 TOP 10></a></td>
-							<td>차카타</td>
-							<td>2020-03-21</td>
-						</tr>
-						<tr>
-							<td>정보 공유</td>
-							<td><a href="#">청년 디지털 일자리! 지원인원 두배 ...</a></td>
-							<td>파하하</td>
-							<td>2020-03-21</td>
-						</tr>
-						
+						<c:if test="${totCnt > 0 }">
+							<c:forEach var="board" items="${list }">
+								<tr>
+									<td>${startNum }</td>
+									<td>${board.subject }</td>
+									<td>${board.m_id }</td>
+									<td>${board.reg_date }</td>
+								</tr>
+								<c:set var="startNum" value="${startNum - 1 }" />
+							</c:forEach>
+						</c:if>
 					</table>
 					<div class="pageNum">
 						<ul>
-							<li><a href="#" id="pageSelected">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">다음</a></li>
+							<c:forEach var="i" begin="${startPage}" end="${endPage}">
+								<c:if test="${currentPage == i}">
+									<li><a href='${pageContext.request.contextPath}/list.do?pageNum=${i}' id="pageSelected">${i}</a></li>
+								</c:if>
+								<c:if test="${currentPage != i}">
+									<li><a href='${pageContext.request.contextPath}/list.do?pageNum=${i}'>${i}</a></li>
+								</c:if>
+							</c:forEach>
 						</ul>
 					</div>
 				</article>
-
 			</section>
 		</div>
 		<aside id="left">

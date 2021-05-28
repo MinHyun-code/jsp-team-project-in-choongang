@@ -56,6 +56,7 @@ public class ListAction implements CommandProcess {
 			System.out.println(e.getMessage()); 
 		}
 		return "community/community.jsp";
+//		return "list.jsp";
 	}
 
 }

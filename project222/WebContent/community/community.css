@@ -37,7 +37,7 @@ header {
 
 nav {
 	display: flex;
-	background-color: #235594;
+	background-color: #002266;
 }
 
 nav a {
@@ -82,7 +82,7 @@ nav a {
 }
 
 #communityMainSearch {
-	color: #235594;
+	color: #002266;
 	margin-left: 2%;
 	margin-top: 30px;
 	margin-bottom: -20px;
@@ -94,7 +94,7 @@ nav a {
 }
 
 #communityMainSearch ul li {
-	/* background-color: #235594; */
+	/* background-color: #002266; */
 	padding: 5px 10px;
 	list-style: none;
 	margin: 10px;
@@ -118,7 +118,7 @@ nav a {
 	position: relative;
 	width: 30%;
 	height: 47px;
-	border: 4px solid #235594;
+	border: 4px solid #002266;
 	padding: 0px 10px;
 	border-radius: 50px;
 	float: right;
@@ -159,7 +159,7 @@ nav a {
 }
 
 #communityMainTable table {
-	/* border: 4px solid #235594; */
+	/* border: 4px solid #002266; */
 	width: 100%;
 }
 
@@ -174,7 +174,7 @@ nav a {
 	height: 55px;
 	font-size: 30px;
 	color: white;
-	background-color: #235594;
+	background-color: #002266;
 }
 
 #communityMainTable .pageNum {
@@ -189,7 +189,7 @@ nav a {
 }
 
 #communityMainTable .pageNum ul li {
-	/* background-color: #235594; */
+	/* background-color: #002266; */
 	padding: 5px 0px;
 	list-style: none;
 	margin: 10px;
@@ -206,8 +206,10 @@ nav a {
 }
 
 #communityMainTable .pageNum #pageSelected {
-	color: #235594;
-	text-decoration: underline;
+    color: white;
+    background-color: #002266;
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
 #content {
@@ -240,7 +242,7 @@ nav a {
 	height: 100px;
 	width: 100%;
 	border: 1px solid black;
-	border: 4px solid #235594;
+	border: 4px solid #002266;
 	border-radius: 30px;
 	padding: 5px;
 	/* padding-bottom: 25px; */
@@ -255,7 +257,7 @@ nav a {
 #point th {
 	height: 55px;
 	font-size: 30px;
-	color: #235594;
+	color: #002266;
 	vertical-align: top;
 }
 
@@ -291,7 +293,7 @@ aside {
 }
 
 aside ul li {
-	background-color: #235594;
+	background-color: #002266;
 	padding: 5px 10px;
 	list-style: none;
 	margin: 10px;
@@ -359,7 +361,7 @@ aside ul li:hover a {
 
 footer {
 	clear: both;
-	background-color: #235594;
+	background-color: #002266;
 	color: white;
 	text-align: center;
 	padding: 1em 0px;
@@ -408,7 +410,7 @@ footer {
 @media (min-width:100px) {
 	#left {
 		display: block;
-		background-color: #235594;
+		background-color: #002266;
 		width: 170px;
 	}
 }
