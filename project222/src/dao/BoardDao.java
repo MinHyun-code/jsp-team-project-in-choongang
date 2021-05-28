@@ -50,7 +50,7 @@ public class BoardDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Board board = new Board();
-				board.setBd_num(rs.getInt("num"));
+				board.setBd_num(rs.getInt("bd_num"));
 				board.setM_id(rs.getString("m_id"));
 				board.setSubject(rs.getString("subject"));
 				board.setRead_count(rs.getInt("read_count"));
