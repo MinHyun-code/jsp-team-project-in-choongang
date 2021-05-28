@@ -1,4 +1,4 @@
-package service.community;
+package service;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Board;
 import dao.BoardDao;
-import service.CommandProcess;
 
 public class CommunityListAction implements CommandProcess{
 

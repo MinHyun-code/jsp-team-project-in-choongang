@@ -3,119 +3,155 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/community.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Main Page</title>
+<title>Community Page</title>
 <script type="text/javascript">
 	function popUp() {
-		window.open('popUpHire.jsp','Hire','width=800, height=1600');		
+		window.open('popUpHire.jsp', 'Hire', 'width=800, height=1600');
 	}
 </script>
 </head>
+
 <body>
 	<div id="page">
 		<header>
 			<div>
 				<h1 onclick="location.href='${pageContext.request.contextPath}/main.jsp'" style="cursor: pointer; text-align: center;
-				font-size: 130px; color:  #002266; margin-bottom: 40px;">다JOB아</h1>
+				font-size: 130px; color: #235594; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
-				<a href="#">채용공고</a> 
-				<a href="searchHire.jsp">회사검색</a> 
-				<a href="${pageContext.request.contextPath}/community/community.jsp">커뮤니티</a> 
-				<a href="mypage.jsp">마이페이지</a> 
-				<c:if test="${sessionID != null }">
-					<a href="logout.do">로그아웃</a>
-				</c:if>
-				<c:if test="${sessionID == null }">
-					<a href="${pageContext.request.contextPath}/login/login.jsp">로그인</a>
-				</c:if>
+				<a href="#">채용공고</a>
+				<a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a>
+				<a href="#">커뮤니티</a>
+				<a href="#">마이페이지</a>
+				<a href="#">로그인</a>
 			</nav>
-			<table id="searchBox">
-				<tr>
-					<td><input type="text" placeholder="Search" id="search">
-					</td>
-					<td><a href="#"><input type="image"
-							src="./image/search.png" id="searchimg"></a></td>
-				</tr>
-			</table>
 		</header>
 		<div id="container">
-			<article id="point">
-				<section class="pt">
-					<h2 align="center">커뮤니티 인기글</h2>
-					<table border="1" class="pt_tb">
+			<section id="point">
+				<article class="pt pt1">
+					<table class="pt_tb">
+						<thead>
+							<th align="center">인기 정보 글</td>
+						</thead>
 						<tr>
-							<td align="center">커뮤니티 인기글</td>
+							<td align="center"><a href="#">[HOT] 언택트 집.콕. 취준 꿀팁</a></td>
+						</tr>
+						<tr>
+							<td align="center"><a href="#">기업별 연봉 인기순위 TOP 10</a></td>
+						</tr>
+						<tr>
+							<td align="center"><a href="#">브랜드 홍보의 달인, 마케팅 기획자</a></td>
 						</tr>
 					</table>
-				</section>
-				<section class="pt">
-					<h2 align="center">뉴스</h2>
-					<table border="1" class="pt_tb">
+				</article>
+				<article class="pt pt2">
+					<table class="pt_tb">
+						<thead>
+							<th align="center">인기 취준 톡톡</td>
+						</thead>
 						<tr>
-							<td align="center">뉴스</td>
+							<td align="center"><a href="#">저 어떻하죠…</a></td>
+						</tr>
+						<tr>
+							<td align="center"><a href="#">이력서 궁금한 점이 있는데요</a></td>
+						</tr>
+						<tr>
+							<td align="center"><a href="#">이런 회사 어떨까요</a></td>
 						</tr>
 					</table>
-				</section>
-			</article>
-			<article id="content">
-				<section class="ct">
-					<table border="1" class="ct_tb">
+				</article>
+			</section>
+			<section id="communityMainSearch">
+				<article id="communityMainTag">
+					<h2>HOT 태그</h2>
+					<ul>
+						<li><a href="#">#면접</a></li>
+						<li> <a href="#">#기업</a></li>
+						<li> <a href="#">#복지</a></li>
+						<li> <a href="#">#뉴스</a></li>
+						<li> <a href="#">#급여</a></li>
+					</ul>
+				</article>
+				<article>
+					<table id="searchBox">
 						<tr>
-							<td align="center"><img alt="logo" src="./image/hireLogo.png" onclick="popUp()" style="cursor: pointer;" width="270px" height="160px">
-								안전관리자 계약/정규직 채용</td>
+							<td><input type="text" placeholder="Search" id="search">
+							</td>
+							<td><a href="#"><input type="image" src="${pageContext.request.contextPath}/image/search.png" id="searchimg"></a></td>
 						</tr>
 					</table>
-				</section>
-				<section class="ct">
-					<table border="1" class="ct_tb">
+				</article>
+			</section>
+			<section id="communityMainTable">
+				<article>
+					<table>
+						<thead>
+							<th>&nbsp;게시판&nbsp;</th>
+							<th>&nbsp;제목&nbsp;</th>
+							<th>&nbsp;작성자&nbsp;</th>
+							<th>&nbsp;등록 날짜&nbsp;</th>
+						</thead>
 						<tr>
-							<td align="center">채용 공고 2</td>
+							<td>정보 공유</td>
+							<td><a href="#">[HOT] 언택트 집.콕. 취준 꿀팁</a></td>
+							<td>가나다</td>
+							<td>2020-03-21</td>
 						</tr>
-					</table>
-				</section>
-				<section class="ct">
-					<table border="1" class="ct_tb">
 						<tr>
-							<td align="center">채용 공고 3</td>
+							<td>취준 톡톡</td>
+							<td><a href="#">이력서 궁금한 점이 있는데요</a></td>
+							<td>라마바</td>
+							<td>2020-03-21</td>
 						</tr>
-					</table>
-				</section>
-				<section class="ct">
-					<table border="1" class="ct_tb">
 						<tr>
-							<td align="center">채용 공고 4</td>
+							<td>정보 공유</td>
+							<td><a href="#">브랜드 홍보의 달인, 마케팅 기획자</a></td>
+							<td>사아자</td>
+							<td>2020-03-21</td>
 						</tr>
-					</table>
-				</section>
-				<section class="ct">
-					<table border="1" class="ct_tb">
 						<tr>
-							<td align="center">채용 공고 5</td>
+							<td>정보 공유</td>
+							<td><a href="#"><기업별 연봉 인기순위 TOP 10></a></td>
+							<td>차카타</td>
+							<td>2020-03-21</td>
 						</tr>
-					</table>
-				</section>
-				<section class="ct">
-					<table border="1" class="ct_tb">
 						<tr>
-							<td align="center">채용 공고 6</td>
+							<td>정보 공유</td>
+							<td><a href="#">청년 디지털 일자리! 지원인원 두배 ...</a></td>
+							<td>파하하</td>
+							<td>2020-03-21</td>
 						</tr>
+						
 					</table>
-				</section>
-			</article>
+					<div class="pageNum">
+						<ul>
+							<li><a href="#" id="pageSelected">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">다음</a></li>
+						</ul>
+					</div>
+				</article>
+
+			</section>
 		</div>
-		<aside id="right">
+		<aside id="left">
 			<ul>
-				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">이력서 관리</a></li>
-				<li><a href="#">커뮤니티</a></li>
-				<li><a href="#">관심채용</a></li>
+				<li id="asideMenuCommunity"><a href="#">커뮤니티</a></li>
+				<li id="asideMenuWrite"> <a href="#">글 작성하기</a></li>
+				<li id="asideMenuInfo"> <a href="#">정보 공유</a></li>
+				<li id="asideMenuToktok"> <a href="#">취준 톡톡</a></li>
+				<li id="asideMenuMyTok"> <a href="#">&nbsp; ㄴ 내 질문 보기</a></li>
 			</ul>
 		</aside>
 		<footer> Copyright & copy </footer>
 
 	</div>
 </body>
+
 </html>

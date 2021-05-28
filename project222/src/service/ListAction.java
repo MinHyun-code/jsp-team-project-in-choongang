@@ -1,4 +1,4 @@
-package service.community;
+package service;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Board;
 import dao.BoardDao;
-import service.CommandProcess;
 
 public class ListAction implements CommandProcess {
 
@@ -56,7 +55,7 @@ public class ListAction implements CommandProcess {
 		} catch(Exception e) { 
 			System.out.println(e.getMessage()); 
 		}
-		return "list.jsp";
+		return "community/community.jsp";
 	}
 
 }
