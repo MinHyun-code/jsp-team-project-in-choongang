@@ -18,7 +18,7 @@
 	<div id="page">
 		<header>
 			<div>
-				<h1 onclick="location.href='main.jsp'" style="cursor: pointer; text-align: center;
+				<h1 onclick="location.href='${pageContext.request.contextPath}/main.jsp'" style="cursor: pointer; text-align: center;
 				font-size: 130px; color:  #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>

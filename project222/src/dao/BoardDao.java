@@ -143,5 +143,57 @@ public class BoardDao {
 		}
 		return board;
 	}
-
+	
+	//CommunityWriteProAction
+	public int insert(Board board) throws SQLException  {
+		System.out.println("--BoardDao.insert");
+		int bd_code = board.getBd_code();
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		int result = 0;			
+		ResultSet rs = null;
+		// 두가지 방법 --> 1) MAX    2) sequence
+		String sql1 = "select nvl(max(bd_num),0)  from board where bd_code = ?";
+		String sql="INSERT INTO board VALUES(?,?,?,?,?, ?,?,SYSDATE,?,?, ?,?,?,?)";
+		
+		try {			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql1);
+			pstmt.setInt(1, bd_code);
+			rs = pstmt.executeQuery();
+			rs.next();
+			// key인 num 1씩 증가, mysql auto_increment 또는 oracle sequence
+			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
+			int bd_num = rs.getInt(1) + 1; 
+			System.out.println(bd_num);
+			board.setBd_num(bd_num);
+			board.setRef(bd_num);
+			rs.close();   
+			pstmt.close();
+			
+			// 신규 등록 이면 , MAX  num을 board.setRef에 setting 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board.getBd_code());
+			pstmt.setInt(2, board.getBd_num());
+			pstmt.setString(3, board.getM_id());
+			pstmt.setString(4, board.getSubject());
+			pstmt.setString(5, board.getContent());
+			pstmt.setInt(6, board.getCategory());
+			pstmt.setInt(7, board.getRead_count());
+			pstmt.setString(8, board.getTags());
+			pstmt.setInt(9, board.getIs_adopted());
+			pstmt.setString(10, board.getFile_name());
+			pstmt.setInt(11, board.getRef());
+			pstmt.setInt(12, board.getRe_step());
+			pstmt.setInt(13, board.getRe_level());
+			result = pstmt.executeUpdate(); 
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;	
+    }
 }

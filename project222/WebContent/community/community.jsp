@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/community.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Community Page</title>
-<c:if test="${sessionID != null }">
-	<script type="text/javascript">
-		alert("로그인이 필요합니다.");
-		location.href = "${pageContext.request.contextPath}/log/login.jsp";
-	</script>
-</c:if>
 </head>
 
 <body>
@@ -113,7 +108,7 @@
 									</c:if>
 									<td><a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a></td>
 									<td>${board.m_id}</td>
-									<td>${board.reg_date}</td>
+									<td><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 									<td>${board.read_count}</td>
 								</tr>
 								<c:set var="startNum" value="${startNum - 1 }" />
@@ -138,7 +133,7 @@
 		<aside id="right">
 			<ul>
 				<li id="asideMenuCommunity"><a href="#">커뮤니티</a></li>
-				<li id="asideMenuWrite"> <a href="#">글 작성하기</a></li>
+				<li id="asideMenuWrite"> <a href="${pageContext.request.contextPath}/communityWriteForm.do">글 작성하기</a></li>
 				<li id="asideMenuInfo"> <a href="#">정보 공유</a></li>
 				<li id="asideMenuToktok"> <a href="#">취준 톡톡</a></li>
 				<li id="asideMenuMyTok"> <a href="#">내 질문 보기</a></li>

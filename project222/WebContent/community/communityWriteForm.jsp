@@ -5,10 +5,16 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/community.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/communityContent.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/communityWriteForm.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${board.subject}</title>
+<c:if test="${sessionID == null }">
+	<script type="text/javascript">
+		alert("로그인이 필요합니다.");
+		location.href = "${pageContext.request.contextPath}/log/login.jsp";
+	</script>
+</c:if>
 </head>
 
 <body>
@@ -34,41 +40,32 @@
 		
 		
 		<div id="container">
+			<form action="${pageContext.request.contextPath}/communityWritePro.do" method="post">
+				<input type="hidden" name="m_id" value="${sessionID}">
 			<section id="point">
 				<article class="pt pt1">
 					<table class="pt_tb">
-						<tr>
-							<td><h1>${board.subject}</td>
-						</tr>
-						<tr>
-							<td>${board.m_id }</td>
-							<td><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-						</tr>						
-						<tr>
-							<td colspan="100"><hr></td>
-						</tr>
-						<tr>
-							<td>${board.content}</td>
-						</tr>
-						<tr>
-							<td><button>삭제</button><td>
-						</tr>
+					<tr>
+						<td>
+							<select name="bd_code">
+								<option value="1">정보공유</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="text" name="subject" placeholder="글 제목">
+					</tr>
+					<tr>
+						<td><textarea name="content" placeholder="글 내용"></textarea>
+					</tr>
+					<tr>
+						<td><input type="submit" value="작성하기"></td>
+					</tr>
 					</table>
 				</article>
 			</section>
-			<section id="">
-				<article id="">
-				</article>
-				<article>
-				</article>
-			</section>
-			<section id="">
-				<article>
-				</article>
-			</section>
+			</form>
 		</div>
-		
-		
 		<aside id="right">
 			<ul>
 				<li id="asideMenuCommunity"><a href="#">커뮤니티</a></li>
