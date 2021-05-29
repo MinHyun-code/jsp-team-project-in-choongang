@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/community.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Community Page</title>
@@ -91,6 +91,7 @@
 					<table>
 						<thead>
 							<th>&nbsp;게시판&nbsp;</th>
+							<th>&nbsp;글번호&nbsp;</th>
 							<th>&nbsp;제목&nbsp;</th>
 							<th>&nbsp;작성자&nbsp;</th>
 							<th>&nbsp;등록 날짜&nbsp;</th>
@@ -106,6 +107,7 @@
 									<c:if test="${board.bd_code == 2 }">
 										<td>취준 톡톡 </td>
 									</c:if>
+									<td>${board.bd_num}</td>
 									<td><a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a></td>
 									<td>${board.m_id}</td>
 									<td><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>

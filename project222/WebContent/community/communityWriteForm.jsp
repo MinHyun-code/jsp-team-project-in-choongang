@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/community.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/communityWriteForm.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityWriteForm.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${board.subject}</title>
@@ -42,28 +42,28 @@
 		<div id="container">
 			<form action="${pageContext.request.contextPath}/communityWritePro.do" method="post">
 				<input type="hidden" name="m_id" value="${sessionID}">
-			<section id="point">
-				<article class="pt pt1">
-					<table class="pt_tb">
-					<tr>
-						<td>
-							<select name="bd_code">
-								<option value="1">정보공유</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td><input type="text" name="subject" placeholder="글 제목">
-					</tr>
-					<tr>
-						<td><textarea name="content" placeholder="글 내용"></textarea>
-					</tr>
-					<tr>
-						<td><input type="submit" value="작성하기"></td>
-					</tr>
-					</table>
-				</article>
-			</section>
+				<section id="point">
+					<article class="pt pt1">
+						<table class="pt_tb">
+						<tr>
+							<td>
+								<select name="bd_code">
+									<option value="1">정보공유</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><input type="text" name="subject" placeholder="글 제목">
+						</tr>
+						<tr>
+							<td><textarea name="content" placeholder="글 내용"></textarea>
+						</tr>
+						<tr>
+							<td><input type="submit" value="등록하기"></td>
+						</tr>
+						</table>
+					</article>
+				</section>
 			</form>
 		</div>
 		<aside id="right">

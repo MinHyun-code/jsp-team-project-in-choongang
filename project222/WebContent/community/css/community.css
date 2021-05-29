@@ -6,7 +6,7 @@
 
 @font-face {
 	font-family: "Do Hyeon";
-	src: url("../image/DoHyeon-Regular.ttf") format("truetype");
+	src: url("./DoHyeon-Regular.ttf") format("truetype");
 	font-style: normal;
 	font-weight: normal;
 }

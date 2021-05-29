@@ -18,7 +18,7 @@ public class CommunityContentAction implements CommandProcess{
 			bd.readCount(bd_code, bd_num); 
 			Board board = bd.select(bd_code, bd_num);
 			
-			request.setAttribute("bd_num", bd_num);
+//			request.setAttribute("bd_num", bd_num);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("board", board);
 		} catch(Exception e) { System.out.println(e.getMessage()); }

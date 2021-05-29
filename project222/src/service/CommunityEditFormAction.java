@@ -9,28 +9,34 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Board;
 import dao.BoardDao;
 
-public class CommunityDeleteProAction implements CommandProcess {
+public class CommunityEditFormAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			// get parameter in request.
-			System.out.println("--CommunityDeleteProAction");
+			System.out.println("--CommunityEditProAction");
 			request.setCharacterEncoding("utf-8");
 			int bd_code = Integer.parseInt(request.getParameter("bd_code"));
 			int bd_num = Integer.parseInt(request.getParameter("bd_num"));
-			String seesionID = (String) request.getSession().getAttribute("sessionID");
+			String sessionID = (String) request.getSession().getAttribute("sessionID");
+			int pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			
-			// do 'delete' in dao.
+			
+			// select
 			BoardDao bd = BoardDao.getInstance();
-			int result = bd.delete(bd_code, bd_num, seesionID);
-			
-			request.setAttribute("result", result);
+			Board board = bd.select(bd_code, bd_num);
+		
+			if (board.getM_id().equals(sessionID)) {
+				request.setAttribute("board", board);
+				request.setAttribute("pageNum", pageNum);
+			} else {
+				return "community/community.jsp";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "community/communityDeletePro.jsp";
+		return "community/communityEditForm.jsp";
 	}
 
 }

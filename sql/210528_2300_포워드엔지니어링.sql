@@ -1,3 +1,4 @@
+--0528 ERD에서 커뮤니티와 댓글 number(3)->number 수정
 /* 회원 */
 DROP TABLE MEMBER 
 	CASCADE CONSTRAINTS;

@@ -220,4 +220,30 @@ public class BoardDao {
 		}
 		return result;
 	}
+	
+	//CommunityWriteProAction
+	public int edit(Board board) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		int result = 0;			
+		ResultSet rs = null;
+		String sql="UPDATE board SET subject=?, content=? WHERE bd_code=? AND bd_num=? AND m_id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getSubject());
+			pstmt.setString(2, board.getContent());
+			pstmt.setInt(3, board.getBd_code());
+			pstmt.setInt(4, board.getBd_num());
+			pstmt.setString(5, board.getM_id());
+			result = pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
 }

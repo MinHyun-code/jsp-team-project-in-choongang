@@ -9,3 +9,8 @@
 .pt_tb {
     padding: 30px;
 }
+
+.td_btn {
+	float: left;
+	margin-right: 7px;
+}
