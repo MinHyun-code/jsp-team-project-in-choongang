@@ -51,7 +51,16 @@
 							<td>${board.content}</td>
 						</tr>
 						<tr>
-							<td><button>삭제</button><td>
+						<c:if test="${sessionID == board.m_id}">
+							<td>
+								<form action="${pageContext.request.contextPath}/communityDeletePro.do" method="post">
+									<input type="hidden" name="bd_code" value="${board.bd_code}">
+									<input type="hidden" name="bd_num" value="${board.bd_num}">
+									<input type="hidden" name="m_id" value="${sessionID}">
+									<button type="submit" class="delete_btn">삭제</button>
+								</form>
+							</td>
+						</c:if>
 						</tr>
 					</table>
 				</article>

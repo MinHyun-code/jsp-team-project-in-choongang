@@ -7,13 +7,13 @@
 <title>Insert title here</title></head><body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("입력 완료");  
+		alert("삭제 완료");  
 		location.href="${pageContext.request.contextPath}/communityList.do";
 	</script>
 </c:if>
 <c:if test="${result <= 0 }">  
 	<script type="text/javascript">
-		alert("입력 오류");  
+		alert("삭제 오류");  
 		location.href="${pageContext.request.contextPath}/communityList.do";
 	</script>
 </c:if>

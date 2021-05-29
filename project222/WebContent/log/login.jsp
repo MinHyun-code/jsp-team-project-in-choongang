@@ -42,7 +42,7 @@
 							<tr>
 								<td><input type="checkbox" id="chk_id"><label
 									for="chk_id">&nbsp;아이디저장</label></td>
-								<td><a href="${pageContext.request.contextPath}/login/join.jsp">회원가입</a> <a href="">아이디찾기</a> <a
+								<td><a href="${pageContext.request.contextPath}/log/join.jsp">회원가입</a> <a href="">아이디찾기</a> <a
 									href="">비밀번호 찾기</a></td>
 
 							</tr>
