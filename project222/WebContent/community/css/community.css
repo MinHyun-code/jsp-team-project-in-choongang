@@ -50,8 +50,13 @@ nav a {
 
 nav a:hover{
 	background-color: #235594;
+	color: white;
 }
 
+
+/* point */
+/* point */
+/* point */
 
 #point {
 	position: relative;
@@ -169,15 +174,20 @@ nav a:hover{
 }
 
 #communityMainTable td {
-	height: 30px;
-	padding: 10px 50px;
+	/* height: 30px; */
+	padding: 3px 10px;
 	text-align: center;
-	background-color: antiquewhite;
+	background-color: rgba(250,235,215 ,0.2 );
+}
+
+#communityMainTable td a:hover {
+    text-decoration: underline;
+    color: #2980b9;
 }
 
 #communityMainTable th {
-	height: 55px;
-	font-size: 30px;
+	height: 45px;
+	font-size: 25px;
 	color: white;
 	background-color: #002266;
 }
@@ -286,6 +296,26 @@ article {
 	flex-grow: 8;
 }
 
+
+.btn {
+	margin-top: 22px;
+	background-color: white;
+	color: #002266;
+	padding: 3px 10px;
+	border: 1px solid #ced4da;
+	font-family: "Do Hyeon";
+	font-size: 25px;
+	border-radius: 10px;
+	cursor:pointer;
+}
+
+.btn:hover {
+	background-color: #002266;
+	color: white;
+}
+
+/* aside */
+
 aside {
 	flex-grow: 2;
 	width: 10%;
@@ -303,9 +333,8 @@ aside ul li {
 	list-style:none;
 	margin: 10px;
 	font-size : 17pt;
-	width: 100%;
+	width: 130px !important;
 	max-width: 130px;
-	
 }
 
 aside a {	
@@ -313,10 +342,9 @@ aside a {
 	text-decoration: none; /* 링크에 밑줄 제거*/
 }
 
-aside a {
+
+aside a:hover {
 	color: white;
-	text-decoration: none;
-	/* 링크에 밑줄 제거*/
 }
 
 aside ul li:hover {

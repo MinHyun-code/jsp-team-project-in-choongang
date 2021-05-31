@@ -38,33 +38,33 @@
 				<article class="pt pt1">
 					<table class="pt_tb">
 						<tr>
-							<td><h1>${board.subject}</td>
+							<td id="td_subject"><h1>${board.subject}</h1></td>
 						</tr>
 						<tr>
-							<td>${board.m_id }</td>
-							<td><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+							<td id="td_m_id">${board.m_id }</td>
+							<td id="td_reg_date"><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						</tr>						
 						<tr>
-							<td colspan="100"><hr></td>
+							<td id="td_hr" colspan="100"><hr></td>
 						</tr>
 						<tr>
 							<td>${board.content}</td>
 						</tr>
 						<tr>
 						<c:if test="${sessionID == board.m_id}">
-							<td >
+							<td id="td_content_my_btn">
 								<form action="${pageContext.request.contextPath}/communityDeletePro.do" method="post">
 									<input type="hidden" name="bd_code" value="${board.bd_code}">
 									<input type="hidden" name="bd_num" value="${board.bd_num}">
 									<input type="hidden" name="m_id" value="${sessionID}">
-									<button type="submit" class="td_btn">삭제</button>
+									<button type="submit" class="btn td_btn">삭제</button>
 								</form>
 								<form action="${pageContext.request.contextPath}/communityEditForm.do" method="post">
 									<input type="hidden" name="bd_code" value="${board.bd_code}">
 									<input type="hidden" name="bd_num" value="${board.bd_num}">
 									<input type="hidden" name="m_id" value="${sessionID}">
 									<input type="hidden" name="pageNum" value="${pageNum}">
-									<button type="submit" class="td_btn">수정</button>
+									<button type="submit" class="btn td_btn">수정</button>
 								</form>
 							</td>
 						</c:if>

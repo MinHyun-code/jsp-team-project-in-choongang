@@ -110,7 +110,7 @@
 									<td>${board.bd_num}</td>
 									<td><a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a></td>
 									<td>${board.m_id}</td>
-									<td><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+									<td><fmt:formatDate value="${board.reg_date}" pattern="YYYY-MM-dd HH:MM"/></td>
 									<td>${board.read_count}</td>
 								</tr>
 								<c:set var="startNum" value="${startNum - 1 }" />
@@ -119,7 +119,7 @@
 					</table>
 					<div class="pageNum">
 						<ul>
-							<c:forEach var="i" begin="${startPage}" end="${5}">
+							<c:forEach var="i" begin="${startPage}" end="${endPage}">
 								<c:if test="${currentPage == i}">
 									<li><a href='${pageContext.request.contextPath}/communityList.do?pageNum=${i}' id="pageSelected">${i}</a></li>
 								</c:if>

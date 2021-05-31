@@ -50,19 +50,19 @@
 						<table class="pt_tb">
 						<tr>
 							<td>
-								<select name="bd_code">
+								<select id="select_bd_code" name="bd_code">
 									<option value="1">정보공유</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td><input type="text" name="subject" placeholder="글 제목" value="${board.subject}">
+							<td><input id="subject" type="text" name="subject" placeholder="글 제목" value="${board.subject}" class="form_box">
 						</tr>
 						<tr>
-							<td><textarea name="content" placeholder="글 내용">${board.content}</textarea>
+							<td><textarea id="content" name="content" placeholder="글 내용" rows="15" class="form_box">${board.content}</textarea>
 						</tr>
 						<tr>
-							<td><input type="submit" value="수정하기"></td>
+							<td><input type="submit" value="수정하기" class="btn"></td>
 						</tr>
 						</table>
 					</article>

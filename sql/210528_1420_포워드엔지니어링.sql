@@ -1,3 +1,4 @@
+--210528_1420_포워드엔지니어링
 --210528 ERD Forward
 /* 회원 */
 DROP TABLE MEMBER 

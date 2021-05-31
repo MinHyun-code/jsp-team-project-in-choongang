@@ -21,17 +21,27 @@ public class CommunityListAction implements CommandProcess {
 			String pageNum = request.getParameter("pageNum");	
 			if (pageNum==null || pageNum.equals("")) {	pageNum = "1";	}
 			int currentPage = Integer.parseInt(pageNum);	
-			int pageSize  = 10, blockSize = 10;
-			// page = 2 -->  startRow = 11 , endRow = 20
-			// page = 3 -->  startRow = 21 , endRow = 30
-			int startRow = (currentPage - 1) * pageSize + 1;  // start -> 1
-			int endRow   = startRow + pageSize - 1;           // start -> 10
+			int pageSize  = 10, blockSize = 10; // blockSize: size of row in a page.
+			int startRow = (currentPage - 1) * pageSize + 1;  
+			int endRow   = startRow + pageSize - 1;           
 			int startNum = totCnt - startRow + 1;
 			List<Board> list = bd.list(startRow, endRow);	
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize);
-			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
-			int endPage = startPage + blockSize -1;	
-			if (endPage > pageCnt) endPage = pageCnt;	
+			int startPage;
+			int endPage;
+			if (currentPage<3) {
+				startPage = 1;
+				endPage = 5;
+			} else {
+				startPage = currentPage - 2;
+				endPage = currentPage + 2;
+			}
+			if (endPage > pageCnt) {
+				startPage -= endPage-pageCnt;
+				endPage = pageCnt;
+			}
+			
+					
 		
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum", pageNum);

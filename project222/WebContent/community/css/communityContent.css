@@ -2,6 +2,31 @@
     margin-left: 10%;
 }
 
+#td_subject {
+	min-width:400px;
+}
+
+#td_m_id {
+	padding-top: 20px;
+	min-width:200px;
+}
+
+#td_reg_date {
+	padding-right: 20px;
+	padding-top: 20px;
+	min-width:200px;
+	text-align: right;
+}
+
+#td_hr {
+	height: 25px !important;
+    padding-bottom: 7px;
+}
+
+#td_content_my_btn {
+	width: 300px;
+}
+
 .pt {
     width: 900px;
 }
@@ -13,4 +38,5 @@
 .td_btn {
 	float: left;
 	margin-right: 7px;
+	margin-top: 50px;
 }
