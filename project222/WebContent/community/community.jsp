@@ -108,7 +108,7 @@
 										<td>취준 톡톡 </td>
 									</c:if>
 									<td>${board.bd_num}</td>
-									<td><a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a></td>
+									<td class="td_main_subject"><a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a></td>
 									<td>${board.m_id}</td>
 									<td><fmt:formatDate value="${board.reg_date}" pattern="YYYY-MM-dd HH:MM"/></td>
 									<td>${board.read_count}</td>
