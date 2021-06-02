@@ -42,15 +42,14 @@
 						</tr>
 						<tr>
 							<td id="td_m_id">${board.m_id }</td>
-							<td id="td_reg_date"><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+							<td id="td_reg_date" colspan="100"><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						</tr>						
-						<tr>
-							<td id="td_hr" colspan="100"><hr></td>
-						</tr>
+						<tr><td id="td_hr" colspan="100"><hr></td></tr>
 						<tr>
 							<td>${board.content}</td>
 						</tr>
 						<tr>
+						<!-- only for writer-->
 						<c:if test="${sessionID == board.m_id}">
 							<td id="td_content_my_btn">
 								<form action="${pageContext.request.contextPath}/communityDeletePro.do" method="post">
@@ -68,6 +67,32 @@
 								</form>
 							</td>
 						</c:if>
+						
+						<tr><td id="comment">댓글</td></tr>
+						<tr><td id="td_hr" colspan="100"><hr></td></tr>
+						<c:forEach var="comment" items="${commentList}">
+							<form action="${pageContext.request.contextPath}/communityCommentReply.do" method="post">
+								<input type="hidden" name="bd_code" value="${comment.bd_code}">
+								<input type="hidden" name="bd_num" value="${comment.bd_num}">
+								<input type="hidden" name="pageNum" value="${pageNum}">
+								<input type="hidden" name="target_bd_cm_num" value="${comment.bd_cm_num}">
+								<input type="hidden" name="target_ref" value="${comment.ref}">
+								<input type="hidden" name="target_re_step" value="${comment.re_step}">
+								<input type="hidden" name="target_re_level" value="${comment.re_level}">
+								<tr>
+									<td>
+										<c:forEach var="i" begin="0" end="${comment.re_level}">
+											&nbsp;
+										</c:forEach>
+										${comment.content}
+									</td>
+									<td>${comment.m_id}</td>
+									<td class="comment_reg_date"><fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+									<td><input name="content"></td>
+									<td><input type="submit" value="답글달기"></td>
+								</tr>
+							</form>
+						</c:forEach>
 						</tr>
 					</table>
 				</article>

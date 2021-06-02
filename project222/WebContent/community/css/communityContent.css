@@ -27,6 +27,15 @@
 	width: 300px;
 }
 
+#comment {
+	padding-top: 70px;
+    font-size: 40px;
+}
+
+.comment_reg_date {
+	padding-left: 20px;
+}
+
 .pt {
     width: 900px;
 }

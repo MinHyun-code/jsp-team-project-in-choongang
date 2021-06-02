@@ -41,7 +41,7 @@ public class BoardDao {
 		Connection conn = null;	
 		PreparedStatement pstmt= null;
 		ResultSet rs = null;
-		 String sql = "select * from (select rownum rn ,a.* from " + 
+		String sql = "select * from (select rownum rn ,a.* from " + 
 			"  (select * from board order by ref desc,re_step) a ) "+
 			" where rn between ? and ?";
 		try {
