@@ -163,4 +163,77 @@ public class CommentDao {
 
 		return result;
 	}
+	
+	public int delete(Comment comment) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "DELETE FROM comments WHERE bd_code = ? AND bd_num = ? AND bd_cm_num = ? AND m_id = ?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, comment.getBd_code());
+			pstmt.setInt(2, comment.getBd_num());
+			pstmt.setInt(3, comment.getBd_cm_num());
+			pstmt.setString(4, comment.getM_id());
+			pstmt.executeUpdate();			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();			
+		}
+		
+		return result;
+	}
+	
+	public int write(Comment comment) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sqlMaxBd_cd_num = "SELECT MAX(bd_cm_num) FROM comments WHERE bd_code = ? AND bd_num = ?";
+		String sqlInsertReply = "INSERT INTO comments VALUES (?, ?, ?, ?, ?,    SYSDATE, ?, ?, ?)";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sqlMaxBd_cd_num);
+			pstmt.setInt(1, comment.getBd_code());
+			pstmt.setInt(2, comment.getBd_num());
+			rs = pstmt.executeQuery();
+			rs.next(); // as reply, no check It's null.
+			int insertedBd_cm_num= rs.getInt(1) + 1; // inserted bd_cm_num
+			pstmt.close();
+			rs.close();
+			
+			pstmt = conn.prepareStatement(sqlInsertReply);
+			pstmt.setInt(1, comment.getBd_code());
+			pstmt.setInt(2, comment.getBd_num());
+			pstmt.setInt(3, insertedBd_cm_num);
+			pstmt.setString(4,comment.getM_id());
+			pstmt.setString(5,comment.getContent());
+			pstmt.setInt(6, insertedBd_cm_num);
+			pstmt.setInt(7, 1);
+			pstmt.setInt(8, 1);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();			
+		}
+		
+		return result;
+	}	
 }

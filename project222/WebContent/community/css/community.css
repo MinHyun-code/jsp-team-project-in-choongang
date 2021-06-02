@@ -11,6 +11,15 @@
 	font-weight: normal;
 }
 
+
+.form_box {
+	border-color: #235594;
+	border-radius: 5px;
+	border-width: 1px;
+	height: 25px;
+}
+
+
 body {
 	padding: 30px;
 	font-family: "Do Hyeon";

@@ -67,11 +67,12 @@
 								</form>
 							</td>
 						</c:if>
+						</tr>
 						
 						<tr><td id="comment">댓글</td></tr>
 						<tr><td id="td_hr" colspan="100"><hr></td></tr>
 						<c:forEach var="comment" items="${commentList}">
-							<form action="${pageContext.request.contextPath}/communityCommentReply.do" method="post">
+							<form method="post">
 								<input type="hidden" name="bd_code" value="${comment.bd_code}">
 								<input type="hidden" name="bd_num" value="${comment.bd_num}">
 								<input type="hidden" name="pageNum" value="${pageNum}">
@@ -88,12 +89,26 @@
 									</td>
 									<td>${comment.m_id}</td>
 									<td class="comment_reg_date"><fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-									<td><input name="content"></td>
-									<td><input type="submit" value="답글달기"></td>
+									<td><input name="content" class="form_box"></td>
+									<td><input type="submit" value="삭제" class="btn" formaction="${pageContext.request.contextPath}/communityCommentDelete.do"></td>			
+									<td><input type="submit" value="답글달기" class="btn" formaction="${pageContext.request.contextPath}/communityCommentReply.do"></td>
 								</tr>
 							</form>
 						</c:forEach>
-						</tr>
+					
+						<form method="post">
+							<tr>
+								<input type="hidden" name="bd_code" value="${board.bd_code}">
+								<input type="hidden" name="bd_num" value="${board.bd_num}">
+								<input type="hidden" name="pageNum" value="${pageNum}">							
+								<td><input name="content" class="form_box"></td>
+								
+							</tr>
+							<tr>
+								<td><input type="submit" value="댓글달기" class="btn" formaction="${pageContext.request.contextPath}/communityCommentWrite.do"></td>
+							</tr>
+						</form>
+						
 					</table>
 				</article>
 			</section>

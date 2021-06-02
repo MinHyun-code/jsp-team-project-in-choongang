@@ -15,16 +15,13 @@
 	
 }
 
-.form_box {
-	border-color: #235594;
-	border-radius: 5px;
-}
 
 
 #subject {
 	padding: 5px;
 	width: 40%;
     height: 25px;
+   
 }
 
 #content {
