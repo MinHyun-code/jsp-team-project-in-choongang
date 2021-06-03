@@ -1,4 +1,4 @@
-package service;
+package service.community;
 import java.io.IOException;
 import java.util.List;
 
@@ -10,6 +10,7 @@ import dao.Board;
 import dao.BoardDao;
 import dao.Comment;
 import dao.CommentDao;
+import service.CommandProcess;
 public class CommunityContentAction implements CommandProcess{
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

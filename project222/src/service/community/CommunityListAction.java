@@ -1,4 +1,4 @@
-package service;
+package service.community;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Board;
 import dao.BoardDao;
+import service.CommandProcess;
 
 public class CommunityListAction implements CommandProcess {
 
@@ -39,6 +40,9 @@ public class CommunityListAction implements CommandProcess {
 			if (endPage > pageCnt) {
 				startPage -= endPage-pageCnt;
 				endPage = pageCnt;
+			}
+			if (startPage < 1) {
+				startPage = 1;
 			}
 			
 					

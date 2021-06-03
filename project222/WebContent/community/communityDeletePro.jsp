@@ -13,7 +13,7 @@
 </c:if>
 <c:if test="${result <= 0 }">  
 	<script type="text/javascript">
-		alert("삭제 오류");  
+		alert("삭제 오류 (result: ${result})");  
 		location.href="${pageContext.request.contextPath}/communityList.do";
 	</script>
 </c:if>

@@ -55,7 +55,7 @@
 								<form action="${pageContext.request.contextPath}/communityDeletePro.do" method="post">
 									<input type="hidden" name="bd_code" value="${board.bd_code}">
 									<input type="hidden" name="bd_num" value="${board.bd_num}">
-									<input type="hidden" name="m_id" value="${sessionID}">
+									<input type="hidden" name="m_id" value="${board.m_id}">
 									<button type="submit" class="btn td_btn">삭제</button>
 								</form>
 								<form action="${pageContext.request.contextPath}/communityEditForm.do" method="post">

@@ -1,10 +1,11 @@
-package service;
+package service.community;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dao.Board;
 import dao.BoardDao;
+import service.CommandProcess;
 public class CommunityWriteProAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

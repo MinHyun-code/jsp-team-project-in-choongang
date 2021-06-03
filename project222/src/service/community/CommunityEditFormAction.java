@@ -1,4 +1,4 @@
-package service;
+package service.community;
 
 import java.io.IOException;
 
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Board;
 import dao.BoardDao;
+import service.CommandProcess;
 
 public class CommunityEditFormAction implements CommandProcess {
 

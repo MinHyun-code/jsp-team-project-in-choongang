@@ -235,5 +235,29 @@ public class CommentDao {
 		}
 		
 		return result;
-	}	
+	}
+	
+	public int deleteForBoard(int bd_code, int bd_num) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "DELETE FROM comments WHERE bd_code = ? AND bd_num = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bd_code);
+			pstmt.setInt(2, bd_num);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();	
+		}
+		
+		return result;
+	}
 }

@@ -1,4 +1,4 @@
-package service;
+package service.community;
 
 import java.io.IOException;
 
@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Board;
 import dao.BoardDao;
+import dao.CommentDao;
+import service.CommandProcess;
 
 public class CommunityDeleteProAction implements CommandProcess {
 
@@ -20,7 +22,20 @@ public class CommunityDeleteProAction implements CommandProcess {
 			request.setCharacterEncoding("utf-8");
 			int bd_code = Integer.parseInt(request.getParameter("bd_code"));
 			int bd_num = Integer.parseInt(request.getParameter("bd_num"));
+			String m_id = request.getParameter("m_id");
 			String seesionID = (String) request.getSession().getAttribute("sessionID");
+			
+			// check whether request is writer or not
+			if (!m_id.equals(seesionID)) {
+				int result = -3;
+				request.setAttribute("result", result);
+				return "community/communityDeletePro.jsp";
+			}
+			
+			// delete comments in the post(board)
+			CommentDao cd = CommentDao.getInstance();
+			cd.deleteForBoard(bd_code, bd_num);
+			
 			
 			// do 'delete' in dao.
 			BoardDao bd = BoardDao.getInstance();
