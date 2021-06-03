@@ -47,6 +47,8 @@ header {
 nav {
 	display: flex;
 	background-color: #002266;
+	margin: 0 auto;
+    width: 1188px;
 }
 
 nav a {
@@ -207,7 +209,7 @@ nav a:hover{
 }
 
 #communityMainTable .pageNum ul {
-	width: 30%;
+	width: 31%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -297,8 +299,8 @@ nav a:hover{
 #container {
 	display: flex;
 	flex-wrap: wrap;
-	margin-left: 40px;
-	margin-right: 120px;
+    margin: 0 auto;
+    width: 1050px;
 }
 
 article {

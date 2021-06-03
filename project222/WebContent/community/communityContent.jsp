@@ -4,11 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityContent.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${board.subject}</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityContent.css">
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/community/js/communityContent.js"></script>
+
 </head>
 
 <body>
@@ -38,15 +41,15 @@
 				<article class="pt pt1">
 					<table class="pt_tb">
 						<tr>
-							<td id="td_subject"><h1>${board.subject}</h1></td>
+							<td id="td_subject" colspan="100"><h1>${board.subject}</h1></td>
 						</tr>
 						<tr>
 							<td id="td_m_id">${board.m_id }</td>
 							<td id="td_reg_date" colspan="100"><fmt:formatDate value="${board.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						</tr>						
 						<tr><td id="td_hr" colspan="100"><hr></td></tr>
-						<tr>
-							<td>${board.content}</td>
+						<tr >
+							<td colspan="100">${board.content}</td>
 						</tr>
 						<tr>
 						<!-- only for writer-->
@@ -80,29 +83,40 @@
 								<input type="hidden" name="target_ref" value="${comment.ref}">
 								<input type="hidden" name="target_re_step" value="${comment.re_step}">
 								<input type="hidden" name="target_re_level" value="${comment.re_level}">
-								<tr>
-									<td>
-										<c:forEach var="i" begin="0" end="${comment.re_level}">
-											&nbsp;
-										</c:forEach>
+								<tr class="tr_comment">
+									<td class="td_comment_content">
+										<c:forEach var="i" begin="0" end="${comment.re_level-1}"> &nbsp;&nbsp; </c:forEach>
 										${comment.content}
 									</td>
 									<td>${comment.m_id}</td>
 									<td class="comment_reg_date"><fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-									<td><input name="content" class="form_box"></td>
-									<td><input type="submit" value="삭제" class="btn" formaction="${pageContext.request.contextPath}/communityCommentDelete.do"></td>			
-									<td><input type="submit" value="답글달기" class="btn" formaction="${pageContext.request.contextPath}/communityCommentReply.do"></td>
+									
+									<td><input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityCommentDelete.do"></td>			
+
 								</tr>
+								<tr>
+									<td class="td_comment_reply_content">
+									<c:forEach var="i" begin="0" end="${comment.re_level}"> &nbsp;&nbsp; </c:forEach>
+										<input name="content" class="form_box comment_reply_box comment_reply_box_${comment.bd_cm_num}">
+										<input type="button" value="답글달기" class="btn btn_reply btn_reply_${comment.bd_cm_num}" onclick="funcReplyBox(${comment.bd_cm_num}, '300px')"></input>
+										<input type="submit" value="등록" class="btn btn_reply  btn_reply2 btn_reply2_${comment.bd_cm_num}" formaction="${pageContext.request.contextPath}/communityCommentReply.do">
+									</td>
+									<td>
+										
+									</td>
+								</tr>							
 							</form>
 						</c:forEach>
 					
 						<form method="post">
+							<input type="hidden" name="bd_code" value="${board.bd_code}">
+							<input type="hidden" name="bd_num" value="${board.bd_num}">
+							<input type="hidden" name="pageNum" value="${pageNum}">
+							<tr><td>&nbsp;</td></tr>		
 							<tr>
-								<input type="hidden" name="bd_code" value="${board.bd_code}">
-								<input type="hidden" name="bd_num" value="${board.bd_num}">
-								<input type="hidden" name="pageNum" value="${pageNum}">							
-								<td><input name="content" class="form_box"></td>
-								
+								<td>
+									<input name="content" class="form_box">
+								</td>
 							</tr>
 							<tr>
 								<td><input type="submit" value="댓글달기" class="btn" formaction="${pageContext.request.contextPath}/communityCommentWrite.do"></td>

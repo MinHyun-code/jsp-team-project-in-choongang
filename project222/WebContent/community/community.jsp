@@ -4,10 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Community Page</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 </head>
 
 <body>

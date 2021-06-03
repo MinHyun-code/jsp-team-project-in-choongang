@@ -1,5 +1,5 @@
 #point {
-    margin-left: 10%;
+	
 }
 
 #td_subject {
@@ -32,9 +32,23 @@
     font-size: 40px;
 }
 
+.td_comment_content {
+	width: 550px;
+}
+
+
 .comment_reg_date {
 	padding-left: 20px;
 }
+
+
+.tr_comment > td {
+	vertical-align: bottom;
+}
+
+
+
+
 
 .pt {
     width: 900px;
@@ -49,4 +63,22 @@
 	float: left;
 	margin-right: 7px;
 	margin-top: 50px;
+}
+
+.btn_comment_delete {
+	margin-top: 0px;
+}
+
+.btn_reply {
+	margin-top: 0px;
+	margin-bottom: 25px;
+}
+
+.btn_reply2 {
+	display: none;
+}
+
+.comment_reply_box {
+	width: 0px;
+	display: none;
 }
