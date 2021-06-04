@@ -23,10 +23,10 @@ public class CommunityDeleteProAction implements CommandProcess {
 			int bd_code = Integer.parseInt(request.getParameter("bd_code"));
 			int bd_num = Integer.parseInt(request.getParameter("bd_num"));
 			String m_id = request.getParameter("m_id");
-			String seesionID = (String) request.getSession().getAttribute("sessionID");
+			String sessionID = (String) request.getSession().getAttribute("sessionID");
 			
 			// check whether request is writer or not
-			if (!m_id.equals(seesionID)) {
+			if (!m_id.equals(sessionID)) {
 				int result = -3;
 				request.setAttribute("result", result);
 				return "community/communityDeletePro.jsp";
@@ -39,7 +39,7 @@ public class CommunityDeleteProAction implements CommandProcess {
 			
 			// do 'delete' in dao.
 			BoardDao bd = BoardDao.getInstance();
-			int result = bd.delete(bd_code, bd_num, seesionID);
+			int result = bd.delete(bd_code, bd_num, sessionID);
 			
 			request.setAttribute("result", result);
 		} catch (Exception e) {

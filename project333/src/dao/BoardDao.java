@@ -13,6 +13,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class BoardDao {
+	final int QnA = 2;
+	
 	private static BoardDao instance;
 	private BoardDao() {	
 	}
@@ -34,6 +36,27 @@ public class BoardDao {
 		return conn;
 	}
 	
+	public Board rsToBoard(ResultSet rs, Board board) throws SQLException {
+		board.setBd_code(rs.getInt("bd_code"));
+		board.setBd_num(rs.getInt("bd_num"));
+		board.setM_id(rs.getString("m_id"));
+		board.setSubject(rs.getString("subject"));
+		board.setContent(rs.getString("content"));
+		board.setCategory(rs.getInt("category"));
+		board.setRead_count(rs.getInt("read_count"));
+		board.setReg_date(rs.getTimestamp("reg_date"));
+		board.setTags(rs.getString("tags"));
+		board.setIs_adopted(rs.getInt("is_adopted"));
+		board.setFile_name(rs.getString("file_name"));
+		board.setRef(rs.getInt("ref"));
+		board.setRe_level(rs.getInt("re_level"));
+		board.setRe_step(rs.getInt("re_step"));
+		return board;	
+	}
+	
+	
+	
+	
 	
 	//CommunityListAction
 	public List<Board> list(int startRow, int endRow) throws SQLException {
@@ -42,7 +65,7 @@ public class BoardDao {
 		PreparedStatement pstmt= null;
 		ResultSet rs = null;
 		String sql = "select * from (select rownum rn ,a.* from " + 
-			"  (select * from board order by ref desc,re_step) a ) "+
+			"  (select * from board WHERE re_level = 1 order by ref desc,re_step) a ) "+
 			" where rn between ? and ?";
 		try {
 			conn = getConnection();
@@ -52,15 +75,7 @@ public class BoardDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Board board = new Board();
-				board.setBd_code(rs.getInt("bd_code"));
-				board.setBd_num(rs.getInt("bd_num"));
-				board.setM_id(rs.getString("m_id"));
-				board.setSubject(rs.getString("subject"));
-				board.setRead_count(rs.getInt("read_count"));
-				board.setRef(rs.getInt("ref"));
-				board.setRe_level(rs.getInt("re_level"));
-				board.setRe_step(rs.getInt("re_step"));
-				board.setReg_date(rs.getTimestamp("reg_date"));
+				rsToBoard(rs, board);
 				list.add(board);
 			}
 		} catch(Exception e) {	
@@ -147,31 +162,31 @@ public class BoardDao {
 	//CommunityWriteProAction
 	public int insert(Board board) throws SQLException  {
 		System.out.println("--BoardDao.insert");
-		int bd_code = board.getBd_code();
 		Connection conn = null;	
 		PreparedStatement pstmt= null; 
 		int result = 0;			
 		ResultSet rs = null;
-		// 두가지 방법 --> 1) MAX    2) sequence
-		String sql1 = "select nvl(max(bd_num),0)  from board where bd_code = ?";
+		String sql1 = "select nvl(max(bd_num),0)  from board";
 		String sql="INSERT INTO board VALUES(?,?,?,?,?, ?,?,SYSDATE,?,?, ?,?,?,?)";
 		
 		try {			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql1);
-			pstmt.setInt(1, bd_code);
 			rs = pstmt.executeQuery();
 			rs.next();
-			// key인 num 1씩 증가, mysql auto_increment 또는 oracle sequence
-			// sequence를 사용 : values(시퀀스명(board_seq).nextval,?,?...)
 			int bd_num = rs.getInt(1) + 1; 
 			System.out.println(bd_num);
-			board.setBd_num(bd_num);
-			board.setRef(bd_num);
+			if(board.getBd_code() == QnA) {
+				board.setRef(board.getBd_num());
+				board.setBd_num(bd_num);
+			} else {
+				board.setBd_num(bd_num);
+				board.setRef(bd_num);
+			}
 			rs.close();   
 			pstmt.close();
 			
-			// 신규 등록 이면 , MAX  num을 board.setRef에 setting 
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, board.getBd_code());
 			pstmt.setInt(2, board.getBd_num());
@@ -244,6 +259,58 @@ public class BoardDao {
 			if (pstmt != null) pstmt.close();
 			if (conn !=null) conn.close();
 		}
+		return result;
+	}
+	
+	//CommunityContentAction - to show answers
+	public List<Board> selectAnswer(int bd_code, int bd_num) throws SQLException{
+		List<Board> list = new ArrayList<Board>();
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM board WHERE bd_code = ? AND ref = ? AND re_level = 2";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bd_code);
+			pstmt.setInt(2, bd_num);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board();
+				rsToBoard(rs, board);
+				list.add(board);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return list;
+	}
+	
+	public int searchMaxStep(int bd_num) throws SQLException {
+		int result = -7;
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql = "SELECT MAX(re_step) FROM board WHERE ref = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bd_num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result = rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		
 		return result;
 	}
 }

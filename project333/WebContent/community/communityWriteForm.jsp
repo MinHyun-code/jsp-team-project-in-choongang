@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>글 작성하기</title>
-<c:if test="${sessionID == null }">
+<c:if test="${sessionID == null}">
 	<script type="text/javascript">
 		alert("로그인이 필요합니다.");
 		location.href = "${pageContext.request.contextPath}/log/login.jsp";
@@ -43,6 +43,7 @@
 							<tr>
 								<td><select id="select_bd_code" name="bd_code">
 										<option value="1">정보공유</option>
+										<option value="2">취준톡톡</option>
 								</select></td>
 							</tr>
 							<tr>
