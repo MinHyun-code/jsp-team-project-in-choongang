@@ -55,6 +55,9 @@
 							<td colspan="100">${board.content}</td>
 						</tr>
 						<tr>
+							<td>${board.tags}</td>
+						</tr>
+						<tr>
 							<!-- only for writer-->
 							<c:if test="${sessionID == board.m_id}">
 								<td id="td_content_my_btn">
@@ -78,15 +81,16 @@
 
 
 						<!-- answer -->
-						<tr>
-							<td id="comment">답변</td>
-						</tr>
-						<tr>
-							<td id="td_hr" colspan="100">
-								<hr>
-							</td>
-						</tr>
+
 						<c:if test="${board.bd_code==2}">
+							<tr>
+								<td id="comment">답변</td>
+							</tr>
+							<tr>
+								<td id="td_hr" colspan="100">
+									<hr>
+								</td>
+							</tr>
 							<form method="post">
 								<input type="hidden" name="bd_code" value="${board.bd_code}">
 								<input type="hidden" name="bd_num" value="${board.bd_num}">
@@ -110,10 +114,14 @@
 									<input type="hidden" name="answer_bd_code" value="${answer.bd_code}">
 									<input type="hidden" name="answer_bd_num" value="${answer.bd_num}">
 									<input type="hidden" name="bd_code" value="${board.bd_code}">
-									<input type="hidden" name="bd_num" value="${board.bd_num}">	
+									<input type="hidden" name="bd_num" value="${board.bd_num}">
 									<input type="hidden" name="pageNum" value="${pageNum}">
 									<tr>
 										<td>${answer.content}</td>
+										<td>${answer.m_id}</td>
+										<td>
+											<fmt:formatDate value="${answer.reg_date}" pattern="yyyy-MM-dd" />
+										</td>
 										<td>
 											<input type="submit" value="삭제" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do"">
 										</td>

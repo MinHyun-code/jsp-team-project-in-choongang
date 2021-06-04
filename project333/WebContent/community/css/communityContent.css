@@ -57,6 +57,7 @@
 .pt_tb {
     padding: 30px;
     width: 1000px; /*temporary*/
+    border: none;
 }
 
 .td_btn {

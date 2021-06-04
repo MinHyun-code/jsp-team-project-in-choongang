@@ -78,13 +78,15 @@
 					</ul>
 				</article>
 				<article>
+					<form method="GET">
 					<table id="searchBox">
 						<tr>
-							<td><input type="text" placeholder="Search" id="search">
+							<td><input type="text" placeholder="Search" name="word" id="search">
 							</td>
-							<td><a href="#"><input type="image" src="${pageContext.request.contextPath}/image/search.png" id="searchimg"></a></td>
+							<td><input type="submit" value="검색" formaction="${pageContext.request.contextPath}/communityList.do"></td>
 						</tr>
 					</table>
+					</form>
 				</article>
 			</section>
 			<section id="communityMainTable">
@@ -122,10 +124,10 @@
 						<ul>
 							<c:forEach var="i" begin="${startPage}" end="${endPage}">
 								<c:if test="${currentPage == i}">
-									<li><a href='${pageContext.request.contextPath}/communityList.do?pageNum=${i}' id="pageSelected">${i}</a></li>
+									<li><a href='${pageContext.request.contextPath}/communityList.do?word=${word}&pageNum=${i}' id="pageSelected">${i}</a></li>
 								</c:if>
 								<c:if test="${currentPage != i}">
-									<li><a href='${pageContext.request.contextPath}/communityList.do?pageNum=${i}'>${i}</a></li>
+									<li><a href='${pageContext.request.contextPath}/communityList.do?word=${word}&pageNum=${i}'>${i}</a></li>
 								</c:if>
 							</c:forEach>
 						</ul>

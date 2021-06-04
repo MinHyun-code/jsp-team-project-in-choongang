@@ -107,6 +107,7 @@ public class BoardDao {
 		}
 		return tot;
 	}
+
 	
 	
 	//CommunityContentAction
@@ -138,17 +139,7 @@ public class BoardDao {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {				
-				board.setBd_code(rs.getInt("bd_code"));
-				board.setBd_num(rs.getInt("bd_num"));
-				board.setM_id(rs.getString("m_id"));
-				board.setSubject(rs.getString("subject"));
-				board.setContent(rs.getString("content"));
-				board.setCategory(rs.getInt("category"));
-				board.setRead_count(rs.getInt("read_count"));
-				board.setReg_date(rs.getTimestamp("reg_date"));
-				board.setRef(rs.getInt("ref"));
-				board.setRe_level(rs.getInt("re_level"));
-				board.setRe_step(rs.getInt("re_step"));
+				rsToBoard(rs, board);
 			}
 		} catch(Exception e) {	System.out.println(e.getMessage()); 
 		} finally {
@@ -313,4 +304,61 @@ public class BoardDao {
 		
 		return result;
 	}
+	
+	public List<Board> listSearch(int startRow, int endRow, String replacedWord) throws SQLException {
+		List<Board> list = new ArrayList<Board>();
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn ,a.* from " + 
+			"  (select * from board WHERE re_level = 1 and (REGEXP_LIKE (LOWER(subject), LOWER(?)) OR REGEXP_LIKE (LOWER(content), LOWER(?)) OR REGEXP_LIKE (LOWER(tags), LOWER(?))) order by ref desc,re_step) a ) "+
+			" where (rn between ? and ?)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(4, startRow);
+			pstmt.setInt(5, endRow);
+			pstmt.setString(1, replacedWord);
+			pstmt.setString(2, replacedWord);
+			pstmt.setString(3, replacedWord);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board();
+				rsToBoard(rs, board);
+				list.add(board);
+			}
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		} 
+		return list;
+	}	
+	
+	public int getTotalCnt(String replacedWord) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		ResultSet rs = null;    
+		int tot = 0;
+		String sql = "select count(*) from board WHERE (REGEXP_LIKE (LOWER(subject), LOWER(?)) OR REGEXP_LIKE (LOWER(content), LOWER(?)) OR REGEXP_LIKE (LOWER(tags), LOWER(?)))";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, replacedWord);
+			pstmt.setString(2, replacedWord);
+			pstmt.setString(3, replacedWord);
+			rs = pstmt.executeQuery();
+			if (rs.next()) tot = rs.getInt(1);
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return tot;
+	}	
 }
