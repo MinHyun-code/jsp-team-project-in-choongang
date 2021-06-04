@@ -1,0 +1,84 @@
+#point {
+	
+}
+
+#td_subject {
+	min-width:400px;
+}
+
+#td_m_id {
+	padding-top: 20px;
+	min-width:200px;
+}
+
+#td_reg_date {
+	padding-right: 20px;
+	padding-top: 20px;
+	min-width:200px;
+	text-align: right;
+}
+
+#td_hr {
+	height: 25px !important;
+    padding-bottom: 7px;
+}
+
+#td_content_my_btn {
+	width: 300px;
+}
+
+#comment {
+	padding-top: 70px;
+    font-size: 40px;
+}
+
+.td_comment_content {
+	width: 550px;
+}
+
+
+.comment_reg_date {
+	padding-left: 20px;
+}
+
+
+.tr_comment > td {
+	vertical-align: bottom;
+}
+
+
+
+
+
+.pt {
+    width: 900px;
+}
+
+.pt_tb {
+    padding: 30px;
+    width: 1000px; /*temporary*/
+}
+
+.td_btn {
+	float: left;
+	margin-right: 7px;
+	margin-top: 50px;
+}
+
+.btn_comment_delete {
+	margin-top: 0px;
+}
+
+.btn_reply {
+	margin-top: 0px;
+	margin-bottom: 25px;
+}
+
+.btn_reply2 {
+	display: none;
+}
+
+.comment_reply_box {
+	width: 0px;
+	display: none;
+}

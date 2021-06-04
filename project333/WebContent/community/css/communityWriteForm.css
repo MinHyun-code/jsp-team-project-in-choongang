@@ -1,0 +1,41 @@
+#point {
+    margin-left: 10%;
+}
+
+.pt {
+    width: 900px;
+}
+
+.pt_tb {
+    padding: 30px;
+}
+
+.pt_tb td {
+	padding: 3px 7px;
+	
+}
+
+
+
+#subject {
+	padding: 5px;
+	width: 40%;
+    height: 25px;
+   
+}
+
+#content {
+	width: 100%;
+	resize: vertical;
+	padding: 5px;
+}
+
+
+
+
+
+#select_bd_code {
+	color: #002266;
+	padding: 3px 10px;
+	border: 1px solid #ced4da;
+}
