@@ -13,10 +13,11 @@
 }
 
 .form_box {
-	border-color: #235594;
+	border-color: #0a294f5e;
 	border-radius: 5px;
 	border-width: 1px;
 	height: 25px;
+	border-style: solid;
 }
 
 body {
@@ -302,6 +303,11 @@ thead {
 	/* 링크에 밑줄 제거*/
 }
 
+.pt_tb a:hover {
+    text-decoration: underline;
+    color: #002266;
+}
+
 #point th {
 	height: 55px;
 	font-size: 25px;
@@ -325,7 +331,6 @@ thead {
 	flex-wrap: wrap;
 	margin: 0 auto;
 	width: 1050px;
-	margin-left: 10%;
 }
 
 article {
@@ -336,16 +341,17 @@ article {
 	margin-top: 22px;
 	background-color: white;
 	color: #002266;
-	padding: 3px 10px;
-	border: 1px solid #ced4da;
-	font-family: "Do Hyeon";
-	font-size: 25px;
+	padding: 4.5px 6.7px;
+	border: 0px solid #ced4da;
+	font-family: "Han sans";
+	font-size: 11px;
 	border-radius: 10px;
 	cursor: pointer;
+	font-weight: 700;
 }
 
 .btn:hover {
-	background-color: #002266;
+	background-color: #849ac4;;
 	color: white;
 
 }

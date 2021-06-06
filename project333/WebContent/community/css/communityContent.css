@@ -1,5 +1,6 @@
-#point {
-	
+#point td{
+/* 	line-height: 42px; */
+	line-height: 22px;
 }
 
 #td_subject {
@@ -58,12 +59,13 @@
     padding: 30px;
     width: 1000px; /*temporary*/
     border: none;
+    background-color: white;
 }
 
 .td_btn {
 	float: left;
 	margin-right: 7px;
-	margin-top: 50px;
+	margin-top: 0px;
 }
 
 .btn_comment_delete {
@@ -72,7 +74,8 @@
 
 .btn_reply {
 	margin-top: 0px;
-	margin-bottom: 25px;
+/* 	margin-bottom: 25px; */
+    margin-bottom: 17px;
 }
 
 .btn_reply2 {
@@ -82,4 +85,16 @@
 .comment_reply_box {
 	width: 0px;
 	display: none;
+}
+
+.comment_reply_prefix {
+	color: #00226654;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.div_reply_box {
+	border: 1px solid black;
+	width: 100px;
+	display: inline-block;
 }

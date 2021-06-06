@@ -32,6 +32,7 @@ public class BoardDao {
 			conn = ds.getConnection();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		return conn;
 	}
@@ -80,6 +81,7 @@ public class BoardDao {
 			}
 		} catch(Exception e) {	
 			System.out.println(e.getMessage()); 
+			e.printStackTrace();
 		} finally {
 			if (rs !=null) rs.close();
 			if (pstmt != null) pstmt.close();
@@ -168,8 +170,12 @@ public class BoardDao {
 			int bd_num = rs.getInt(1) + 1; 
 			System.out.println(bd_num);
 			if(board.getBd_code() == QnA) {
-				board.setRef(board.getBd_num());
-				board.setBd_num(bd_num);
+				if(board.getRef() < 1) { //Question in QnA
+					board.setRef(bd_num);
+				} else { //Answer in QnA
+					board.setRef(board.getBd_num());
+				}
+				board.setBd_num(bd_num); // warning: this overwrite existing value 'bd_num'.
 			} else {
 				board.setBd_num(bd_num);
 				board.setRef(bd_num);
@@ -360,5 +366,34 @@ public class BoardDao {
 			if (conn !=null) conn.close();
 		}
 		return tot;
-	}	
+	}
+	
+	
+	public List<Board> listPopular(int bd_code, int num) throws SQLException {
+		List<Board> list = new ArrayList<Board>();
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql = "SELECT b.* FROM (SELECT ROWNUM rn, a.* FROM (SELECT * FROM board WHERE re_level=1 AND bd_code= ? ORDER BY read_count DESC, bd_num DESC) a) b WHERE rn <= ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bd_code);
+			pstmt.setInt(2, num);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board();
+				rsToBoard(rs, board);
+				list.add(board);
+			}
+		} catch(Exception e) {	
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		} 
+		return list;
+	}
 }

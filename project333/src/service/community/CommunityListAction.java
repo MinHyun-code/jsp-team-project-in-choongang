@@ -77,6 +77,13 @@ public class CommunityListAction implements CommandProcess {
 			System.out.println("pageCnt-->" + pageCnt); // /ch16/list.do
 			System.out.println("startPage-->" + startPage); // /ch16/list.do
 			System.out.println("endPage-->" + endPage); // /ch16/list.do
+			
+			//selectPopular
+			List<Board> listPopular1 = bd.listPopular(1, 5);
+			List<Board> listPopular2 = bd.listPopular(2, 5);
+			request.setAttribute("listPopular1", listPopular1);
+			request.setAttribute("listPopular2", listPopular2);
+			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

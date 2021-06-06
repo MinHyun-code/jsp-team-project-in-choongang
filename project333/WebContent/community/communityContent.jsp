@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${board.subject}</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/fontello/icon-level-up/css/fontello.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityContent.css">
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
@@ -20,7 +21,10 @@
 				<h1 onclick="location.href='${pageContext.request.contextPath}/main.jsp'" style="cursor: pointer; text-align: center; font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
-				<a href="#">채용공고</a> <a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a> <a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a> <a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a>
+				<a href="#">채용공고</a>
+				<a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a>
+				<a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a>
+				<a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a>
 				<c:if test="${sessionID != null }">
 					<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
 				</c:if>
@@ -65,7 +69,7 @@
 										<input type="hidden" name="bd_code" value="${board.bd_code}">
 										<input type="hidden" name="bd_num" value="${board.bd_num}">
 										<input type="hidden" name="m_id" value="${board.m_id}">
-										<button type="submit" class="btn td_btn">삭제</button>
+										<button type="submit" class="btn td_btn btn_comment_delete">삭제</button>
 									</form>
 									<form action="${pageContext.request.contextPath}/communityEditForm.do" method="post">
 										<input type="hidden" name="bd_code" value="${board.bd_code}">
@@ -84,7 +88,9 @@
 
 						<c:if test="${board.bd_code==2}">
 							<tr>
-								<td id="comment">답변</td>
+								<td id="comment">
+									<h1>답변</h1>
+								</td>
 							</tr>
 							<tr>
 								<td id="td_hr" colspan="100">
@@ -98,16 +104,16 @@
 								<input type="hidden" name="m_id" value="${sessionID}">
 								<input type="hidden" name="pageNum" value="${pageNum}">
 								<input type="hidden" name="subject" value="[답변]">
-							<tr>
-								<td>
-									<textarea id="content" name="content" placeholder="답변 내용" rows="15" class="form_box"></textarea>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="submit" value="답변등록" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerWrite.do">
-								</td>
-							</tr>
+								<tr>
+									<td>
+										<textarea id="content" name="content" placeholder="답변 내용" rows="15" class="form_box"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="submit" value="답변등록" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerWrite.do">
+									</td>
+								</tr>
 							</form>
 							<c:forEach var="answer" items="${answerList }">
 								<form method="post">
@@ -122,9 +128,11 @@
 										<td>
 											<fmt:formatDate value="${answer.reg_date}" pattern="yyyy-MM-dd" />
 										</td>
-										<td>
-											<input type="submit" value="삭제" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do"">
-										</td>
+										<c:if test="${sessionID == answer.m_id}">
+											<td>
+												<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do">
+											</td>
+										</c:if>
 									</tr>
 								</form>
 							</c:forEach>
@@ -133,7 +141,9 @@
 
 						<!-- comment -->
 						<tr>
-							<td id="comment">댓글</td>
+							<td id="comment">
+								<h1>댓글</h1>
+							</td>
 						</tr>
 						<tr>
 							<td id="td_hr" colspan="100">
@@ -151,9 +161,10 @@
 								<input type="hidden" name="target_re_level" value="${comment.re_level}">
 								<tr class="tr_comment">
 									<td class="td_comment_content">
-										<c:forEach var="i" begin="0" end="${comment.re_level-1}"> &nbsp;&nbsp; </c:forEach>
+										<c:forEach var="i" begin="0" end="${comment.re_level-1}">
+										</c:forEach>
 										<c:if test="${comment.re_level>1 }">
-											<span style="color: gray">ㄴ</span>
+											<span class="comment_reply_prefix"><i class="icon-level-down"></i><i class="icon-level-up"></i></span>
 										</c:if>
 										${comment.content}
 									</td>
@@ -161,17 +172,20 @@
 									<td class="comment_reg_date">
 										<fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
 									</td>
-
-									<td>
-										<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityCommentDelete.do">
-									</td>
+									<c:if test="${sessionID == comment.m_id}">
+										<td>
+											<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityCommentDelete.do">
+										</td>
+									</c:if>
 
 								</tr>
 								<tr>
 									<td class="td_comment_reply_content">
-										<c:forEach var="i" begin="0" end="${comment.re_level}"> &nbsp;&nbsp; </c:forEach>
+										<c:forEach var="i" begin="0" end="${comment.re_level}"></c:forEach>
 										<input name="content" class="form_box comment_reply_box comment_reply_box_${comment.bd_cm_num}">
-										<input type="button" value="답글달기" class="btn btn_reply btn_reply_${comment.bd_cm_num}" onclick="funcReplyBox(${comment.bd_cm_num}, '300px')"></input>
+										<c:if test="${comment.re_level == 1 }">
+											<input type="button" value="답글쓰기" class="btn btn_reply btn_reply_${comment.bd_cm_num}" onclick="funcReplyBox(${comment.bd_cm_num}, '300px')"></input>
+										</c:if>
 										<input type="submit" value="등록" class="btn btn_reply  btn_reply2 btn_reply2_${comment.bd_cm_num}" formaction="${pageContext.request.contextPath}/communityCommentReply.do">
 									</td>
 									<td></td>

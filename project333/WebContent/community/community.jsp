@@ -34,21 +34,13 @@
 							<th align="center">인기 정보 글
 							</td>
 						</thead>
-						<tr>
-							<td align="center">
-								<a href="#">[HOT] 언택트 집.콕. 취준 꿀팁</a>
-							</td>
-						</tr>
-						<tr>
-							<td align="center">
-								<a href="#">기업별 연봉 인기순위 TOP 10</a>
-							</td>
-						</tr>
-						<tr>
-							<td align="center">
-								<a href="#">브랜드 홍보의 달인, 마케팅 기획자</a>
-							</td>
-						</tr>
+						<c:forEach var="board" items="${listPopular1}">
+							<tr>
+								<td align="center">
+									<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}">${board.subject}</a>
+								</td>
+							</tr>
+						</c:forEach>
 					</table>
 				</article>
 				<article class="pt pt2">
@@ -57,21 +49,13 @@
 							<th align="center">인기 취준 톡톡
 							</td>
 						</thead>
-						<tr>
-							<td align="center">
-								<a href="#">저 어떻하죠…</a>
-							</td>
-						</tr>
-						<tr>
-							<td align="center">
-								<a href="#">이력서 궁금한 점이 있는데요</a>
-							</td>
-						</tr>
-						<tr>
-							<td align="center">
-								<a href="#">이런 회사 어떨까요</a>
-							</td>
-						</tr>
+						<c:forEach var="board" items="${listPopular2}">
+							<tr>
+								<td align="center">
+									<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}">${board.subject}</a>
+								</td>
+							</tr>
+						</c:forEach>
 					</table>
 				</article>
 			</section>
@@ -94,7 +78,7 @@
 									<input type="text" placeholder="Search" name="word" id="search">
 								</td>
 								<td>
-									<input type="submit" value="검색" class="btn btn_search"formaction="${pageContext.request.contextPath}/communityList.do">
+									<input type="submit" value="검색" class="btn btn_search" formaction="${pageContext.request.contextPath}/communityList.do">
 								</td>
 							</tr>
 						</table>
@@ -119,12 +103,12 @@
 									<td>${board.bd_num}</td>
 									<c:if test="${board.bd_code == 1 }">
 										<td class="td_main_subject">
-											<span class="bd_code">[정보 공유]&nbsp;</span> <a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
+											<span class="bd_code">[정보공유]&nbsp;</span> <a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
 										</td>
 									</c:if>
 									<c:if test="${board.bd_code == 2 }">
 										<td class="td_main_subject">
-											<span class="bd_code">[취준 톡톡]&nbsp;</span> <a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
+											<span class="bd_code">[취준톡톡]&nbsp;</span> <a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
 										</td>
 									</c:if>
 									<td>${board.m_id}</td>

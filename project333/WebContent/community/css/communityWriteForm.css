@@ -2,9 +2,6 @@
     margin-left: 10%;
 }
 
-.pt {
-    width: 900px;
-}
 
 .pt_tb {
     padding: 30px;
@@ -25,9 +22,12 @@
 }
 
 #content {
-	width: 100%;
+/* 	width: 100%; */
 	resize: vertical;
 	padding: 5px;
+	width: 700px;
+	height: 210px;
+	
 }
 
 
