@@ -38,7 +38,7 @@
 		<div id="container">
 			<section id="point">
 				<article class="pt pt1">
-					<table class="pt_tb">
+					<table class="pt_tb pt_tb_board">
 						<tr>
 							<td id="td_subject" colspan="100">
 								<h1>${board.subject}</h1>
@@ -81,12 +81,22 @@
 								</td>
 							</c:if>
 						</tr>
+					</table>
 
 
-
-						<!-- answer -->
-
-						<c:if test="${board.bd_code==2}">
+					<!-- answer -->
+					<c:if test="${board.bd_code==2}">
+						<table class="pt_tb pt_tb_answer">
+							<tr>
+								<td>
+									<textarea id="content" name="content" placeholder="여러분의 지혜로운 조언을 알려주세요~!" rows="15" class="form_box form_box_answer"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="submit" value="답변등록" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerWrite.do">
+								</td>
+							</tr>
 							<tr>
 								<td id="comment">
 									<h1>답변</h1>
@@ -104,16 +114,8 @@
 								<input type="hidden" name="m_id" value="${sessionID}">
 								<input type="hidden" name="pageNum" value="${pageNum}">
 								<input type="hidden" name="subject" value="[답변]">
-								<tr>
-									<td>
-										<textarea id="content" name="content" placeholder="답변 내용" rows="15" class="form_box"></textarea>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="submit" value="답변등록" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerWrite.do">
-									</td>
-								</tr>
+
+
 							</form>
 							<c:forEach var="answer" items="${answerList }">
 								<form method="post">
@@ -136,10 +138,11 @@
 									</tr>
 								</form>
 							</c:forEach>
-						</c:if>
+					</c:if>
+					</table>
 
-
-						<!-- comment -->
+					<!-- comment -->
+					<table class="pt_tb pt_tb_comment">
 						<tr>
 							<td id="comment">
 								<h1>댓글</h1>
@@ -211,7 +214,6 @@
 								</td>
 							</tr>
 						</form>
-
 					</table>
 				</article>
 			</section>
