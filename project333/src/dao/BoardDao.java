@@ -170,12 +170,12 @@ public class BoardDao {
 			int bd_num = rs.getInt(1) + 1; 
 			System.out.println(bd_num);
 			if(board.getBd_code() == QnA) {
-				if(board.getRef() < 1) { //Question in QnA
+				if(board.getRe_level() == 1) { //Question in QnA
 					board.setRef(bd_num);
 				} else { //Answer in QnA
 					board.setRef(board.getBd_num());
 				}
-				board.setBd_num(bd_num); // warning: this overwrite existing value 'bd_num'.
+				board.setBd_num(bd_num); // warning: this overwrite existing value 'board.bd_num'.
 			} else {
 				board.setBd_num(bd_num);
 				board.setRef(bd_num);

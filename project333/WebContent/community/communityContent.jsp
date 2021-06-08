@@ -86,6 +86,7 @@
 
 					<!-- answer -->
 					<c:if test="${board.bd_code==2}">
+						<form method="post">
 						<table class="pt_tb pt_tb_answer">
 							<tr>
 								<td>
@@ -107,15 +108,13 @@
 									<hr>
 								</td>
 							</tr>
-							<form method="post">
+							
 								<input type="hidden" name="bd_code" value="${board.bd_code}">
 								<input type="hidden" name="bd_num" value="${board.bd_num}">
 								<input type="hidden" name="target_bd_num" value="${board.bd_num}">
 								<input type="hidden" name="m_id" value="${sessionID}">
 								<input type="hidden" name="pageNum" value="${pageNum}">
 								<input type="hidden" name="subject" value="[답변]">
-
-
 							</form>
 							<c:forEach var="answer" items="${answerList }">
 								<form method="post">

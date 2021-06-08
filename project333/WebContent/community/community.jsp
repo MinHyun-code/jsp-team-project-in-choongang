@@ -29,7 +29,15 @@
 							<li id="asideMenuToktok"><a href="#">취준 톡톡</a></li>
 							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li>
 						</ul></li>
-					<li><a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a></li>
+					<li><a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a>
+						<ul id="sub-menu">
+							<li id="asideMenuMyTok"><a href="#">마이페이지</a></li>
+							<li id="asideMenuCommunity"><a href="${pageContext.request.contextPath}/communityList.do">지원현황</a></li>
+							<li id="asideMenuWrite"><a href="${pageContext.request.contextPath}/communityWriteForm.do">관심공고</a></li>
+							<li id="asideMenuInfo"><a href="#">회원정보 수정</a></li>
+							<li id="asideMenuToktok"><a href="#">이력서 관리</a></li>
+							<li id="asideMenuMyTok"><a href="#">자기소개서 관리</a></li>
+						</ul></li>
 					<c:if test="${sessionID != null }">
 						<li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
 					</c:if>
@@ -45,7 +53,7 @@
 					<table class="pt_tb">
 						<thead>
 							<th align="center">인기 정보 글
-							</td>
+							</th>
 						</thead>
 						<c:forEach var="board" items="${listPopular1}">
 							<tr>
@@ -60,7 +68,7 @@
 					<table class="pt_tb">
 						<thead>
 							<th align="center">인기 취준 톡톡
-							</td>
+							</th>
 						</thead>
 						<c:forEach var="board" items="${listPopular2}">
 							<tr>

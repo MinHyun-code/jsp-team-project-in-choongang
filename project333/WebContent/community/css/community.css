@@ -55,15 +55,14 @@ nav {
 nav a {
 	color: white;
 	background-color: #002266;
-	padding: 20px 80px;
+	padding: 20px 70px;
 	text-decoration: none;
 	text-align: center;
 	font-size: 1.2em;
 	margin: 0 auto;
 	z-index: 99;
-	width: 255px;
-	transition-property: background-color;
-	transition-duration: 0.5s;
+	width: 250px;
+	transition: background-color 0.5s;
 }
 
 nav a:hover {
@@ -81,7 +80,7 @@ nav a:hover {
 
 #main-menu>li, #sub-menu>li {
 	display: flex;
-	width: 255px;
+	width: 250px;
 }
 
 #main-menu>li {
@@ -95,8 +94,8 @@ nav a:hover {
 }
 
 #sub-menu>li:nth-child(n+2)>a {
-	background-color: #235594;
-	padding: 12px 70px;
+	background-color: #002266;
+	padding: 12px 50px;
 	width: 250px;
 }
 
@@ -108,7 +107,7 @@ nav a:hover {
 #main-menu>li:hover #sub-menu>li:nth-child(n+2)>a {
 	background-color: #002266;
 	visibility: visible;
-	opacity: 1;
+	opacity: 0.999;
 	transition: background-color 0.75s;
 }
 #main-menu>li:hover #sub-menu>li:nth-child(n+2)>a:hover {
