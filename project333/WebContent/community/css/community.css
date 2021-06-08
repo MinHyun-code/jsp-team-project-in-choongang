@@ -12,6 +12,7 @@
 	font-weight: normal;
 }
 
+
 .form_box {
 	border-color: #0a294f5e;
 	border-radius: 5px;
@@ -48,15 +49,21 @@ nav {
 	display: flex;
 	background-color: #002266;
 	margin: 0 auto;
+	height: 70px;
 }
 
 nav a {
 	color: white;
+	background-color: #002266;
 	padding: 20px 80px;
 	text-decoration: none;
 	text-align: center;
 	font-size: 1.2em;
 	margin: 0 auto;
+	z-index: 99;
+	width: 255px;
+	transition-property: background-color;
+	transition-duration: 0.5s;
 }
 
 nav a:hover {
@@ -64,8 +71,56 @@ nav a:hover {
 	color: white;
 }
 
-/* point */
-/* point */
+
+/* drop-down menu */
+#main-menu, #sub-menu {
+	padding: 0;
+	list-style-type: none;
+	margin: 0 auto;
+}
+
+#main-menu>li, #sub-menu>li {
+	display: flex;
+	width: 255px;
+}
+
+#main-menu>li {
+	float: left;
+}
+
+#sub-menu {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+}
+
+#sub-menu>li:nth-child(n+2)>a {
+	background-color: #235594;
+	padding: 12px 70px;
+	width: 250px;
+}
+
+#main-menu>li:hover #sub-menu {
+	visibility: visible;
+	opacity: 1;
+}
+
+#main-menu>li:hover #sub-menu>li:nth-child(n+2)>a {
+	background-color: #002266;
+	visibility: visible;
+	opacity: 1;
+	transition: background-color 0.75s;
+}
+#main-menu>li:hover #sub-menu>li:nth-child(n+2)>a:hover {
+	background-color: #235594;
+	visibility: visible;
+	opacity: 1;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+}
+/**/
+
+
 /* point */
 #point {
 	position: relative;
@@ -131,7 +186,6 @@ nav a:hover {
 	/* 링크에 밑줄 제거*/
 }
 
-
 #searchBox {
 	margin: 0 auto;
 	margin-top: 20px;
@@ -153,13 +207,13 @@ nav a:hover {
 
 #search {
 	border: none;
-    padding: 0px 17px;
-    border-radius: 50px;
-    font-size: 15px;
-    font-family: "Nunito";
-    color: #424242;
-    font-weight: 500;
-    width: 120px;
+	padding: 0px 17px;
+	border-radius: 50px;
+	font-size: 15px;
+	font-family: "Nunito";
+	color: #424242;
+	font-weight: 500;
+	width: 120px;
 }
 
 #search:focus {
@@ -193,21 +247,18 @@ nav a:hover {
 	/* height: 30px; */
 	padding: 8px 10px;
 	text-align: center;
-	
 	font-family: "Han sans";
 	font-size: 14px;
 }
 
 thead {
 	border-top: 1px solid gray;
-    border-bottom: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
 }
 
 .communityListTable tr:nth-child(even) {
-	background-color: rgb(242 215 250 / 10%);
+	background-color: rgb(242 215 250/ 10%);
 }
-
-
 
 .communityListTable tr:nth-child(odd) {
 	background-color: white;
@@ -216,8 +267,6 @@ thead {
 .communityListTable tr:hover {
 	background-color: rgba(35, 85, 148, 0.1);
 }
-
-
 
 #communityMainTable th {
 	height: 30px;
@@ -287,14 +336,14 @@ thead {
 }
 
 .pt_tb {
-    height: 100px;
-    width: 380px;
-    /* border: 1px solid black; */
-    /* border: 4px solid #002266; */
-    border-radius: 20px;
-    padding: 10px;
-    /* padding-bottom: 10px; */
-    background-color: rgb(215 209 239 / 15%);
+	height: 100px;
+	width: 380px;
+	/* border: 1px solid black; */
+	border: 4px solid #002266;
+	border-radius: 20px;
+	padding: 10px;
+	/* padding-bottom: 10px; */
+	/*     background-color: rgb(215 209 239 / 15%); */
 }
 
 .pt_tb a {
@@ -304,21 +353,21 @@ thead {
 }
 
 .pt_tb a:hover {
-    text-decoration: underline;
-    color: #002266;
+	text-decoration: underline;
+	color: #002266;
 }
 
 #point th {
 	height: 55px;
 	font-size: 25px;
 	color: #002266;
-/* 	vertical-align: top; */
+	/* 	vertical-align: top; */
 }
 
 #point td {
 	height: 35px;
 	font-family: "Han sans";
-    font-size: 15px;
+	font-size: 15px;
 }
 
 .ct_tb {
@@ -353,30 +402,23 @@ article {
 .btn:hover {
 	background-color: #849ac4;;
 	color: white;
-
 }
 
 .btn_search {
 	margin: 0px;
 	border: 0px;
 	font-size: 16px;
-	
 }
 
-
 .bd_code {
-	font-size:10px;
+	font-size: 10px;
 	color: gray;
 }
 
-
-
 .td_main_subject {
-	text-align:left !important;
+	text-align: left !important;
 	width: 380px;
 }
-
-
 
 /* aside */
 aside {
@@ -421,8 +463,6 @@ footer {
 	padding: 1em 0px;
 }
 
-
-
 /*1300px 이하면 테이블 크기 변경.*/
 
 /*1300px 이하면 테이블 크기 변경.*/
@@ -438,6 +478,13 @@ footer {
 }
 
 @media all and (max-width: 1200px) {
+	nav {
+		display: flex;
+		height: 100%;
+	}
+	#main-menu>li {
+		float: none;
+	}
 	#container, nav {
 		flex-direction: column;
 	}

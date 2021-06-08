@@ -8,6 +8,7 @@
 <title>Community Page</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/community.js"></script>
 </head>
 
 <body>
@@ -17,13 +18,25 @@
 				<h1 onclick="location.href='${pageContext.request.contextPath}/main.jsp'" style="cursor: pointer; text-align: center; font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
-				<a href="#">채용공고</a> <a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a> <a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a> <a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a>
-				<c:if test="${sessionID != null }">
-					<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
-				</c:if>
-				<c:if test="${sessionID == null }">
-					<a href="${pageContext.request.contextPath}/log/login.jsp">로그인</a>
-				</c:if>
+				<ul id="main-menu">
+					<li><a href="#">채용공고</a></li>
+					<li><a href="${pageContext.request.contextPath}/searchHire.jsp">회사검색</a></li>
+					<li><a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a>
+						<ul id="sub-menu">
+							<li id="asideMenuCommunity"><a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a></li>
+							<li id="asideMenuWrite"><a href="${pageContext.request.contextPath}/communityWriteForm.do">글 작성하기</a></li>
+							<li id="asideMenuInfo"><a href="#">정보 공유</a></li>
+							<li id="asideMenuToktok"><a href="#">취준 톡톡</a></li>
+							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li>
+						</ul></li>
+					<li><a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a></li>
+					<c:if test="${sessionID != null }">
+						<li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
+					</c:if>
+					<c:if test="${sessionID == null }">
+						<li><a href="${pageContext.request.contextPath}/log/login.jsp">로그인</a></li>
+					</c:if>
+				</ul>
 			</nav>
 		</header>
 		<div id="container">
@@ -103,12 +116,14 @@
 									<td>${board.bd_num}</td>
 									<c:if test="${board.bd_code == 1 }">
 										<td class="td_main_subject">
-											<span class="bd_code">[정보공유]&nbsp;</span> <a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
+											<span class="bd_code">[정보공유]&nbsp;</span>
+											<a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
 										</td>
 									</c:if>
 									<c:if test="${board.bd_code == 2 }">
 										<td class="td_main_subject">
-											<span class="bd_code">[취준톡톡]&nbsp;</span> <a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
+											<span class="bd_code">[취준톡톡]&nbsp;</span>
+											<a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
 										</td>
 									</c:if>
 									<td>${board.m_id}</td>
