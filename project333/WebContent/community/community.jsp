@@ -25,9 +25,9 @@
 						<ul id="sub-menu">
 							<li id="asideMenuCommunity"><a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a></li>
 							<li id="asideMenuWrite"><a href="${pageContext.request.contextPath}/communityWriteForm.do">글 작성하기</a></li>
-							<li id="asideMenuInfo"><a href="#">정보 공유</a></li>
-							<li id="asideMenuToktok"><a href="#">취준 톡톡</a></li>
-							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li>
+							<li id="asideMenuInfo"><a href="${pageContext.request.contextPath}/communityList.do?bd_code=1&pageNum=1">정보공유</a></li>
+							<li id="asideMenuToktok"><a href="${pageContext.request.contextPath}/communityList.do?bd_code=2&pageNum=1">취준톡톡</a></li>
+<!-- 							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li> -->
 						</ul></li>
 					<li><a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a>
 						<ul id="sub-menu">
@@ -119,8 +119,6 @@
 						<c:if test="${totCnt > 0 }">
 							<c:forEach var="board" items="${list }">
 								<tr>
-									<%-- <td>${startNum }</td> --%>
-
 									<td>${board.bd_num}</td>
 									<c:if test="${board.bd_code == 1 }">
 										<td class="td_main_subject">
@@ -140,7 +138,6 @@
 									</td>
 									<td>${board.read_count}</td>
 								</tr>
-								<c:set var="startNum" value="${startNum - 1 }" />
 							</c:forEach>
 						</c:if>
 					</table>
@@ -148,10 +145,10 @@
 						<ul>
 							<c:forEach var="i" begin="${startPage}" end="${endPage}">
 								<c:if test="${currentPage == i}">
-									<li><a href='${pageContext.request.contextPath}/communityList.do?word=${word}&pageNum=${i}' id="pageSelected">${i}</a></li>
+									<li><a href='${pageContext.request.contextPath}/communityList.do?bd_code=${bd_code}&word=${word}&pageNum=${i}' id="pageSelected">${i}</a></li>
 								</c:if>
 								<c:if test="${currentPage != i}">
-									<li><a href='${pageContext.request.contextPath}/communityList.do?word=${word}&pageNum=${i}'>${i}</a></li>
+									<li><a href='${pageContext.request.contextPath}/communityList.do?bd_code=${bd_code}&word=${word}&pageNum=${i}'>${i}</a></li>
 								</c:if>
 							</c:forEach>
 						</ul>

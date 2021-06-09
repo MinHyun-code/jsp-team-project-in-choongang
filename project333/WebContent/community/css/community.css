@@ -80,7 +80,7 @@ nav a:hover {
 
 #main-menu>li, #sub-menu>li {
 	display: flex;
-	width: 250px;
+	width: 240px;
 }
 
 #main-menu>li {
@@ -491,6 +491,7 @@ footer {
 
 @media ( min-width :1300px) {
 	#right {
-		display: block;
+/* 		display: block; */
+		display: none;
 	}
 }

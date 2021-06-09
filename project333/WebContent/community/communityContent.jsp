@@ -87,56 +87,59 @@
 					<!-- answer -->
 					<c:if test="${board.bd_code==2}">
 						<form method="post">
-						<table class="pt_tb pt_tb_answer">
-							<tr>
-								<td>
-									<textarea id="content" name="content" placeholder="여러분의 지혜로운 조언을 알려주세요~!" rows="15" class="form_box form_box_answer"></textarea>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="submit" value="답변등록" class="btn" formaction="${pageContext.request.contextPath}/communityAnswerWrite.do">
-								</td>
-							</tr>
-							<tr>
-								<td id="comment">
-									<h1>답변</h1>
-								</td>
-							</tr>
-							<tr>
-								<td id="td_hr" colspan="100">
-									<hr>
-								</td>
-							</tr>
-							
+							<table class="pt_tb">
+								<tr>
+									<td>
+										<textarea id="content" name="content" placeholder="여러분의 지혜로운 조언을 알려주세요~!" rows="15" class="form_box form_box_answer"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td class="td_write_answer">
+										<input type="submit" value="답변등록" class="btn btn_write_answer" formaction="${pageContext.request.contextPath}/communityAnswerWrite.do">
+									</td>
+								</tr>
+
+							</table>
+							<table class="pt_tb pt_tb_answer">
+								<tr>
+									<td id="comment">
+										<h1>답변 <span class="show_size">${answerList.size()}</span>건</h1>
+									</td>
+								</tr>
+								<tr>
+									<td id="td_hr" colspan="100">
+										<hr>
+									</td>
+								</tr>
+
 								<input type="hidden" name="bd_code" value="${board.bd_code}">
 								<input type="hidden" name="bd_num" value="${board.bd_num}">
 								<input type="hidden" name="target_bd_num" value="${board.bd_num}">
 								<input type="hidden" name="m_id" value="${sessionID}">
 								<input type="hidden" name="pageNum" value="${pageNum}">
 								<input type="hidden" name="subject" value="[답변]">
-							</form>
-							<c:forEach var="answer" items="${answerList }">
-								<form method="post">
-									<input type="hidden" name="answer_bd_code" value="${answer.bd_code}">
-									<input type="hidden" name="answer_bd_num" value="${answer.bd_num}">
-									<input type="hidden" name="bd_code" value="${board.bd_code}">
-									<input type="hidden" name="bd_num" value="${board.bd_num}">
-									<input type="hidden" name="pageNum" value="${pageNum}">
-									<tr>
-										<td>${answer.content}</td>
-										<td>${answer.m_id}</td>
+						</form>
+						<c:forEach var="answer" items="${answerList }">
+							<form method="post">
+								<input type="hidden" name="answer_bd_code" value="${answer.bd_code}">
+								<input type="hidden" name="answer_bd_num" value="${answer.bd_num}">
+								<input type="hidden" name="bd_code" value="${board.bd_code}">
+								<input type="hidden" name="bd_num" value="${board.bd_num}">
+								<input type="hidden" name="pageNum" value="${pageNum}">
+								<tr class="tr_answer">
+									<td class="td_answer_content">${answer.content}</td>
+									<td class="td_answer_m_id">${answer.m_id}</td>
+									<td class="td_answer_reg_date">
+										<fmt:formatDate value="${answer.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+									</td>
+									<c:if test="${sessionID == answer.m_id}">
 										<td>
-											<fmt:formatDate value="${answer.reg_date}" pattern="yyyy-MM-dd" />
+											<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do">
 										</td>
-										<c:if test="${sessionID == answer.m_id}">
-											<td>
-												<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do">
-											</td>
-										</c:if>
-									</tr>
-								</form>
-							</c:forEach>
+									</c:if>
+								</tr>
+							</form>
+						</c:forEach>
 					</c:if>
 					</table>
 
@@ -144,7 +147,7 @@
 					<table class="pt_tb pt_tb_comment">
 						<tr>
 							<td id="comment">
-								<h1>댓글</h1>
+								<h1>댓글 <span class="show_size">${commentList.size()}</span>건</h1>
 							</td>
 						</tr>
 						<tr>
@@ -170,8 +173,8 @@
 										</c:if>
 										${comment.content}
 									</td>
-									<td>${comment.m_id}</td>
-									<td class="comment_reg_date">
+									<td class="td_comment_m_id">${comment.m_id}</td>
+									<td class="td_comment_reg_date">
 										<fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
 									</td>
 									<c:if test="${sessionID == comment.m_id}">
@@ -204,12 +207,12 @@
 							</tr>
 							<tr>
 								<td>
-									<input name="content" class="form_box">
+									<input name="content" class="form_box content_comment_write">
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="submit" value="댓글달기" class="btn" formaction="${pageContext.request.contextPath}/communityCommentWrite.do">
+									<input type="submit" value="댓글등록" class="btn btn_comment_write" formaction="${pageContext.request.contextPath}/communityCommentWrite.do">
 								</td>
 							</tr>
 						</form>

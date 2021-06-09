@@ -94,7 +94,7 @@ public class BoardDao {
 		Statement stmt= null; 
 		ResultSet rs = null;    
 		int tot = 0;
-		String sql = "select count(*) from board";
+		String sql = "select count(*) from board re_level = 1";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -175,7 +175,7 @@ public class BoardDao {
 				} else { //Answer in QnA
 					board.setRef(board.getBd_num());
 				}
-				board.setBd_num(bd_num); // warning: this overwrite existing value 'board.bd_num'.
+				board.setBd_num(bd_num); // warning: this overwrite already existing value 'board.bd_num'.
 			} else {
 				board.setBd_num(bd_num);
 				board.setRef(bd_num);
@@ -311,6 +311,7 @@ public class BoardDao {
 		return result;
 	}
 	
+	//search in community main
 	public List<Board> listSearch(int startRow, int endRow, String replacedWord) throws SQLException {
 		List<Board> list = new ArrayList<Board>();
 		Connection conn = null;	
@@ -343,12 +344,43 @@ public class BoardDao {
 		return list;
 	}	
 	
+	public List<Board> listSearch(int startRow, int endRow, int bd_code) throws SQLException {
+		List<Board> list = new ArrayList<Board>();
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn ,a.* from " + 
+			"  (select * from board WHERE re_level = 1 and bd_code = ? order by ref desc,re_step) a ) "+
+			" where (rn between ? and ?)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			pstmt.setInt(1, bd_code);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board();
+				rsToBoard(rs, board);
+				list.add(board);
+			}
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		} 
+		return list;
+	}	
+	
+	
 	public int getTotalCnt(String replacedWord) throws SQLException {
 		Connection conn = null;	
 		PreparedStatement pstmt= null; 
 		ResultSet rs = null;    
 		int tot = 0;
-		String sql = "select count(*) from board WHERE (REGEXP_LIKE (LOWER(subject), LOWER(?)) OR REGEXP_LIKE (LOWER(content), LOWER(?)) OR REGEXP_LIKE (LOWER(tags), LOWER(?)))";
+		String sql = "select count(*) from board WHERE re_level = 1 and (REGEXP_LIKE (LOWER(subject), LOWER(?)) OR REGEXP_LIKE (LOWER(content), LOWER(?)) OR REGEXP_LIKE (LOWER(tags), LOWER(?)))";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -367,7 +399,29 @@ public class BoardDao {
 		}
 		return tot;
 	}
-	
+
+	public int getTotalCnt(int bd_code) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		ResultSet rs = null;    
+		int tot = 0;
+		String sql = "select count(*) from board WHERE re_level = 1 and bd_code = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bd_code);
+			rs = pstmt.executeQuery();
+			if (rs.next()) tot = rs.getInt(1);
+		} catch(Exception e) {	
+			System.out.println(e.getMessage()); 
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return tot;
+	}
 	
 	public List<Board> listPopular(int bd_code, int num) throws SQLException {
 		List<Board> list = new ArrayList<Board>();
@@ -396,4 +450,7 @@ public class BoardDao {
 		} 
 		return list;
 	}
+
+
+
 }

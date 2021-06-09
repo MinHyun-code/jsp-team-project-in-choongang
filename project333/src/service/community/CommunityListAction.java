@@ -16,74 +16,57 @@ public class CommunityListAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String word = request.getParameter("word");
-		String replacedWord;
-		if (word == null || word.equals("")) {
-			replacedWord = "|";
-		} else {
-			replacedWord = word.replace(" ", "|");
-		}
-		System.out.println("replacedWord-> " + replacedWord);
-		request.setAttribute("word", word);
-
-		BoardDao bd = BoardDao.getInstance();
 		try {
-			int totCnt = bd.getTotalCnt(replacedWord); // 37
-			String pageNum = request.getParameter("pageNum");
-			if (pageNum == null || pageNum.equals("")) {
-				pageNum = "1";
+			request.setCharacterEncoding("utf-8");
+			BoardDao bd = BoardDao.getInstance();
+			int pageSize = 10;
+			int pageNum = 1;
+			if (request.getParameter("pageNum") != null && !request.getParameter("pageNum").equals("")) {
+				pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			}
-			int currentPage = Integer.parseInt(pageNum);
-			int pageSize = 10, blockSize = 10; // blockSize: size of row in a page.
-			int startRow = (currentPage - 1) * pageSize + 1;
-			int endRow = startRow + pageSize - 1;
-			int startNum = totCnt - startRow + 1;
-			List<Board> list = bd.listSearch(startRow, endRow, replacedWord);
-			int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
-			int startPage;
-			int endPage;
-			if (currentPage < 3) {
-				startPage = 1;
-				endPage = 5;
-			} else {
-				startPage = currentPage - 2;
-				endPage = currentPage + 2;
-			}
-			if (endPage > pageCnt) {
-				startPage -= endPage - pageCnt;
-				endPage = pageCnt;
-			}
-			if (startPage < 1) {
-				startPage = 1;
-			}
-
-			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("pageNum", pageNum);
-			request.setAttribute("currentPage", currentPage);
-			request.setAttribute("startNum", startNum);
-			request.setAttribute("list", list);
-			request.setAttribute("blockSize", blockSize);
-			request.setAttribute("pageCnt", pageCnt);
-			request.setAttribute("startPage", startPage);
-			request.setAttribute("endPage", endPage);
-
-			System.out.println("-----------------------------------------------"); // /ch16/list.do
-			System.out.println("startNum-->" + startNum); // /ch16/list.do
-			System.out.println("totCnt-->" + totCnt); // /ch16/list.do
-			System.out.println("currentPage-->" + currentPage); // /ch16/list.do
-			System.out.println("blockSize-->" + blockSize); // /ch16/list.do
-			System.out.println("pageSize-->" + pageSize); // /ch16/list.do
-			System.out.println("pageCnt-->" + pageCnt); // /ch16/list.do
-			System.out.println("startPage-->" + startPage); // /ch16/list.do
-			System.out.println("endPage-->" + endPage); // /ch16/list.do
+			int totCnt;
+			CommunityPageNumbering pageNumbering = null;
+			List<Board> list = null;
 			
-			//selectPopular
+			//정보공유, 취준톡톡
+			if (request.getParameter("bd_code") != null && !request.getParameter("bd_code").equals("")) {
+				int bd_code = Integer.parseInt(request.getParameter("bd_code"));
+				request.setAttribute("bd_code", bd_code);
+				totCnt = bd.getTotalCnt(bd_code);
+				System.out.println("totCnt: "+totCnt);
+				pageNumbering = new CommunityPageNumbering(totCnt, pageNum, pageSize);
+				System.out.println("startRow, endRow: "+pageNumbering.getStartRow()+","+pageNumbering.getEndRow());
+				list = bd.listSearch(pageNumbering.getStartRow(), pageNumbering.getEndRow(), bd_code);
+			} else { //커뮤니티 메인
+				String word = request.getParameter("word");
+				request.setAttribute("word", word);
+				String replacedWord;
+				if (word == null || word.equals("")) {
+					replacedWord = "|";
+				} else {
+					replacedWord = word.replace(" ", "|");
+				}
+				System.out.println("replacedWord-> " + replacedWord);
+				totCnt = bd.getTotalCnt(replacedWord);
+				pageNumbering = new CommunityPageNumbering(totCnt, pageNum, pageSize);
+				list = bd.listSearch(pageNumbering.getStartRow(), pageNumbering.getEndRow(), replacedWord);
+			}
+
+			// set attribute about page
+			request.setAttribute("list", list);
+			request.setAttribute("totCnt", pageNumbering.getTotCnt());
+			request.setAttribute("pageNum", pageNumbering.getPageNum());
+			request.setAttribute("currentPage", pageNumbering.getCurrentPage());
+			request.setAttribute("pageCnt", pageNumbering.getPageCnt());
+			request.setAttribute("startPage", pageNumbering.getStartPage());
+			request.setAttribute("endPage", pageNumbering.getEndPage());
+
+			// selectPopular
 			List<Board> listPopular1 = bd.listPopular(1, 4);
 			List<Board> listPopular2 = bd.listPopular(2, 4);
 			request.setAttribute("listPopular1", listPopular1);
 			request.setAttribute("listPopular2", listPopular2);
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
