@@ -94,7 +94,7 @@ public class BoardDao {
 		Statement stmt= null; 
 		ResultSet rs = null;    
 		int tot = 0;
-		String sql = "select count(*) from board re_level = 1";
+		String sql = "SELECT count(*) FROM board WHERE re_level = 1";
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -222,6 +222,28 @@ public class BoardDao {
 			pstmt.setInt(1, bd_code);
 			pstmt.setInt(2, bd_num);
 			pstmt.setString(3, m_id);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
+	
+	public int deleteAnswer(int bd_code, int bd_num) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		int result = 0;			
+		ResultSet rs = null;
+		String sql="DELETE FROM board WHERE bd_code = ? AND ref = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bd_code);
+			pstmt.setInt(2, bd_num);
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

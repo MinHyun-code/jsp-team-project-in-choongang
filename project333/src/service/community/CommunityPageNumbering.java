@@ -15,7 +15,7 @@ public class CommunityPageNumbering {
 	private int startPage;
 	private int endPage;
 	
-	CommunityPageNumbering(int totCnt, int pageNum, int pageSize){
+	public CommunityPageNumbering(int totCnt, int pageNum, int pageSize){
 		this.totCnt = totCnt;
 		this.pageNum = pageNum;
 		this.pageSize = pageSize;

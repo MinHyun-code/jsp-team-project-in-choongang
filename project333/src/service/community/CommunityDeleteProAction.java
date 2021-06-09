@@ -40,6 +40,9 @@ public class CommunityDeleteProAction implements CommandProcess {
 			// do 'delete' in dao.
 			BoardDao bd = BoardDao.getInstance();
 			int result = bd.delete(bd_code, bd_num, sessionID);
+			if(result > 0) { // do 'delete' related answer
+				bd.deleteAnswer(bd_code, bd_num);
+			}
 			
 			request.setAttribute("result", result);
 		} catch (Exception e) {
