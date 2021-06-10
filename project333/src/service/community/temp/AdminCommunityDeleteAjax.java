@@ -19,6 +19,11 @@ public class AdminCommunityDeleteAjax implements CommandProcess {
 			request.setCharacterEncoding("utf-8");
 			
 			/* 나중에 관리자인지 세션으로 확인하는 거 여기에 추가*/
+//			if(!request.getSession().getAttribute("sessionID").equals("admin")) {
+//				return "adminCommunityList.do";
+//			}
+			
+			
 			
 			int bd_code = Integer.parseInt(request.getParameter("bd_code"));
 			int bd_num = Integer.parseInt(request.getParameter("bd_num"));
