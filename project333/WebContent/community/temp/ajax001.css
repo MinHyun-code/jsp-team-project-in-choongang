@@ -12,7 +12,6 @@
 	font-weight: normal;
 }
 
-
 .form_box {
 	border-color: #0a294f5e;
 	border-radius: 5px;
@@ -70,7 +69,6 @@ nav a:hover {
 	color: white;
 }
 
-
 /* drop-down menu */
 #main-menu, #sub-menu {
 	padding: 0;
@@ -110,6 +108,7 @@ nav a:hover {
 	opacity: 0.999;
 	transition: background-color 0.75s;
 }
+
 #main-menu>li:hover #sub-menu>li:nth-child(n+2)>a:hover {
 	background-color: #235594;
 	visibility: visible;
@@ -118,7 +117,6 @@ nav a:hover {
 	transition-duration: 0.5s;
 }
 /**/
-
 
 /* point */
 #point {
@@ -300,6 +298,7 @@ thead {
 	color: Gray;
 	text-decoration: none;
 	padding: 5px 10px;
+	cursor: pointer;
 }
 
 #communityMainTable .pageNum #pageSelected {
@@ -462,6 +461,23 @@ footer {
 	padding: 1em 0px;
 }
 
+.button_ajax {
+	cursor: pointer;
+	padding: 3px 5px;
+	transition: background-color 0.5s;
+	border: none;
+	color: lightgray;
+	background-color: #d3d3d338;
+}
+
+#button_community_list {
+	
+}
+
+#button_recruit_list {
+	
+}
+
 /*1300px 이하면 테이블 크기 변경.*/
 
 /*1300px 이하면 테이블 크기 변경.*/
@@ -491,7 +507,7 @@ footer {
 
 @media ( min-width :1300px) {
 	#right {
-/* 		display: block; */
+		/* 		display: block; */
 		display: none;
 	}
 }

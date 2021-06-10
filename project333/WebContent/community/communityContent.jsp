@@ -69,6 +69,7 @@
 										<input type="hidden" name="bd_code" value="${board.bd_code}">
 										<input type="hidden" name="bd_num" value="${board.bd_num}">
 										<input type="hidden" name="m_id" value="${board.m_id}">
+										<input type="hidden" name="pageNum" value="${pageNum}">
 										<button type="submit" class="btn td_btn btn_comment_delete">삭제</button>
 									</form>
 									<form action="${pageContext.request.contextPath}/communityEditForm.do" method="post">

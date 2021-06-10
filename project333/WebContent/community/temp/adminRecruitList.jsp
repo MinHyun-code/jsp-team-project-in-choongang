@@ -31,10 +31,10 @@
 			<ul>
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
 					<c:if test="${currentPage == i}">
-						<li><a href='#' class="recruit_page" id="pageSelected" data-val='${i}'>${i}</a></li>
+						<li><a href='#' class="recruit_page" id="pageSelected" data-value="${i}">${i}</a></li>
 					</c:if>
 					<c:if test="${currentPage != i}">
-						<li><a href='#' class="recruit_page" data-val='${i}'>${i}</a></li>
+						<li><a href='#' class="recruit_page" data-value="${i}">${i}</a></li>
 					</c:if>
 				</c:forEach>
 			</ul>

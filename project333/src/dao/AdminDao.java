@@ -33,7 +33,7 @@ public class AdminDao {
 		return conn;
 	}
 
-	public int getTotalCnt() throws SQLException {
+	public int getTotalCntRecruit() throws SQLException {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -58,7 +58,7 @@ public class AdminDao {
 		return tot;
 	}
 
-	public ArrayList<RecruitDto> list(int startRow, int endRow) throws SQLException {
+	public ArrayList<RecruitDto> listRecruit(int startRow, int endRow) throws SQLException {
 		ArrayList<RecruitDto> rclist = new ArrayList<RecruitDto>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -33,10 +33,10 @@ public class AdminRecruitListAjax implements CommandProcess{
 			CommunityPageNumbering pageNumbering = null;
 			List<RecruitDto> list = null;
 			
-			//커뮤니티 게시글 리스트 가져오기 + 페이징처리
-			totCnt = ad.getTotalCnt();
+			//채용공고 게시글 리스트 가져오기 + 페이징처리
+			totCnt = ad.getTotalCntRecruit();
 			pageNumbering = new CommunityPageNumbering(totCnt, pageNum, pageSize);
-			list = ad.list(pageNumbering.getStartRow(), pageNumbering.getEndRow());
+			list = ad.listRecruit(pageNumbering.getStartRow(), pageNumbering.getEndRow());
 			
 			//Attribute
 			request.setAttribute("list", list);

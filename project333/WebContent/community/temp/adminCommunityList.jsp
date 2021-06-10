@@ -32,6 +32,7 @@
 							<fmt:formatDate value="${board.reg_date}" pattern="YYYY-MM-dd" />
 						</td>
 						<td>${board.read_count}</td>
+						<td><button class="button_delete_community" data-bd_code="${board.bd_code}" data-bd_num="${board.bd_num}" data-m_id="${board.m_id}" data-current_page="${currentPage}">delete</button></td>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -40,10 +41,10 @@
 			<ul>
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
 					<c:if test="${currentPage == i}">
-						<li><a href='#' class="community_page" id="pageSelected" data-val='${i}'>${i}</a></li>
+						<li><a class="community_page" id="pageSelected" data-value="${i}">${i}</a></li>
 					</c:if>
 					<c:if test="${currentPage != i}">
-						<li><a href='#' class="community_page" data-val='${i}'>${i}</a></li>
+						<li><a class="community_page" data-value="${i}">${i}</a></li>
 					</c:if>
 				</c:forEach>
 			</ul>
