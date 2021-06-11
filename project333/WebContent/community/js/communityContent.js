@@ -12,3 +12,8 @@ function funcReplyBox(a, widthValue){
 	let btn2 = document.getElementsByClassName('btn_reply2_'+a);
 	btn2[0].style.display='inline-block';
 }
+
+$(()=>{
+	replaceToBr('community_content');
+})
+

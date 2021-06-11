@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityContent.css">
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/community/js/community.js"></script>
 <script src="${pageContext.request.contextPath}/community/js/communityContent.js"></script>
 
 </head>
@@ -56,7 +57,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="100">${board.content}</td>
+							<td class="community_content" colspan="100">${board.content}</td>
 						</tr>
 						<tr>
 							<td>${board.tags}</td>

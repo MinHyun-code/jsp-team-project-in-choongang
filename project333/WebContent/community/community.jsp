@@ -15,7 +15,7 @@
 	<div id="page">
 		<header>
 			<div>
-				<h1 onclick="location.href='${pageContext.request.contextPath}/main.jsp'" style="cursor: pointer; text-align: center; font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
+				<h1 onclick="location.href='${pageContext.request.contextPath}/main.do'" style="cursor: pointer; text-align: center; font-size: 130px; color: #002266; margin-bottom: 40px;">다JOB아</h1>
 			</div>
 			<nav>
 				<ul id="main-menu">
@@ -27,7 +27,7 @@
 							<li id="asideMenuWrite"><a href="${pageContext.request.contextPath}/communityWriteForm.do">글 작성하기</a></li>
 							<li id="asideMenuInfo"><a href="${pageContext.request.contextPath}/communityList.do?bd_code=1&pageNum=1">정보공유</a></li>
 							<li id="asideMenuToktok"><a href="${pageContext.request.contextPath}/communityList.do?bd_code=2&pageNum=1">취준톡톡</a></li>
-<!-- 							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li> -->
+							<!-- 							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li> -->
 						</ul></li>
 					<li><a href="${pageContext.request.contextPath}/mypage.jsp">마이페이지</a>
 						<ul id="sub-menu">
@@ -52,10 +52,11 @@
 				<article class="pt pt1">
 					<table class="pt_tb">
 						<thead>
-							<th align="center">인기 정보 글
-							</th>
+							<tr>
+								<th align="center">정보공유 인기글</th>
+							</tr>
 						</thead>
-						<c:forEach var="board" items="${listPopular1}">
+						<c:forEach var="board" items="${listPopular_info}">
 							<tr>
 								<td align="center">
 									<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}">${board.subject}</a>
@@ -67,10 +68,11 @@
 				<article class="pt pt2">
 					<table class="pt_tb">
 						<thead>
-							<th align="center">인기 취준 톡톡
-							</th>
+							<tr>
+								<th align="center">취준톡톡 인기글</th>
+							</tr>
 						</thead>
-						<c:forEach var="board" items="${listPopular2}">
+						<c:forEach var="board" items="${listPopular_QnA}">
 							<tr>
 								<td align="center">
 									<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}">${board.subject}</a>
@@ -110,11 +112,13 @@
 				<article>
 					<table class="communityListTable">
 						<thead>
-							<th>&nbsp;NO&nbsp;</th>
-							<th>&nbsp;제목&nbsp;</th>
-							<th>&nbsp;작성자&nbsp;</th>
-							<th>&nbsp;등록 날짜&nbsp;</th>
-							<th>&nbsp;조회수&nbsp;</th>
+							<tr>
+								<th>&nbsp;NO&nbsp;</th>
+								<th>&nbsp;제목&nbsp;</th>
+								<th>&nbsp;작성자&nbsp;</th>
+								<th>&nbsp;등록 날짜&nbsp;</th>
+								<th>&nbsp;조회수&nbsp;</th>
+							</tr>
 						</thead>
 						<c:if test="${totCnt > 0 }">
 							<c:forEach var="board" items="${list }">

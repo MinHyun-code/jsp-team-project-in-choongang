@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "Do Hyeon";
+	src: url("../image/DoHyeon-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+body {
+	margin: 0 auto;
+	padding: 0px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+	background-color: #F6F6F6;
+}
+
+header {
+	margin-top: 30px;
+	padding: 5px;
+	display: flex;
+	display: block;
+}
+
+table {
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+tr td #id {
+	width: 400px;
+	height: 65px;
+	border-color: #9fa19f;
+}
+
+tr td #pw {
+	width: 400px;
+	height: 65px;
+	border-color: #9fa19f;
+}
+
+tr td #lg_bt {
+	width: 250px;
+	height: 150px;
+	background: #002266;
+	border: 1px;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	float: top;
+	position: relative;
+	float: top;
+}
+
+nav {
+	display: flex;
+	background-color: #002266;
+}
+
+footer {
+	clear: both;
+	background-color: #D5D5D5;
+	color: white;
+	text-align: center;
+	padding: 1em 0px;
+}
