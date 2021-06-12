@@ -11,8 +11,7 @@
 CONN J20210503/tiger;
 
 
----- 210603_1752_포워드엔지니어링
-
+---- 210610_1509_포워드엔지니어링
 /* 회원 */
 DROP TABLE MEMBER 
 	CASCADE CONSTRAINTS;
@@ -191,8 +190,8 @@ COMMENT ON COLUMN SELF_INTRO.si_content IS '자소서내용';
 /* 자격증 */
 CREATE TABLE LICENCE (
 	lc_num NUMBER(3) NOT NULL, /* 자격증 번호 */
-	lc_organ VARCHAR2(30), /* 관리 기관 */
-	lc_name VARCHAR2(30) /* 자격증 이름 */
+	lc_name VARCHAR2(30), /* 자격증 이름 */
+	lc_organ VARCHAR2(30) /* 관리 기관 */
 );
 
 CREATE UNIQUE INDEX PK_LICENCE
@@ -211,16 +210,16 @@ COMMENT ON TABLE LICENCE IS '자격증';
 
 COMMENT ON COLUMN LICENCE.lc_num IS '자격증 번호';
 
-COMMENT ON COLUMN LICENCE.lc_organ IS '관리 기관';
-
 COMMENT ON COLUMN LICENCE.lc_name IS '자격증 이름';
+
+COMMENT ON COLUMN LICENCE.lc_organ IS '관리 기관';
 
 /* 세부학력 */
 CREATE TABLE MY_EDU (
 	r_num NUMBER(9) NOT NULL, /* 이력서번호 */
 	edu_num NUMBER(3) NOT NULL, /* 학력 번호 */
-	myedu_sdate DATE, /* 재학시작일 */
-	myedu_edate DATE, /* 재학종료일 */
+	myedu_sdate VARCHAR2(20), /* 재학시작일 */
+	myedu_edate VARCHAR2(20), /* 재학종료일 */
 	edu_type VARCHAR2(1) /* 졸업구분 */
 );
 
@@ -253,19 +252,18 @@ COMMENT ON COLUMN MY_EDU.edu_type IS '졸업구분';
 /* 경력사항 */
 CREATE TABLE CAREER (
 	r_num NUMBER(9) NOT NULL, /* 이력서번호 */
-	cr_num NUMBER(3) NOT NULL, /* 경력사항 번호 */
-	cr_name VARCHAR2(30), /* 회사명 */
+	cr_name VARCHAR2(30) NOT NULL, /* 회사명 */
 	cr_grade VARCHAR2(20), /* 직급 */
 	cr_salary NUMBER, /* 연봉 */
 	cr_job VARCHAR2(20), /* 담당업무 */
-	cr_sdate DATE, /* 재직시작일 */
-	cr_edate DATE /* 재직종료일 */
+	cr_sdate VARCHAR2(20), /* 재직시작일 */
+	cr_edate VARCHAR2(20) /* 재직종료일 */
 );
 
 CREATE UNIQUE INDEX PK_CAREER
 	ON CAREER (
 		r_num ASC,
-		cr_num ASC
+		cr_name ASC
 	);
 
 ALTER TABLE CAREER
@@ -273,14 +271,12 @@ ALTER TABLE CAREER
 		CONSTRAINT PK_CAREER
 		PRIMARY KEY (
 			r_num,
-			cr_num
+			cr_name
 		);
 
 COMMENT ON TABLE CAREER IS '경력사항';
 
 COMMENT ON COLUMN CAREER.r_num IS '이력서번호';
-
-COMMENT ON COLUMN CAREER.cr_num IS '경력사항 번호';
 
 COMMENT ON COLUMN CAREER.cr_name IS '회사명';
 
@@ -298,7 +294,7 @@ COMMENT ON COLUMN CAREER.cr_edate IS '재직종료일';
 CREATE TABLE MY_LICENCE (
 	r_num NUMBER(9) NOT NULL, /* 이력서번호 */
 	lc_num NUMBER(3) NOT NULL, /* 자격증 번호 */
-	mylc_date DATE /* 취득날짜 */
+	mylc_date VARCHAR2(20) /* 취득날짜 */
 );
 
 CREATE UNIQUE INDEX PK_MY_LICENCE
@@ -626,7 +622,8 @@ CREATE TABLE APPLY (
 	m_id VARCHAR2(30) NOT NULL, /* 회원아이디 */
 	rc_num NUMBER(30) NOT NULL, /* 채용공고번호 */
 	r_num NUMBER(9), /* 이력서번호 */
-	a_date DATE /* 지원날짜 */
+	a_date DATE, /* 지원날짜 */
+	ap_cnt NUMBER(2) /* 지원현황 */
 );
 
 CREATE UNIQUE INDEX PK_APPLY
@@ -652,6 +649,8 @@ COMMENT ON COLUMN APPLY.rc_num IS '채용공고번호';
 COMMENT ON COLUMN APPLY.r_num IS '이력서번호';
 
 COMMENT ON COLUMN APPLY.a_date IS '지원날짜';
+
+COMMENT ON COLUMN APPLY.ap_cnt IS '지원현황';
 
 ALTER TABLE RESUME
 	ADD
@@ -846,6 +845,8 @@ ALTER TABLE APPLY
 		REFERENCES RECRUIT (
 			rc_num
 		);
+
+
 
 
 
