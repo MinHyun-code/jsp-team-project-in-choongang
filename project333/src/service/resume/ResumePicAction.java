@@ -56,9 +56,9 @@ public class ResumePicAction implements CommandProcess {
 			if(file!=null){
 				System.out.println("크기 : " + file.length() + "<br>");
 			}
-			upLoadFilename =  "fileSave\\" + filename;
+			upLoadFilename =  "fileSave/" + filename;
 			System.out.println("전달 upLoadFilename ->" + upLoadFilename);
-			request.setAttribute("filename", "fileSave\\" + filename);
+			request.setAttribute("filename", "fileSave/" + filename);
 			
 			if(i==1) {
 				request.setAttribute("upLoadFilename", upLoadFilename);

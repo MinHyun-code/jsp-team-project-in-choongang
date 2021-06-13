@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityContent.css">
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/community/js/community.js"></script>
 <script src="${pageContext.request.contextPath}/community/js/communityContent.js"></script>
-
 </head>
 
 <body>
@@ -55,8 +55,15 @@
 								<hr>
 							</td>
 						</tr>
+						<c:if test="${not empty board.file_name}">
+							<tr>
+								<td id="td_board_image" colspan="100">
+									<input id="board_image" type="image" name="file_pic" src="${board.file_name }">
+								</td>
+							</tr>
+						</c:if>
 						<tr>
-							<td colspan="100">${board.content}</td>
+							<td class="community_content" colspan="100">${board.content}</td>
 						</tr>
 						<tr>
 							<td>${board.tags}</td>
@@ -104,7 +111,9 @@
 							<table class="pt_tb pt_tb_answer">
 								<tr>
 									<td id="comment">
-										<h1>답변 <span class="show_size">${answerList.size()}</span>건</h1>
+										<h1>
+											답변 <span class="show_size">${answerList.size()}</span>건
+										</h1>
 									</td>
 								</tr>
 								<tr>
@@ -119,105 +128,107 @@
 								<input type="hidden" name="m_id" value="${sessionID}">
 								<input type="hidden" name="pageNum" value="${pageNum}">
 								<input type="hidden" name="subject" value="[답변]">
-						</form>
-						<c:forEach var="answer" items="${answerList }">
-							<form method="post">
-								<input type="hidden" name="answer_bd_code" value="${answer.bd_code}">
-								<input type="hidden" name="answer_bd_num" value="${answer.bd_num}">
-								<input type="hidden" name="bd_code" value="${board.bd_code}">
-								<input type="hidden" name="bd_num" value="${board.bd_num}">
-								<input type="hidden" name="pageNum" value="${pageNum}">
-								<tr class="tr_answer">
-									<td class="td_answer_content">${answer.content}</td>
-									<td class="td_answer_m_id">${answer.m_id}</td>
-									<td class="td_answer_reg_date">
-										<fmt:formatDate value="${answer.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
-									</td>
-									<c:if test="${sessionID == answer.m_id}">
-										<td>
-											<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do">
-										</td>
-									</c:if>
-								</tr>
-							</form>
-						</c:forEach>
-					</c:if>
-					</table>
+								</form>
+								<c:forEach var="answer" items="${answerList }">
+									<form method="post">
+										<input type="hidden" name="answer_bd_code" value="${answer.bd_code}">
+										<input type="hidden" name="answer_bd_num" value="${answer.bd_num}">
+										<input type="hidden" name="bd_code" value="${board.bd_code}">
+										<input type="hidden" name="bd_num" value="${board.bd_num}">
+										<input type="hidden" name="pageNum" value="${pageNum}">
+										<tr class="tr_answer">
+											<td class="td_answer_content">${answer.content}</td>
+											<td class="td_answer_m_id">${answer.m_id}</td>
+											<td class="td_answer_reg_date">
+												<fmt:formatDate value="${answer.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+											</td>
+											<c:if test="${sessionID == answer.m_id}">
+												<td>
+													<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityAnswerDelete.do">
+												</td>
+											</c:if>
+										</tr>
+									</form>
+								</c:forEach>
+								</c:if>
+							</table>
 
-					<!-- comment -->
-					<table class="pt_tb pt_tb_comment">
-						<tr>
-							<td id="comment">
-								<h1>댓글 <span class="show_size">${commentList.size()}</span>건</h1>
-							</td>
-						</tr>
-						<tr>
-							<td id="td_hr" colspan="100">
-								<hr>
-							</td>
-						</tr>
-						<c:forEach var="comment" items="${commentList}">
-							<form method="post">
-								<input type="hidden" name="bd_code" value="${comment.bd_code}">
-								<input type="hidden" name="bd_num" value="${comment.bd_num}">
-								<input type="hidden" name="pageNum" value="${pageNum}">
-								<input type="hidden" name="target_bd_cm_num" value="${comment.bd_cm_num}">
-								<input type="hidden" name="target_ref" value="${comment.ref}">
-								<input type="hidden" name="target_re_step" value="${comment.re_step}">
-								<input type="hidden" name="target_re_level" value="${comment.re_level}">
-								<tr class="tr_comment">
-									<td class="td_comment_content">
-										<c:forEach var="i" begin="0" end="${comment.re_level-1}">
-										</c:forEach>
-										<c:if test="${comment.re_level>1 }">
-											<span class="comment_reply_prefix"><i class="icon-level-down"></i><i class="icon-level-up"></i></span>
-										</c:if>
-										${comment.content}
+							<!-- comment -->
+							<table class="pt_tb pt_tb_comment">
+								<tr>
+									<td id="comment">
+										<h1>
+											댓글 <span class="show_size">${commentList.size()}</span>건
+										</h1>
 									</td>
-									<td class="td_comment_m_id">${comment.m_id}</td>
-									<td class="td_comment_reg_date">
-										<fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
-									</td>
-									<c:if test="${sessionID == comment.m_id}">
-										<td>
-											<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityCommentDelete.do">
-										</td>
-									</c:if>
-
 								</tr>
 								<tr>
-									<td class="td_comment_reply_content">
-										<c:forEach var="i" begin="0" end="${comment.re_level}"></c:forEach>
-										<input name="content" class="form_box comment_reply_box comment_reply_box_${comment.bd_cm_num}">
-										<c:if test="${comment.re_level == 1 }">
-											<input type="button" value="답글쓰기" class="btn btn_reply btn_reply_${comment.bd_cm_num}" onclick="funcReplyBox(${comment.bd_cm_num}, '300px')"></input>
-										</c:if>
-										<input type="submit" value="등록" class="btn btn_reply  btn_reply2 btn_reply2_${comment.bd_cm_num}" formaction="${pageContext.request.contextPath}/communityCommentReply.do">
+									<td id="td_hr" colspan="100">
+										<hr>
 									</td>
-									<td></td>
 								</tr>
-							</form>
-						</c:forEach>
+								<c:forEach var="comment" items="${commentList}">
+									<form method="post">
+										<input type="hidden" name="bd_code" value="${comment.bd_code}">
+										<input type="hidden" name="bd_num" value="${comment.bd_num}">
+										<input type="hidden" name="pageNum" value="${pageNum}">
+										<input type="hidden" name="target_bd_cm_num" value="${comment.bd_cm_num}">
+										<input type="hidden" name="target_ref" value="${comment.ref}">
+										<input type="hidden" name="target_re_step" value="${comment.re_step}">
+										<input type="hidden" name="target_re_level" value="${comment.re_level}">
+										<tr class="tr_comment">
+											<td class="td_comment_content">
+												<c:forEach var="i" begin="0" end="${comment.re_level-1}">
+												</c:forEach>
+												<c:if test="${comment.re_level>1 }">
+													<span class="comment_reply_prefix"><i class="icon-level-down"></i><i class="icon-level-up"></i></span>
+												</c:if>
+												${comment.content}
+											</td>
+											<td class="td_comment_m_id">${comment.m_id}</td>
+											<td class="td_comment_reg_date">
+												<fmt:formatDate value="${comment.reg_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+											</td>
+											<c:if test="${sessionID == comment.m_id}">
+												<td>
+													<input type="submit" value="삭제" class="btn btn_comment_delete" formaction="${pageContext.request.contextPath}/communityCommentDelete.do">
+												</td>
+											</c:if>
 
-						<form method="post">
-							<input type="hidden" name="bd_code" value="${board.bd_code}">
-							<input type="hidden" name="bd_num" value="${board.bd_num}">
-							<input type="hidden" name="pageNum" value="${pageNum}">
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td>
-									<input name="content" class="form_box content_comment_write">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<input type="submit" value="댓글등록" class="btn btn_comment_write" formaction="${pageContext.request.contextPath}/communityCommentWrite.do">
-								</td>
-							</tr>
-						</form>
-					</table>
+										</tr>
+										<tr>
+											<td class="td_comment_reply_content">
+												<c:forEach var="i" begin="0" end="${comment.re_level}"></c:forEach>
+												<input name="content" class="form_box comment_reply_box comment_reply_box_${comment.bd_cm_num}">
+												<c:if test="${comment.re_level == 1 }">
+													<input type="button" value="답글쓰기" class="btn btn_reply btn_reply_${comment.bd_cm_num}" onclick="funcReplyBox(${comment.bd_cm_num}, '300px')"></input>
+												</c:if>
+												<input type="submit" value="등록" class="btn btn_reply  btn_reply2 btn_reply2_${comment.bd_cm_num}" formaction="${pageContext.request.contextPath}/communityCommentReply.do">
+											</td>
+											<td></td>
+										</tr>
+									</form>
+								</c:forEach>
+
+								<form method="post">
+									<input type="hidden" name="bd_code" value="${board.bd_code}">
+									<input type="hidden" name="bd_num" value="${board.bd_num}">
+									<input type="hidden" name="pageNum" value="${pageNum}">
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>
+											<input name="content" class="form_box content_comment_write">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="submit" value="댓글등록" class="btn btn_comment_write" formaction="${pageContext.request.contextPath}/communityCommentWrite.do">
+										</td>
+									</tr>
+								</form>
+							</table>
 				</article>
 			</section>
 			<section id="">

@@ -80,7 +80,7 @@ public class RecruitDao {
 				rdt.setRc_content(rs.getString("rc_content"));
 				rdt.setRc_scrap(rs.getString("rc_scrap"));
 				rdt.setRc_salary(rs.getInt("rc_salary"));
-				rdt.setRc_view(rs.getInt("rc_view"));
+				rdt.setRc_view(rs.getLong("rc_view"));
 				rdt.setRc_date(rs.getDate("rc_date"));
 				rdt.setRc_link(rs.getString("rc_link"));
 				list.add(rdt);
@@ -115,7 +115,7 @@ public class RecruitDao {
 				rdt.setRc_content(rs.getString("rc_content"));
 				rdt.setRc_scrap(rs.getString("rc_scrap"));
 				rdt.setRc_salary(rs.getInt("rc_salary"));
-				rdt.setRc_view(rs.getInt("rc_view"));
+				rdt.setRc_view(rs.getLong("rc_view"));
 				rdt.setRc_date(rs.getDate("rc_date"));
 				rdt.setRc_link(rs.getString("rc_link"));
 				rclist.add(rdt); // 데이터 베이스값이 들어간 Arraylist객체 rclist 생성하는 일을 하는 메소드 rclist
@@ -152,7 +152,7 @@ public class RecruitDao {
 			rdt.setRc_content(rs.getString("rc_content"));
 			rdt.setRc_scrap(rs.getString("rc_scrap"));
 			rdt.setRc_salary(rs.getInt("rc_salary"));
-			rdt.setRc_view(rs.getInt("rc_view"));
+			rdt.setRc_view(rs.getLong("rc_view"));
 			rdt.setRc_date(rs.getDate("rc_date"));
 			rdt.setRc_link(rs.getString("rc_link"));
 		} catch (Exception e) {
@@ -200,7 +200,7 @@ public class RecruitDao {
 					rdt.setRc_content(rs.getString("rc_content"));
 					rdt.setRc_scrap(rs.getString("rc_scrap"));
 					rdt.setRc_salary(rs.getInt("rc_salary"));
-					rdt.setRc_view(rs.getInt("rc_view"));
+					rdt.setRc_view(rs.getLong("rc_view"));
 					rdt.setRc_date(rs.getDate("rc_date"));
 					rdt.setRc_link(rs.getString("rc_link"));
 					rdt.setClvalue(rs.getString("clvalue"));
@@ -225,7 +225,7 @@ public class RecruitDao {
 					rdt.setRc_content(rs.getString("rc_content"));
 					rdt.setRc_scrap(rs.getString("rc_scrap"));
 					rdt.setRc_salary(rs.getInt("rc_salary"));
-					rdt.setRc_view(rs.getInt("rc_view"));
+					rdt.setRc_view(rs.getLong("rc_view"));
 					rdt.setRc_date(rs.getDate("rc_date"));
 					rdt.setRc_link(rs.getString("rc_link"));
 					rdt.setClvalue(rs.getString("clvalue"));
@@ -250,7 +250,7 @@ public class RecruitDao {
 					rdt.setRc_content(rs.getString("rc_content"));
 					rdt.setRc_scrap(rs.getString("rc_scrap"));
 					rdt.setRc_salary(rs.getInt("rc_salary"));
-					rdt.setRc_view(rs.getInt("rc_view"));
+					rdt.setRc_view(rs.getLong("rc_view"));
 					rdt.setRc_date(rs.getDate("rc_date"));
 					rdt.setRc_link(rs.getString("rc_link"));
 					rdt.setClvalue(rs.getString("clvalue"));
@@ -274,7 +274,7 @@ public class RecruitDao {
 					rdt.setRc_content(rs.getString("rc_content"));
 					rdt.setRc_scrap(rs.getString("rc_scrap"));
 					rdt.setRc_salary(rs.getInt("rc_salary"));
-					rdt.setRc_view(rs.getInt("rc_view"));
+					rdt.setRc_view(rs.getLong("rc_view"));
 					rdt.setRc_date(rs.getDate("rc_date"));
 					rdt.setRc_link(rs.getString("rc_link"));
 					searchlist.add(rdt);
@@ -338,7 +338,7 @@ public class RecruitDao {
 				rdt.setRc_content(rs.getString("rc_content"));
 				rdt.setRc_scrap(rs.getString("rc_scrap"));
 				rdt.setRc_salary(rs.getInt("rc_salary"));
-				rdt.setRc_view(rs.getInt("rc_view"));
+				rdt.setRc_view(rs.getLong("rc_view"));
 				rdt.setRc_date(rs.getDate("rc_date"));
 				rdt.setRc_link(rs.getString("rc_link"));
 				preferList.add(rdt); 

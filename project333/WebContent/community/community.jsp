@@ -19,7 +19,7 @@
 						&nbsp;&nbsp;
 				</div>
 				<div id="top2">
-					<a href="${pageContext.request.contextPath}/main.jsp" style="cursor: pointer; text-align: center;
+					<a href="${pageContext.request.contextPath}/main.do" style="cursor: pointer; text-align: center;
 					font-size: 130px; color:#002266; margin-bottom: 40px; text-decoration: none;"><b>다JOB아</b></a>
 				</div>
 				<div id="top3">
@@ -82,7 +82,7 @@
 							<th align="center">인기 정보 글
 							</th>
 						</thead>
-						<c:forEach var="board" items="${listPopular1}">
+						<c:forEach var="board" items="${listPopularInfo}">
 							<tr>
 								<td align="center">
 									<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}">${board.subject}</a>
@@ -97,7 +97,7 @@
 							<th align="center">인기 취준 톡톡
 							</th>
 						</thead>
-						<c:forEach var="board" items="${listPopular2}">
+						<c:forEach var="board" items="${listPopularQnA}">
 							<tr>
 								<td align="center">
 									<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}">${board.subject}</a>

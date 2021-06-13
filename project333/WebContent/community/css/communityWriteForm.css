@@ -2,6 +2,9 @@
     margin-left: 10%;
 }
 
+.pt {
+	width: 1000px;
+}
 
 .pt_tb {
     padding: 30px;
@@ -30,7 +33,11 @@
 	
 }
 
-
+#tags {
+	padding: 5px;
+	width: 45%;
+    height: 25px;
+}
 
 
 
@@ -38,4 +45,9 @@
 	color: #002266;
 	padding: 3px 10px;
 	border: 1px solid #ced4da;
+}
+
+#board_pic{
+	display: none;
+	width:100px
 }

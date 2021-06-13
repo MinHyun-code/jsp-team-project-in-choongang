@@ -62,11 +62,10 @@ public class CommunityListAction implements CommandProcess {
 			request.setAttribute("endPage", pageNumbering.getEndPage());
 
 			// selectPopular
-			List<Board> listPopular1 = bd.listPopular(1, 4);
-			List<Board> listPopular2 = bd.listPopular(2, 4);
-			request.setAttribute("listPopular1", listPopular1);
-			request.setAttribute("listPopular2", listPopular2);
-
+			List<Board> listPopularInfo = bd.listPopular(1, 4);
+			List<Board> listPopularQnA = bd.listPopular(2, 4);
+			request.setAttribute("listPopularInfo", listPopularInfo);
+			request.setAttribute("listPopularQnA", listPopularQnA);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

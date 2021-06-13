@@ -26,6 +26,7 @@ public class CommunityEditProAction implements CommandProcess {
 			int bd_num = Integer.parseInt(request.getParameter("bd_num"));
 			String editedSubject = request.getParameter("subject");
 			String editedContent = request.getParameter("content");
+			String editedTags = request.getParameter("tags");
 			
 			BoardDao bd = BoardDao.getInstance();
 			Board board = new Board();
@@ -33,7 +34,8 @@ public class CommunityEditProAction implements CommandProcess {
 			board.setBd_num(bd_num);
 			board.setM_id(sessionID);
 			board.setSubject(editedSubject);
-			board.setContent(editedContent);			
+			board.setContent(editedContent);
+			board.setTags(editedTags);
 			result = bd.edit(board);
 			request.setAttribute("result", result);
 			

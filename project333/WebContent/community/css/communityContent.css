@@ -163,3 +163,14 @@ textarea::placeholder {
 	font-size: 17px;
 	margin-right: 4px;
 }
+
+#td_board_image {
+	text-align: center;
+}
+
+#board_image {
+	height: 330px;
+	width: 475px;
+	margin: 20px;
+	margin-bottom: 45px;
+}

@@ -10,7 +10,7 @@ public class RecruitDto {
 	private String rc_content;
 	private String rc_scrap;
 	private int rc_salary;
-	private int rc_view;
+	private long rc_view;
 	private Date rc_date;
 	private String clvalue;
 	private String rc_link;
@@ -64,10 +64,10 @@ public class RecruitDto {
 		this.rc_salary = rc_salary;
 	}
 	
-	public int getRc_view() {
+	public long getRc_view() {
 		return rc_view;
 	}
-	public void setRc_view(int rc_view) {
+	public void setRc_view(long rc_view) {
 		this.rc_view = rc_view;
 	}
 	public String getClvalue() {

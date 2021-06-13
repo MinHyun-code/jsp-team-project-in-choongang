@@ -68,8 +68,8 @@
 							<tr class="community_info_${popular_i}_content">
 								<td  class="community_info_content" align="center">
 									<c:choose>
-										<c:when test="${fn:length(board.content) gt 300}">
-											<c:out value="${fn:substring(board.content, 0, 299)} ${'...'}"></c:out>
+										<c:when test="${fn:length(board.content) gt 150}">
+											<c:out value="${fn:substring(board.content, 0, 150)} ${'...'}"></c:out>
 										</c:when>
 										<c:otherwise>
 											<c:out value="${board.content}"></c:out>

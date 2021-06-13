@@ -21,7 +21,7 @@ public class CommunityEditFormAction implements CommandProcess {
 			int bd_code = Integer.parseInt(request.getParameter("bd_code"));
 			int bd_num = Integer.parseInt(request.getParameter("bd_num"));
 			String sessionID = (String) request.getSession().getAttribute("sessionID");
-			int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+			int pageNum = Integer.parseInt(request.getParameter("pageNum").equals("")? "1" : request.getParameter("pageNum"));
 			
 			
 			// select

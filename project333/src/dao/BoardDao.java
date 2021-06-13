@@ -261,15 +261,16 @@ public class BoardDao {
 		PreparedStatement pstmt= null; 
 		int result = 0;			
 		ResultSet rs = null;
-		String sql="UPDATE board SET subject=?, content=? WHERE bd_code=? AND bd_num=? AND m_id=?";
+		String sql="UPDATE board SET subject=?, content=?, tags=? WHERE bd_code=? AND bd_num=? AND m_id=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board.getSubject());
 			pstmt.setString(2, board.getContent());
-			pstmt.setInt(3, board.getBd_code());
-			pstmt.setInt(4, board.getBd_num());
-			pstmt.setString(5, board.getM_id());
+			pstmt.setString(3, board.getTags());
+			pstmt.setInt(4, board.getBd_code());
+			pstmt.setInt(5, board.getBd_num());
+			pstmt.setString(6, board.getM_id());
 			result = pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
