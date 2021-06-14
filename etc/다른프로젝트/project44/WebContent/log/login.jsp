@@ -11,20 +11,35 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
+		var a;
+		var list;
 		function chk(){
 			var function_result = true;
 			$.ajax({
 				url:'${pageContext.request.contextPath}/login.do',
 				data:{m_id : document.getElementById('form').m_id.value, m_pass : document.getElementById('form').m_pass.value},
 				dataType:'html',
-				success: (result) => {
-					alert('아이디 혹은 비밀번호가 틀렸습니다.');
-					function_result = false;
-					console.log('hi');
-					return false;
+				async: false,
+				success: (result) => {					
+					a = result;
+					list = $.parseHTML(a);
+					for(var key in list) {
+						if(list[key].innerText=="Main Page") {
+							function_result = true;
+							break;
+						} else {
+							function_result = false;
+						}
+					}
+					
+					if(function_result) {
+						alert('로그인 되었습니다.');
+					} else {
+						alert('아이디 혹은 비밀번호가 틀렸습니다.');
+					}
 				}
 			})
-			console.log('asd');
+			return function_result;
 		}
 		
 </script>
