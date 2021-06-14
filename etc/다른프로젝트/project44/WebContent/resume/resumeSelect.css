@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Do Hyeon";
+	src: url("../image/DoHyeon-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+body {
+	padding: 30px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+
+header {
+	margin-top: 30px;
+	padding: 5px;
+	display: flex;
+	display: block;
+}
+
+
+#nav {
+	margin-top: 230px;
+	
+}
+
+nav{
+	display: flex;    
+	background-color:  #002266;
+}
+
+nav a{
+	color: white;
+	background-color: #002266;
+	padding: 20px 70px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;
+	margin: 0 auto;
+	z-index: 99;
+	width: 250px;
+	transition: background-color 0.5s;
+}
+ 		
+nav a:hover{
+	background-color: #235594;
+}
+
+#top1 {
+	float:left;
+	position: relative;
+	width: 33%;
+}
+
+#top2 {
+	float:left;
+	width: 33%;
+	position: relative;
+	text-align: center;
+}
+
+#top2 h1 {
+	width: 500px;
+	height: 160px;
+}
+
+#top3 {
+	float:left;
+	width: 33%;
+}
+
+#top3 a {
+	text-decoration: none;
+}
+
+#top3_1 {
+	float:right;
+	position: relative;
+	width: 16%;
+	text-align: center;	
+}
+
+#top3_2 {
+	float:right;
+	text-align: center;
+	width: 16%;
+}
+
+#point {
+	margin-top: 5%;
+	margin-bottom: 3%;
+}
+
+#inform {
+	margin: 0 auto;
+	width: 1200px;
+	height: 700px;
+	padding-top: 3%;
+}
+
+#point h2 {
+	margin-top: 5%;
+	margin-bottom: 8%;
+	font-size: 60px;
+}
+
+.tb {
+	background-color: #FAFAFA;
+}
+
+.tb_point p {
+	margin-top: 5%;
+	margin-bottom: 3%;
+	font-size: 45px;
+}
+
+.tb .input {
+	padding-left: 20px;
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	border: 3px solid #EAEAEA;
+	position: relative;
+	margin-right: 80px;
+}
+
+.tb tr {
+	width :1200px;
+	height: 120px;
+}
+
+.tb #td1 {
+	height: 80px;
+	width: 20%;
+	font-size: 30px;
+	text-align: center;
+}
+
+.tb #td2 {
+	height: 80px;
+	width: 45%;
+	font-size: 30px;
+	text-align: center;
+}
+
+.tb #td3 {
+	height: 80px;
+	width: 35%;
+	font-size: 30px;
+	text-align: center;
+}
+
+#content {
+	width: 830px;
+	height: 500px;
+	float: left;
+	font-size: 25px;
+	font-family: "Do Hyeon";
+	line-height: 160%;
+}
+
+.btn {
+	width: 150px;
+	height: 50px;
+	background: #002266;
+	border: 1px;
+	border-radius: 100px/100px;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
+.btn:hover {
+	background-color: #235594;
+}
+
+footer {
+	clear: both;
+	background-color: #D5D5D5;
+	color: white;
+	text-align: center;
+	padding: 1em 0px;
+}
+
+.select {
+	padding: 15px 10px;
+}
+
+.select input[type=radio] {
+	display: none;
+}
+
+.select input[type=radio]+label {
+	display: inline-block;
+	cursor: pointer;
+	height: 45px;
+	width: 120px;
+	border: 1px solid #333;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.select input[type=radio]+label {
+	background-color: #fff;
+	color: #333;
+}
+
+.select input[type=radio]:checked+label {
+	background-color: #002266;
+	color: #fff;
+}
