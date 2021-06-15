@@ -38,6 +38,7 @@ public class CommunityListAction implements CommandProcess {
 				System.out.println("startRow, endRow: "+pageNumbering.getStartRow()+","+pageNumbering.getEndRow());
 				list = bd.listSearch(pageNumbering.getStartRow(), pageNumbering.getEndRow(), bd_code);
 			} else { //커뮤니티 메인
+				request.setAttribute("bd_code", 0);
 				String word = request.getParameter("word");
 				request.setAttribute("word", word);
 				String replacedWord;

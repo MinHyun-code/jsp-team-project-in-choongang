@@ -121,6 +121,9 @@
 					<article class="pt pt1">
 						<table class="pt_tb">
 							<tr>
+								<td id="td_title">글 작성하기</td>
+							</tr>
+							<tr>
 								<td class="td_subject">
 									<input id="subject" type="text" name="subject" placeholder="글 제목" class="form_box">
 								</td>
@@ -142,8 +145,8 @@
 								</td>
 							</tr>
 							<tr>
-								<td>
-									썸네일&nbsp;
+								<td id="td_thumbnail">
+									썸네일 업로드&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -157,7 +160,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td colspan="50" id="td_submit">
 									<input type="submit" class="btn btn_submit" value="등록하기">
 								</td>
 							</tr>

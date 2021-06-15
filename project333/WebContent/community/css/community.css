@@ -12,7 +12,6 @@
 	font-weight: normal;
 }
 
-
 .form_box {
 	border-color: #0a294f5e;
 	border-radius: 5px;
@@ -47,15 +46,14 @@ header {
 
 #nav {
 	margin-top: 230px;
-	
 }
 
-nav{
-	display: flex;    
-	background-color:  #002266;
+nav {
+	display: flex;
+	background-color: #002266;
 }
 
-nav a{
+nav a {
 	color: white;
 	background-color: #002266;
 	padding: 20px 70px;
@@ -67,19 +65,19 @@ nav a{
 	width: 250px;
 	transition: background-color 0.5s;
 }
- 		
-nav a:hover{
+
+nav a:hover {
 	background-color: #235594;
 }
 
 #top1 {
-	float:left;
+	float: left;
 	position: relative;
 	width: 33%;
 }
 
 #top2 {
-	float:left;
+	float: left;
 	width: 33%;
 	position: relative;
 	text-align: center;
@@ -91,7 +89,7 @@ nav a:hover{
 }
 
 #top3 {
-	float:left;
+	float: left;
 	width: 33%;
 }
 
@@ -100,18 +98,17 @@ nav a:hover{
 }
 
 #top3_1 {
-	float:right;
+	float: right;
 	position: relative;
 	width: 16%;
-	text-align: center;	
+	text-align: center;
 }
 
 #top3_2 {
-	float:right;
+	float: right;
 	text-align: center;
 	width: 16%;
 }
-
 
 /* drop-down menu */
 #main-menu, #sub-menu {
@@ -152,6 +149,7 @@ nav a:hover{
 	opacity: 0.999;
 	transition: background-color 0.75s;
 }
+
 #main-menu>li:hover #sub-menu>li:nth-child(n+2)>a:hover {
 	background-color: #235594;
 	visibility: visible;
@@ -160,7 +158,6 @@ nav a:hover{
 	transition-duration: 0.5s;
 }
 /**/
-
 
 /* point */
 #point {
@@ -231,14 +228,14 @@ nav a:hover{
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-right: 20%;
-	margin-bottom: 5px;
+    margin-bottom: 25px;
 	position: relative;
 	height: 20px;
 	border: 1px solid #cdd3e4;
 	padding: 0px 10px;
 	border-radius: 15px;
 	float: right;
-	clear: both;
+	/* 	clear: both; */
 }
 
 #material-icons {
@@ -267,9 +264,18 @@ nav a:hover{
 	padding-left: 20px;
 }
 
+#mainTitleTable {
+	clear: both;
+	float: left;
+    margin-top: 42px;
+    margin-left: 16px;
+	color: black;
+	font-size: 20px;
+}
+
 #communityMainTable {
 	position: relative;
-	margin-top: 3px;
+	margin-top: -14px;
 	margin-bottom: 50px;
 	width: 95%;
 }
@@ -533,7 +539,7 @@ footer {
 
 @media ( min-width :1300px) {
 	#right {
-/* 		display: block; */
+		/* 		display: block; */
 		display: none;
 	}
 }
