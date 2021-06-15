@@ -121,6 +121,9 @@
 					<article class="pt pt1">
 						<table class="pt_tb">
 							<tr>
+								<td class="td_subject">
+									<input id="subject" type="text" name="subject" placeholder="글 제목" class="form_box">
+								</td>
 								<td>
 									<select id="select_bd_code" name="bd_code">
 										<option value="1">정보공유</option>
@@ -129,11 +132,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>
-									<input id="subject" type="text" name="subject" placeholder="글 제목" class="form_box">
-							</tr>
-							<tr>
-								<td>
+								<td colspan="5">
 									<textarea id="content" name="content" placeholder="글 내용" rows="15" class="form_box"></textarea>
 								</td>
 							</tr>
@@ -143,13 +142,17 @@
 								</td>
 							</tr>
 							<tr>
-								<td id="td2">
-									<input type="file" name="file_pic" id="file_pic">
+								<td>
+									썸네일&nbsp;
 								</td>
-
 							</tr>
 							<tr>
-								<td id="td3">
+								<td colspan="10">
+									<input type="file" name="file_pic" id="file_pic">
+								</td>
+							</tr>
+							<tr>
+								<td id="td_image">
 									<input type="image" id="board_pic" src="" style="height: 200px; width: 160px;">
 								</td>
 							</tr>

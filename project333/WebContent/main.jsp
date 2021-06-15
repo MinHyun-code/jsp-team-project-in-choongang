@@ -81,7 +81,25 @@
 			</div>
 		</header>
 		<div id="container">
-			<div id="recruit_recommend_container">추천공고/최신공고</div>
+
+			<!-- 채용공고 -->
+			<div id="recruit_recommend_container">
+				<div class="recruit_recommend_title">최신 공고</div>
+				<c:forEach items="${listRc}" var="rdt" begin="0" end="9">
+					<div class="recruit_recommend_division">
+						<div class="recruit_recommend_block">
+							<div class="recruit_recommend_block_img">
+								<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${rdt.rc_name}','name','resizable=no width=600 height=500'); return false">
+									<img src="${rdt.rc_content}" style="width: 200px; height: 150px">
+								</a>
+							</div>
+							<div class="recruit_recommend_block_title">${rdt.rc_title}&nbsp;</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+
+			<!-- 커뮤니티 -->
 			<div id="community_popular_container">
 				<div id="community_popular_info" class="community_popular_part">
 					<div class="community_popular_title">커뮤니티 인기글</div>
@@ -141,7 +159,6 @@
 							<tr>
 								<td class="community_popular_table_tags">${board.tags}</td>
 							</tr>
-
 						</table>
 					</c:forEach>
 				</div>

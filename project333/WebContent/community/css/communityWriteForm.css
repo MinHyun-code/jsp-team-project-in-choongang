@@ -1,5 +1,5 @@
 #point {
-    margin-left: 10%;
+	margin-left: 10%;
 }
 
 .pt {
@@ -7,39 +7,32 @@
 }
 
 .pt_tb {
-    padding: 30px;
+	padding: 30px;
 }
 
 .pt_tb td {
 	padding: 3px 7px;
-	
 }
-
-
 
 #subject {
 	padding: 5px;
-	width: 40%;
-    height: 25px;
-   
+	width: 300px;
+	height: 25px;
 }
 
 #content {
-/* 	width: 100%; */
+	/* 	width: 100%; */
 	resize: vertical;
 	padding: 5px;
 	width: 700px;
 	height: 210px;
-	
 }
 
 #tags {
 	padding: 5px;
-	width: 45%;
-    height: 25px;
+	width: 250px;
+	height: 25px;
 }
-
-
 
 #select_bd_code {
 	color: #002266;
@@ -47,7 +40,16 @@
 	border: 1px solid #ced4da;
 }
 
-#board_pic{
+#board_pic {
 	display: none;
-	width:100px
+    height: 233px;
+    width: 370px;
+}
+
+.td_subject {
+	width: 300px;
+}
+
+#td_image {
+	height: 0px !important;
 }
