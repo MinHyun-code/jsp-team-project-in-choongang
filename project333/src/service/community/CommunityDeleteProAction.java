@@ -48,7 +48,7 @@ public class CommunityDeleteProAction implements CommandProcess {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "communityList.do";
+		return "community/communityDeletePro.jsp";
 	}
 
 }
