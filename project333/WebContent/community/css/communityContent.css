@@ -34,7 +34,8 @@
 }
 
 .td_comment_content {
-	width: 550px;
+	width: 520px;
+    padding-right: 30px;
 }
 
 .tr_comment>td {
@@ -131,7 +132,8 @@ textarea::placeholder {
 }
 
 .td_answer_content {
-	width: 550px;
+	width: 520px;
+    padding-right: 30px;
 }
 
 .td_answer_reg_date, .td_comment_reg_date {
@@ -173,4 +175,8 @@ textarea::placeholder {
 	width: 370px;
 	margin: 20px;
 	margin-bottom: 45px;
+}
+
+#board_td_tags {
+	padding-top: 35px;
 }

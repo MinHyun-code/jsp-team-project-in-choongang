@@ -81,6 +81,11 @@
 			</div>
 		</header>
 		<div id="container">
+			<div id="mainUpperPart">
+				<div id="mainUpperPart_left"></div>
+				<div id="mainUpperPart_center"></div>
+				<div id="mainUpperPart_right"></div>
+			</div>
 
 			<!-- 채용공고 -->
 			<div id="recruit_recommend_container">
@@ -130,7 +135,6 @@
 							</tr>
 						</table>
 					</c:forEach>
-
 				</div>
 				<div id="community_popular_QnA" class="community_popular_part">
 					<div class="community_popular_title">취준톡톡 인기글</div>
@@ -147,8 +151,8 @@
 							<tr>
 								<td class="community_popular_table_content">
 									<c:choose>
-										<c:when test="${fn:length(board.content) gt 301}">
-											<c:out value="${fn:substring(board.content, 0, 299)}" />
+										<c:when test="${fn:length(board.content) gt 150}">
+											<c:out value="${fn:substring(board.content, 0, 150)} ${'...'}"></c:out>
 										</c:when>
 										<c:otherwise>
 											<c:out value="${board.content}" />
@@ -163,6 +167,9 @@
 					</c:forEach>
 				</div>
 			</div>
+
+
+
 		</div>
 		<footer> Copyright & copy </footer>
 </body>

@@ -294,7 +294,7 @@ public class RecruitDao {
 	
 	
 	
-	public int insertLikeCompany(String m_id,int rc_num) { //id를 넣어줘야해
+	public int insertLikeCompany(String m_id,int rc_num) throws SQLException { //id를 넣어줘야해
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -312,13 +312,16 @@ public class RecruitDao {
 			pstmt.close();
 		}catch(Exception e){
 			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null)conn.close();
 		}
 		
 		
 		return result;
 	}
 	
-	public ArrayList<RecruitDto> preferList( String m_id ){
+	public ArrayList<RecruitDto> preferList( String m_id ) throws SQLException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -347,6 +350,10 @@ public class RecruitDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			if (pstmt != null) pstmt.close();
+			if (rs != null)	rs.close();
+			if (conn != null)conn.close();
 		}
 		
 		

@@ -66,7 +66,7 @@
 							<td class="community_content" colspan="100">${board.content}</td>
 						</tr>
 						<tr>
-							<td>${board.tags}</td>
+							<td id="board_td_tags">${board.tags}</td>
 						</tr>
 						<tr>
 							<!-- only for writer-->

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <h1>async.html</h1>
+    <a href="asyncLink.html">Link</a>
+    <script>
+        function getData(callbackFunc) {
+            $.ajax({
+                url:'asyncLink.html',
+                dataType:'html',
+                success: (response) => {
+                    callbackFunc(response);
+                }
+            });
+        }
+        getData(function(data){
+            console.log("in getData: "+data);
+        });
+    </script>
+</body>
+</html>

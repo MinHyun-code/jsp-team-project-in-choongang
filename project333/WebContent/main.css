@@ -203,6 +203,39 @@ footer {
 	margin-bottom: 100px;
 }
 
+
+/* mainUpperPart */
+
+#mainUpperPart {
+	height: 368px;
+	background-color: gray;
+	margin-bottom: 70px;
+}
+
+#mainUpperPart_left, #mainUpperPart_center,#mainUpperPart_right {
+	height: 100%;
+	float: left;
+}
+
+#mainUpperPart_left {
+	width: 25%;
+	background-color: red;	
+}
+
+#mainUpperPart_center {
+	width: 50%;
+	background-color: blue;	
+}
+
+#mainUpperPart_right {
+	width: 25%;
+	background-color: green;	
+}
+
+
+
+
+
 /* recruit in container */
 #recruit_recommend_container {
 /* 	background-color: #e3e9f4; */

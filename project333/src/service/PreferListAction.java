@@ -16,15 +16,18 @@ public class PreferListAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RecruitDao rda = RecruitDao.getInstance();
-		
-		HttpSession session = request.getSession();
-		String m_id=String.valueOf(session.getAttribute("sessionID"));
-		System.out.println("m_id --------->"+ m_id); //값 잘 들어옴
-		ArrayList<RecruitDto> preferList = rda.preferList(m_id);
-		System.out.print(preferList);
-		request.setAttribute("preferList", preferList);
-		return "recruit/preferList.jsp";
+		try {
+			RecruitDao rda = RecruitDao.getInstance();
+			HttpSession session = request.getSession();
+			String m_id=String.valueOf(session.getAttribute("sessionID"));
+			System.out.println("m_id --------->"+ m_id); //값 잘 들어옴
+			ArrayList<RecruitDto> preferList = rda.preferList(m_id);
+			System.out.print(preferList);
+			request.setAttribute("preferList", preferList);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "recruit/preferList.jsp";	
 	}
 
 }
