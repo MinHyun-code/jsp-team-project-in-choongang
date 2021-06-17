@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/dropDown.css">
-<script src="${pageContext.request.contextPath}/main.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script defer src="${pageContext.request.contextPath}/mainCarousel.js"></script>
 </head>
 <body>
 	<div id="page">
@@ -82,8 +83,53 @@
 		</header>
 		<div id="container">
 			<div id="mainUpperPart">
-				<div id="mainUpperPart_left"></div>
-				<div id="mainUpperPart_center"></div>
+				<div id="mainUpperPart_left">
+					<div class="slide_box">
+						<div class="slide_list">
+							<div id="lastClone" class="slide_item">5</div>
+							<div class="slide_item">최신공고<br>${listRc[0].rc_name}</div>
+							<div class="slide_item">인기정보글<br>${listPopularInfo[0].subject}</div>
+							<div class="slide_item">추천공고<br>${listRc[4].rc_name}</div>
+							<div class="slide_item">추천공고<br>${listRc[7].rc_name}</div>
+							<div class="slide_item">궁금해요<br>${listPopularQnA[0].subject}</div>
+							<div id="firstClone" class="slide_item">최신공고<br>${listRc[0].rc_name}</div>
+						</div>
+					</div>
+					<button class="slideBtn prevBtn">prev</button>
+					<button class="slideBtn nextBtn">next</button>
+					<button class="slideBtn playBtn">
+						<svg width="6px" height="6px" viewBox="0 0 6 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="btn">
+					        <title>슬라이드 정지 버튼</title>
+					        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					            <g transform="translate(-615.000000, -536.000000)" fill="black" fill-rule="nonzero">
+					                <g transform="translate(330.000000, 192.000000)">
+					                    <g transform="translate(229.000000, 344.000000)">
+					                        <g transform="translate(56.000000, 0.000000)">
+					                            <rect x="0" y="0" width="1.5" height="6"></rect>
+					                            <rect x="4.5" y="0" width="1.5" height="6"></rect>
+					                        </g>
+					                    </g>
+					                </g>
+					            </g>
+					        </g>
+					    </svg>
+					</button>
+				</div>
+				<div id="mainUpperPart_center">
+					<div class="slide_box_center">
+						<div class="slide_list_center">
+							<div id="lastClone_center" class="slide_item_center">5</div>
+							<div class="slide_item_center">1</div>
+							<div class="slide_item_center">2</div>
+							<div class="slide_item_center">3</div>
+							<div class="slide_item_center">4</div>
+							<div class="slide_item_center">5</div>
+							<div id="firstClone_center" class="slide_item_center">1</div>
+						</div>
+					</div>
+					<button class="slideBtn_center prevBtn_center">prev</button>
+					<button class="slideBtn_center nextBtn_center">next</button>
+				</div>
 				<div id="mainUpperPart_right"></div>
 			</div>
 
