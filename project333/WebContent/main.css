@@ -230,6 +230,7 @@ footer {
 	background-color: green;
 }
 
+/* mainUpperPart_left */
 #mainUpperPart_left .slide_box {
 	margin: 0px 0px 0px 0px;
 	/* 	border: rgb(255, 14, 135) 3px dotted; */
@@ -275,6 +276,7 @@ footer {
 	cursor: pointer;
 }
 
+/* mainUpperPart_center */
 #mainUpperPart_center .slide_box_center {
 	margin: 0px 0px 0px 0px;
 	/* 	border: rgb(255, 14, 135) 3px dotted; */

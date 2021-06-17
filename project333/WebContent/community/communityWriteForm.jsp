@@ -161,7 +161,7 @@
 							</tr>
 							<tr>
 								<td colspan="50" id="td_submit">
-									<input type="submit" class="btn btn_submit" value="등록하기">
+									<input type="submit" class="btn btn_submit" value="등록">
 								</td>
 							</tr>
 						</table>

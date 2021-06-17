@@ -127,10 +127,10 @@
 					<table id="mainTitleTable">
 						<tr>
 							<c:if test="${bd_code == 0 }">
-								<td>커뮤니티</td>
+								<td>모든 카테고리&nbsp;</td>
 							</c:if>
 							<c:if test="${bd_code == 1 }">
-								<td>정보공유</td>
+								<td>정보공유&nbsp;</td>
 							</c:if>
 							<c:if test="${bd_code == 2 }">
 								<td>취준톡톡</td>
@@ -178,10 +178,10 @@
 										</td>
 									</c:if>
 									<td>${board.m_id}</td>
-									<td>
+									<td class="td_main_reg_date">
 										<fmt:formatDate value="${board.reg_date}" pattern="YYYY-MM-dd" />
 									</td>
-									<td>${board.read_count}</td>
+									<td class="td_main_read_count">${board.read_count}</td>
 								</tr>
 							</c:forEach>
 						</c:if>
