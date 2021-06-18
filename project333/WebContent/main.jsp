@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/dropDown.css">
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script defer src="${pageContext.request.contextPath}/mainCarousel.js"></script>
+<script defer src="${pageContext.request.contextPath}/mainRecruit.js"></script>
 </head>
 <body>
 	<div id="page">
@@ -87,12 +88,18 @@
 					<div class="slide_box">
 						<div class="slide_list">
 							<div id="lastClone" class="slide_item">5</div>
-							<div class="slide_item">최신공고<br>${listRc[0].rc_name}</div>
-							<div class="slide_item">인기정보글<br>${listPopularInfo[0].subject}</div>
-							<div class="slide_item">추천공고<br>${listRc[4].rc_name}</div>
-							<div class="slide_item">추천공고<br>${listRc[7].rc_name}</div>
-							<div class="slide_item">궁금해요<br>${listPopularQnA[0].subject}</div>
-							<div id="firstClone" class="slide_item">최신공고<br>${listRc[0].rc_name}</div>
+							<div class="slide_item">
+								최신공고<br>${listRc[0].rc_name}</div>
+							<div class="slide_item">
+								인기정보글<br>${listPopularInfo[0].subject}</div>
+							<div class="slide_item">
+								추천공고<br>${listRc[4].rc_name}</div>
+							<div class="slide_item">
+								추천공고<br>${listRc[7].rc_name}</div>
+							<div class="slide_item">
+								궁금해요<br>${listPopularQnA[0].subject}</div>
+							<div id="firstClone" class="slide_item">
+								최신공고<br>${listRc[0].rc_name}</div>
 						</div>
 					</div>
 					<button class="slideBtn prevBtn">prev</button>
@@ -132,21 +139,31 @@
 				</div>
 				<div id="mainUpperPart_right"></div>
 			</div>
-
+			<div class="recruit_recommend_title">채용 공고</div>
 			<!-- 채용공고 -->
 			<div id="recruit_recommend_container">
-				<div class="recruit_recommend_title">최신 공고</div>
-				<c:forEach items="${listRc}" var="rdt" begin="0" end="9">
-					<div class="recruit_recommend_division">
-						<div class="recruit_recommend_block">
-							<div class="recruit_recommend_block_img">
-								<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${rdt.rc_name}','name','resizable=no width=600 height=500'); return false">
-									<img src="${rdt.rc_content}" style="width: 200px; height: 150px">
-								</a>
+
+				<c:forEach items="${listRc}" var="rdt" begin="0" end="99" varStatus="status">
+					<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${rdt.rc_name}','name','resizable=no width=600 height=500'); return false">
+						<div class="recruit_recommend_division recruit_recommend_division_${status.index}">
+							<div class="recruit_recommend_block">
+								<div class="recruit_recommend_block_img">
+									<img src="${rdt.rc_content}">
+								</div>
+								<div class="recruit_recommend_block_title">${rdt.rc_title}&nbsp;</div>
+								<div class="recruit_recommend_block_content">
+									<br> <br>
+									<div class="rc_name">${rdt.rc_name}</div>
+									<div class="rc_salary">
+										<br>${rdt.rc_title}<br>급여 ${rdt.rc_salary} 만원
+									</div>
+									<div class="rc_date">
+										<br> <br> <br>공고일 : ${rdt.rc_date}
+									</div>
+								</div>
 							</div>
-							<div class="recruit_recommend_block_title">${rdt.rc_title}&nbsp;</div>
 						</div>
-					</div>
+					</a>
 				</c:forEach>
 			</div>
 

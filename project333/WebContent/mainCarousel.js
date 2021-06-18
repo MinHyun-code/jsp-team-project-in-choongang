@@ -1,4 +1,4 @@
-//carousel in left
+/* carousel in left */
 const carouselSlide = document.querySelector(".slide_list");
 const carouselContents = document.querySelectorAll(".slide_item");
 
@@ -91,7 +91,7 @@ playBtn.addEventListener("click", () => {
 
 });
 
-//carousel in center
+/* carousel in center */
 const carouselSlide_center = document.querySelector(".slide_list_center");
 const carouselContents_center = document.querySelectorAll(".slide_item_center");
 

@@ -319,34 +319,84 @@ footer {
 #recruit_recommend_container {
 	/* 	background-color: #e3e9f4; */
 	/* 	width: 1200px; */
-	height: 600px;
+	height: 1080px;
 	margin-bottom: 53px;
 	padding-left: 44px;
+	position: relative;
+}
+
+.recruit_recommend_block_img {
+	text-align: center;
+}
+
+.recruit_recommend_block_img img {
+	width: 200px;
+	height: 90px;
 }
 
 .recruit_recommend_title {
-	text-align: center;
-	font-size: 35px;
-	margin-bottom: -10px;
-	margin-right: 52px;
+	/* text-align: center; */
+	font-size: 30px;
+	margin-bottom: 22px;
+	/* margin-right: 43px; */
+	margin-left: 45px;
 }
 
 .recruit_recommend_division {
 	float: left;
-	margin-right: 40px;
-	margin-top: 40px;
-	margin-bottom: 40px;
+	/* 	margin-right: 40px; */
+	/* 	margin-top: 10px; */
+	/*     margin-bottom: 50px; */
+	height: 146px;
+	width: 250px;
+	overflow: hidden;
+	border: black solid;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-width: 5px;
+	border-color: rgb(121, 172, 235);
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	background: linear-gradient(165deg, white 25%, whitesmoke 0, whitesmoke 50%, white 0, white 75%, whitesmoke 0);
+	/* -webkit-background-size: 30px 30px; */
+	background-size: 740px 740px;
 }
 
-.recruit_recommend_division:hover {
-	transition: all 0.2s linear;
-	-webkit-transform: scale(1.2);
-}
-
+/* .recruit_recommend_division:hover { */
+/* 	transition: all 0.2s linear; */
+/* 	-webkit-transform: scale(1.2); */
+/* } */
 .recruit_recommend_block_title {
 	margin-left: 2px;
 	/* 	font-family: "Han sans"; */
+	color: black;
 }
+
+.recruit_recommend_block_content {
+	color: black;
+	font-family: "Han sans";
+}
+
+.recruit_recommend_block_content .rc_name {
+	/* 	font-family: "Do Hyeon"; */
+	text-align: right;
+	font-weight: 700;
+}
+
+.recruit_recommend_block_content .rc_salary {
+	text-align: right;
+	font-size: 14px;
+	color: #535151;
+}
+
+.recruit_recommend_block_content .rc_date {
+	font-size: 12px;
+}
+
+
+
 
 /* community in container */
 #community_popular_container {
@@ -354,6 +404,7 @@ footer {
 	/* 	width: 1200px; */
 	height: 1000px;
 	margin-left: 40px;
+	color: black;
 }
 
 .community_popular_part {
