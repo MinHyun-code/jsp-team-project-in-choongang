@@ -385,6 +385,49 @@ public class RecruitDao {
 		}
 		return result;
 	}
+	
+	//test
+	public int delete(int rc_num) throws SQLException {
+		int result = 0;
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
 		
+		String sqlInApply = "DELETE apply WHERE rc_num = ?";
+		String sqlInLike_company = "DELETE like_company WHERE rc_num = ?";
+		String sqlInClassify = "DELETE classify WHERE rc_num = ?";
+		String sql = "DELETE recruit WHERE rc_num = ?";
+		try {
+			conn = getConnection();
+			
+			pstmt = conn.prepareStatement(sqlInApply);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sqlInLike_company);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sqlInClassify);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rc_num);
+			result = pstmt.executeUpdate();
+			pstmt.close();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
+	
 	
 }

@@ -17,26 +17,30 @@ public class LoginAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 System.out.println("LoginActon Start...");
-		
+		System.out.println("LoginActon Start...");
+		request.setCharacterEncoding("UTF-8");
 		String m_id = request.getParameter("m_id");
 		String m_pass = request.getParameter("m_pass");
-		
-		int loginResult = 0;
+
+		// temp
+		int m_tf = -1;
+
+//		int loginResult = 0;
 		try {
 			MemberDao md = MemberDao.getInstance();
-		    loginResult = md.login(m_id, m_pass);
+			m_tf = md.login(m_id, m_pass);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		if (loginResult == 1) {
-			request.setAttribute("loginResult", loginResult);
+
+		if (m_tf != 2) {
+			request.setAttribute("loginResult", 1);
 			HttpSession session = request.getSession();
 			session.setAttribute("sessionID", m_id);
+			session.setAttribute("sessionM_TF", m_tf);
 			return "main.jsp";
 		} else {
-			request.setAttribute("loginResult", loginResult);
+			request.setAttribute("loginResult", 0);
 			return "log/login.jsp";
 		}
 	}

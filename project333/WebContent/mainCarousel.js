@@ -4,13 +4,19 @@ const carouselContents = document.querySelectorAll(".slide_item");
 
 const prevBtn = document.querySelector(".prevBtn");
 const nextBtn = document.querySelector(".nextBtn");
+
+let moveBtn = new Array();
+for (let i = 0; i < 5; i++) {
+	let selector = '.moveBtn_' + i;
+	moveBtn[i] = document.querySelector(selector);
+}
+
 const playBtn = document.querySelector(".playBtn");
-const intervalTime = 4500;
+const intervalTime = 3500;
 const playBtnValueInPlay =
 	'<svg width="6px" height="6px" viewBox="0 0 6 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="btn">'
-	+ '	<title>슬라이드 정지 버튼</title>'
 	+ '	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">'
-	+ '		<g transform="translate(-615.000000, -536.000000)" fill="black" fill-rule="nonzero">'
+	+ '		<g transform="translate(-615.000000, -536.000000)" fill="white" fill-rule="nonzero">'
 	+ '     	<g transform="translate(330.000000, 192.000000)">'
 	+ '         	<g transform="translate(229.000000, 344.000000)">'
 	+ '             	<g transform="translate(56.000000, 0.000000)">'
@@ -24,9 +30,8 @@ const playBtnValueInPlay =
 	+ '	</svg>';
 const playBtnValueInStop =
 	'<svg width="6px" height="8px" viewBox="0 0 6 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink" class="btn">'
-	+ '	<title>슬라이드 시작 버튼</title>'
 	+ '	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">'
-	+ '		<g transform="translate(-615.000000, -535.000000)" fill="black">'
+	+ '		<g transform="translate(-615.000000, -535.000000)" fill="white">'
 	+ '			<g transform="translate(330.000000, 192.000000)">'
 	+ '				<g transform="translate(229.000000, 343.000000)">'
 	+ '					<g transform="translate(56.000000, 0.000000)">'
@@ -52,15 +57,35 @@ nextBtn.addEventListener("click", () => {
 	carouselSlide.style.transition = "transform 0.3s ease-in-out";
 	counter++;
 	carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
+	for (let j = 0; j < 5; j++) {
+		if (counter - 1 == j) moveBtn[j].style.background = 'white';
+		else moveBtn[j].style.background = 'transparent';
+		if (counter == 6 ) moveBtn[0].style.background = 'white';
+	}
 });
 
-prevBtn.addEventListener("click", () => {
-	if (counter <= 0) return;
-	carouselSlide.style.transition = "transform 0.3s ease-in-out";
-	counter--;
-	carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
-});
-console.log(carouselContents.length);
+//prevBtn.addEventListener("click", () => {
+//	if (counter <= 0) return;
+//	carouselSlide.style.transition = "transform 0.3s ease-in-out";
+//	counter--;
+//	carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
+//});
+
+//pager
+for (let i = 0; i < 5; i++) {
+	let counterNumber = i + 1;
+	moveBtn[i].addEventListener("click", () => {
+		if (counter <= 0) return;
+		carouselSlide.style.transition = "transform 0.3s ease-in-out";
+		counter = counterNumber;
+		carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
+		for (let j = 0; j < 5; j++) {
+			if (i == j) moveBtn[j].style.background = 'white';
+			else moveBtn[j].style.background = 'transparent';
+		}
+	});
+}
+
 
 carouselSlide.addEventListener("transitionend", function() {
 	if (carouselContents[counter].id === "lastClone") {
@@ -82,14 +107,22 @@ playBtn.addEventListener("click", () => {
 	if (isPlayed == 1) {
 		clearInterval(timer);
 		playBtn.innerHTML = playBtnValueInStop;
+		playBtn.style.marginTop = '-31.6px';
 		isPlayed = 0;
 	} else if (isPlayed == 0) {
 		timer = setInterval(() => nextBtn.click(), intervalTime);
 		playBtn.innerHTML = playBtnValueInPlay;
 		isPlayed = 1;
+		playBtn.style.marginTop = '-32.6px';
 	}
 
 });
+
+
+
+
+
+
 
 /* carousel in center */
 const carouselSlide_center = document.querySelector(".slide_list_center");

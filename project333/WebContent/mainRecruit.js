@@ -32,7 +32,7 @@ for (let i = 0; i < recruit_recommend_division_NUMBER; i++) {
 }
 
 for (let i = 0; i < recruit_recommend_division_NUMBER; i++) {
-	if (recruit_recommend_division[i+4] == null) {
+	if (recruit_recommend_division[i + 4] == null) {
 		if (recruit_recommend_division[i] != null) {
 			recruit_recommend_division[i].addEventListener('mouseover', () => {
 				recruit_recommend_division_style_mouseover(i);
@@ -58,17 +58,18 @@ for (let i = 0; i < recruit_recommend_division_NUMBER; i++) {
 
 function recruit_recommend_division_style_mouseover(i) {
 	recruit_recommend_division[i].style.height = pxHeightMouseover + 'px';
-	recruit_recommend_division[i].style.borderColor = 'rgb(22 98 192)';
+//	recruit_recommend_division[i].style.borderColor = 'rgb(22 98 192)';
+	recruit_recommend_division[i].style.borderColor = 'rgb(19 72 137)';
 	recruit_recommend_division[i].style.borderWidth = '2px';
 	recruit_recommend_division[i].style.borderTopWidth = '5px';
 	recruit_recommend_division[i].style.paddingLeft = '9px';
 	recruit_recommend_division[i].style.paddingRight = '9px';
-	
+
 }
 
 function recruit_recommend_division_style_mouseout(i) {
 	recruit_recommend_division[i].style.height = pxHeightMouseout + 'px';
-	recruit_recommend_division[i].style.borderColor = 'rgb(121 172 235)';
+	recruit_recommend_division[i].style.borderColor = 'rgb(129 163 204)';
 	recruit_recommend_division[i].style.borderWidth = '1px';
 	recruit_recommend_division[i].style.borderTopWidth = '5px';
 	recruit_recommend_division[i].style.paddingLeft = '10px';
