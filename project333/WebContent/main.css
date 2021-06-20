@@ -497,6 +497,11 @@ footer {
 	text-align: left;
 }
 
+#mainUpperPart_center .slide_item_center .block a:hover .subject, #mainUpperPart_center .slide_item_center .block a:hover .tags {
+	text-decoration: underline;
+}
+
+
 #mainUpperPart_center .slide_item_center .block .center_block_pic {
 	width: 100px;
 	height: 88px;

@@ -133,15 +133,15 @@ public class RecruitDao {
 		return rclist; // 호출한 곳에 return 호출한곳은 오직 command뿐이므로 이 값이 command로 리턴된다라는 뜻이된다.
 	}
 
-	public RecruitDto popUpHireUnion(String name) throws SQLException {
+	public RecruitDto popUpHireUnion(String num) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from recruit where rc_name=?";
+		String sql = "select * from recruit where rc_num=?";
 
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, name);
+		pstmt.setString(1, num);
 		rs = pstmt.executeQuery();
 		RecruitDto rdt = new RecruitDto();
 		try {
