@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +14,10 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class MemberDao {
+	public static final int joinedIndividual = 1;
+	public static final int closedIndividual = 2;
+	public static final int joinedCompany = 0;
+	public static final int closedCompany = 22;
 
 	private static MemberDao instance;
 
@@ -1515,6 +1520,8 @@ public class MemberDao {
 		return result;
 	}
 
+	/// 통합할 때 여기서부터
+
 	// 채용 공고에 대한 회사 리스트 조회
 	public List<Member> selectCompany(List<RecruitDto> rclist1) throws SQLException {
 		Connection conn = null;
@@ -1541,7 +1548,7 @@ public class MemberDao {
 				member.setM_tf(rs.getString(9));
 				listCompanyTemp.add(member);
 			}
-			
+
 			for (RecruitDto recruit : rclist1) {
 				Member company = new Member();
 				for (Member member : listCompanyTemp) {
@@ -1555,11 +1562,12 @@ public class MemberDao {
 						company.setM_email(member.getM_email());
 						company.setM_phone(member.getM_phone());
 						company.setM_tf(member.getM_tf());
+						break;
 					}
 				}
 				listCompany.add(company);
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -1574,4 +1582,459 @@ public class MemberDao {
 		return listCompany;
 	}
 
+	public int getTotalCnt() throws SQLException {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		String sql = "select count(*) from member";
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return tot;
+	}
+
+	public List<Member> mb_list(int startRow, int endRow) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn ,a.* from " + " (select * from member order by m_name) a ) "
+				+ " where rn between ? and ?";
+		List<Member> memberList = new ArrayList<Member>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Member mb = new Member();
+				mb.setM_id(rs.getString("m_id"));
+				mb.setM_name(rs.getString("m_name"));
+				mb.setM_gender(rs.getString("m_gender"));
+				mb.setM_addr(rs.getString("m_addr"));
+				mb.setM_birth(rs.getString("m_birth"));
+				mb.setM_email(rs.getString("m_email"));
+				mb.setM_phone(rs.getString("m_phone"));
+				mb.setM_tf(rs.getString("m_tf"));
+				mb.setRn(Integer.parseInt(rs.getString("rn")));
+				memberList.add(mb);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (rs != null)
+				rs.close();
+		}
+		return memberList;
+	}
+
+	public int tf_get(String m_id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		String sqlGetM_tf = "SELECT m_tf FROM member WHERE m_id = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sqlGetM_tf);
+			pstmt.setString(1, m_id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			result = Integer.parseInt(rs.getString(1));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (rs != null)
+				rs.close();
+		}
+		return result;
+	}
+
+	public int tf_update(String m_id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		int m_tf = tf_get(m_id);
+		System.out.println("m_tf in tf_update: " + m_tf);
+		String sql = "update member set m_tf=? where m_id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			if (m_tf == joinedIndividual)
+				pstmt.setInt(1, closedIndividual);
+			else if (m_tf == joinedCompany)
+				pstmt.setInt(1, closedCompany);
+			pstmt.setString(2, m_id);
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+		}
+		return result;
+	}
+
+	public int tf_recover(String m_id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		int m_tf = tf_get(m_id);
+		String sql = "update member set m_tf=? where m_id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			if (m_tf == closedIndividual)
+				pstmt.setInt(1, joinedIndividual);
+			else if (m_tf == closedCompany)
+				pstmt.setInt(1, joinedCompany);
+			pstmt.setString(2, m_id);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (conn != null)
+				conn.close();
+			if (pstmt != null)
+				pstmt.close();
+		}
+		return result;
+	}
+
+	public ArrayList<Member> md_searching(String type, String keyword, int startRow, int endRow) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Member> searchlist = new ArrayList<Member>();
+
+		String sql = "select * from (select rownum rn ,a.* from (select * from member where m_id like '%" + keyword
+				+ "%' order by m_name) a ) " + " where rn between ? and ?";
+		String sql1 = "select * from (select rownum rn ,a.* from (select * from member where m_name like '%" + keyword
+				+ "%' order by m_name) a ) " + " where rn between ? and ?";
+		conn = getConnection();
+
+		try {
+			if (type.equals("id")) {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					Member mb = new Member();
+					mb.setRn(Integer.parseInt(rs.getString("rn")));
+					mb.setM_id(rs.getString("m_id"));
+					mb.setM_name(rs.getString("m_name"));
+					mb.setM_birth(rs.getString("m_birth"));
+					mb.setM_gender(rs.getString("m_gender"));
+					mb.setM_email(rs.getString("m_email"));
+					mb.setM_phone(rs.getString("m_phone"));
+					mb.setM_addr(rs.getString("m_addr"));
+					mb.setM_tf(rs.getString("m_tf"));
+					System.out.println("m_id: " + mb.getM_id());
+					searchlist.add(mb);
+				}
+				rs.close();
+				pstmt.close();
+			} // if
+
+			if (type.equals("name")) {
+				pstmt = conn.prepareStatement(sql1);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					Member mb = new Member();
+					mb.setRn(Integer.parseInt(rs.getString("rn")));
+					mb.setM_id(rs.getString("m_id"));
+					mb.setM_name(rs.getString("m_name"));
+					mb.setM_birth(rs.getString("m_birth"));
+					mb.setM_gender(rs.getString("m_gender"));
+					mb.setM_email(rs.getString("m_email"));
+					mb.setM_phone(rs.getString("m_phone"));
+					mb.setM_addr(rs.getString("m_addr"));
+					mb.setM_tf(rs.getString("m_tf"));
+					System.out.println("m_name: " + mb.getM_name());
+					searchlist.add(mb);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (rs != null)
+				rs.close();
+			if (conn != null)
+				conn.close();
+		}
+		return searchlist;
+	}
+
+	public int getTotalCnt(String type, String keyword) throws SQLException {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		String sql;
+		if (type.equals("id")) {
+			sql = "select count(*) from member where m_id like '%" + keyword + "%'";
+		} else {
+			sql = "select count(*) from member where m_name like '%" + keyword + "%'";
+		}
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return tot;
+	}
+
+	public int md_joinCnt() throws SQLException {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		String sql = "select count(*) from member where m_tf=1 or m_tf=0";
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return tot;
+	}
+
+	public int md_wdCnt() throws SQLException {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		int tot = 0;
+		String sql = "select count(*) from member where m_tf=2";
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			if (rs.next())
+				tot = rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return tot;
+	}
+
+	public String read_id() throws SQLException {
+
+		String m_id = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select m_id from board where read_count=(select max(read_count) from board)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				m_id = rs.getString("m_id");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+
+		return m_id;
+	}
+
+	public String write_id() throws SQLException {
+
+		String m_id = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select m_id from board group by m_id having count(*)=(select max(count(m_id)) from board group by m_id)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				m_id = rs.getString("m_id");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+
+		return m_id;
+	}
+
+	public Date rc_date() throws SQLException {
+
+		Date rc_date = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select max(rc_date) rc_date from recruit";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				rc_date = rs.getDate("rc_date");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+
+		return rc_date;
+	}
+
+	public Date reg_date() throws SQLException {
+
+		Date reg_date = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select max(reg_date) reg_date from board";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				reg_date = rs.getDate("reg_date");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+
+		return reg_date;
+	}
+
+	public int delete(int rc_num) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String sqlInApply = "DELETE apply WHERE rc_num = ?";
+		String sqlInLike_company = "DELETE like_company WHERE rc_num = ?";
+		String sqlInClassify = "DELETE classify WHERE rc_num = ?";
+		String sql = "DELETE recruit WHERE rc_num = ?";
+		try {
+			conn = getConnection();
+
+			pstmt = conn.prepareStatement(sqlInApply);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+
+			pstmt = conn.prepareStatement(sqlInLike_company);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+
+			pstmt = conn.prepareStatement(sqlInClassify);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rc_num);
+			result = pstmt.executeUpdate();
+			pstmt.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+	}
 }

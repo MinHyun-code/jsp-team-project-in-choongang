@@ -36,11 +36,11 @@ for (let i = 0; i < recruit_recommend_division_NUMBER; i++) {
 		if (recruit_recommend_division[i] != null) {
 			recruit_recommend_division[i].addEventListener('mouseover', () => {
 				recruit_recommend_division_style_mouseover(i);
-				recruit_recommend_container.style.height = pxHeightMouseoverOfContainer + 'px';
+//				recruit_recommend_container.style.height = pxHeightMouseoverOfContainer + 'px';
 			});
 			recruit_recommend_division[i].addEventListener('mouseout', () => {
 				recruit_recommend_division_style_mouseout(i);
-				recruit_recommend_container.style.height = pxHeightMouseoutOfContainer + 'px';
+//				recruit_recommend_container.style.height = pxHeightMouseoutOfContainer + 'px';
 			});
 		} else break;
 	} else {
@@ -69,7 +69,7 @@ function recruit_recommend_division_style_mouseover(i) {
 
 function recruit_recommend_division_style_mouseout(i) {
 	recruit_recommend_division[i].style.height = pxHeightMouseout + 'px';
-	recruit_recommend_division[i].style.borderColor = 'rgb(129 163 204)';
+	recruit_recommend_division[i].style.borderColor = '#6686d5';
 	recruit_recommend_division[i].style.borderWidth = '1px';
 	recruit_recommend_division[i].style.borderTopWidth = '5px';
 	recruit_recommend_division[i].style.paddingLeft = '10px';

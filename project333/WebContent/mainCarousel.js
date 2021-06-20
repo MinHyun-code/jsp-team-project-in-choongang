@@ -46,7 +46,7 @@ let isPlayed = 1;
 
 //counter
 let counter = 1;
-const size = carouselContents[0].clientWidth;
+const size = carouselContents[0].clientWidth-1;
 
 carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
 

@@ -53,30 +53,71 @@
 			<div id="nav">
 				<nav>
 					<ul id="main-menu">
-						<li><a href="${pageContext.request.contextPath}/rclist.do">채용공고</a></li>
-						<li><a href="${pageContext.request.contextPath}/searchHire.do">채용검색</a></li>
-						<li><a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a>
+						<li>
+							<a href="${pageContext.request.contextPath}/rclist.do">채용공고</a>
+						</li>
+						<li>
+							<a href="${pageContext.request.contextPath}/searchHire.do">채용검색</a>
+						</li>
+						<li>
+							<a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a>
 							<ul id="sub-menu">
-								<li id="asideMenuCommunity"><a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a></li>
-								<li id="asideMenuWrite"><a href="${pageContext.request.contextPath}/communityWriteForm.do">글 작성하기</a></li>
-								<li id="asideMenuInfo"><a href="${pageContext.request.contextPath}/communityList.do?bd_code=1&pageNum=1">정보공유</a></li>
-								<li id="asideMenuToktok"><a href="${pageContext.request.contextPath}/communityList.do?bd_code=2&pageNum=1">취준톡톡</a></li>
+								<li id="asideMenuCommunity">
+									<a href="${pageContext.request.contextPath}/communityList.do">커뮤니티</a>
+								</li>
+								<li id="asideMenuWrite">
+									<a href="${pageContext.request.contextPath}/communityWriteForm.do">글 작성하기</a>
+								</li>
+								<li id="asideMenuInfo">
+									<a href="${pageContext.request.contextPath}/communityList.do?bd_code=1&pageNum=1">정보공유</a>
+								</li>
+								<li id="asideMenuToktok">
+									<a href="${pageContext.request.contextPath}/communityList.do?bd_code=2&pageNum=1">취준톡톡</a>
+								</li>
 								<!-- 							<li id="asideMenuMyTok"><a href="#">내 질문 보기</a></li> -->
-							</ul></li>
-						<li><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a>
-							<ul id="sub-menu">
-								<li id="asideMenuMyTok"><a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a></li>
-								<li id="asideMenuCommunity"><a href="${pageContext.request.contextPath}/mypageApply.do">지원현황</a></li>
-								<li id="asideMenuWrite"><a href="${pageContext.request.contextPath}/preferList.do">관심공고</a></li>
-								<li id="asideMenuInfo"><a href="${pageContext.request.contextPath}/mypageSelect.do">회원정보 수정</a></li>
-								<li id="asideMenuToktok"><a href="${pageContext.request.contextPath}/resumeList.do">이력서 관리</a></li>
-								<li id="asideMenuMyTok"><a href="${pageContext.request.contextPath}/introduceList.do">자기소개서 관리</a></li>
-							</ul></li>
+							</ul>
+						</li>
 						<c:if test="${sessionID != null }">
-							<li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
+							<c:if test="${ sessionID == 'admin' || sessionM_TF == '3' }">
+								<li>
+									<a href="${pageContext.request.contextPath}/adminMain.do" style="padding: 20px 50px;">관리자페이지</a>
+								</li>
+							</c:if>
+						</c:if>
+						<c:if test="${sessionID != null && sessionID != 'admin' && sessionM_TF != '3' }">
+							<li>
+								<a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a>
+								<ul id="sub-menu">
+									<li id="asideMenuMyTok">
+										<a href="${pageContext.request.contextPath}/mypage.do">마이페이지</a>
+									</li>
+									<li id="asideMenuCommunity">
+										<a href="${pageContext.request.contextPath}/mypageApply.do">지원현황</a>
+									</li>
+									<li id="asideMenuWrite">
+										<a href="${pageContext.request.contextPath}/preferList.do">관심공고</a>
+									</li>
+									<li id="asideMenuInfo">
+										<a href="${pageContext.request.contextPath}/mypageSelect.do">회원정보 수정</a>
+									</li>
+									<li id="asideMenuToktok">
+										<a href="${pageContext.request.contextPath}/resumeList.do">이력서 관리</a>
+									</li>
+									<li id="asideMenuMyTok">
+										<a href="${pageContext.request.contextPath}/introduceList.do">자기소개서 관리</a>
+									</li>
+								</ul>
+							</li>
+						</c:if>
+						<c:if test="${sessionID != null }">
+							<li>
+								<a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
+							</li>
 						</c:if>
 						<c:if test="${sessionID == null }">
-							<li><a href="${pageContext.request.contextPath}/log/login.jsp">로그인</a></li>
+							<li>
+								<a href="${pageContext.request.contextPath}/log/login.jsp">로그인</a>
+							</li>
 						</c:if>
 					</ul>
 				</nav>
@@ -95,6 +136,9 @@
 									<div class="company_info">- 업종: ${listCompany[2].m_gender}</div>
 									<div class="company_info">- 사원수: ${listCompany[2].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[2].m_phone}</div>
+									<div class="company_rc_link">
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[1].rc_name}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+									</div>
 								</div>
 
 								<div class="slide_item slide_item_1">
@@ -110,16 +154,39 @@
 								</div>
 
 								<div class="slide_item slide_item_2">
-									<!-- 								<img src="https://www.saraminimage.co.kr/sri/main/spr_bigbox.png" style="width: 325px; height: 368px;"> -->
-									<!-- 								https://www.saraminimage.co.kr/sri/main/spr_bigbox.png -->
+									<div class="category">추천기업</div>
+									<div class="rc_name">${listRc[8].rc_name}</div>
+									<div class="company_info_title">기업정보</div>
+									<div class="company_info">- 업종: ${listCompany[8].m_gender}</div>
+									<div class="company_info">- 사원수: ${listCompany[8].m_email}</div>
+									<div class="company_info">- 매출액: ${listCompany[8].m_phone}</div>
+									<div class="company_rc_link">
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[8].rc_name}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+									</div>
 								</div>
 
 								<div class="slide_item slide_item_3">
-									3추천공고<br>${listRc[4].rc_name}
+									<div class="category">추천기업</div>
+									<div class="rc_name">${listRc[1].rc_name}</div>
+									<div class="company_info_title">기업정보</div>
+									<div class="company_info">- 업종: ${listCompany[1].m_gender}</div>
+									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
+									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
+									<div class="company_rc_link">
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[1].rc_name}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+									</div>
 								</div>
 
 								<div class="slide_item slide_item_4">
-									4추천공고<br>${listRc[7].rc_name}
+									<div class="category">추천기업</div>
+									<div class="rc_name">${listRc[1].rc_name}</div>
+									<div class="company_info_title">기업정보</div>
+									<div class="company_info">- 업종: ${listCompany[1].m_gender}</div>
+									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
+									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
+									<div class="company_rc_link">
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[1].rc_name}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+									</div>
 								</div>
 
 								<div class="slide_item slide_item_5">
@@ -129,6 +196,9 @@
 									<div class="company_info">- 업종: ${listCompany[2].m_gender}</div>
 									<div class="company_info">- 사원수: ${listCompany[2].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[2].m_phone}</div>
+									<div class="company_rc_link">
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[2].rc_name}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+									</div>
 								</div>
 
 								<div id="firstClone" class="slide_item slide_item_1">
@@ -169,6 +239,7 @@
 						<div class="slide_box_center">
 							<div class="slide_list_center">
 								<div id="lastClone_center" class="slide_item_center">5</div>
+
 								<div class="slide_item_center">
 									<div class="block">
 										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
@@ -203,11 +274,180 @@
 										</a>
 									</div>
 								</div>
-								<div class="slide_item_center">2</div>
-								<div class="slide_item_center">3</div>
-								<div class="slide_item_center">4</div>
-								<div class="slide_item_center">5</div>
-								<div id="firstClone_center" class="slide_item_center">1</div>
+
+								<div class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[0].subject}</div>
+											<div class="tags">${listPopularInfo[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[0].subject}</div>
+											<div class="tags">${listPopularQnA[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[1].subject}</div>
+											<div class="tags">${listPopularInfo[1].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[1].subject}</div>
+											<div class="tags">${listPopularQnA[1].tags}</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[0].subject}</div>
+											<div class="tags">${listPopularInfo[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[0].subject}</div>
+											<div class="tags">${listPopularQnA[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[1].subject}</div>
+											<div class="tags">${listPopularInfo[1].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[1].subject}</div>
+											<div class="tags">${listPopularQnA[1].tags}</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[0].subject}</div>
+											<div class="tags">${listPopularInfo[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[0].subject}</div>
+											<div class="tags">${listPopularQnA[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[1].subject}</div>
+											<div class="tags">${listPopularInfo[1].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[1].subject}</div>
+											<div class="tags">${listPopularQnA[1].tags}</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[0].subject}</div>
+											<div class="tags">${listPopularInfo[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[0].subject}</div>
+											<div class="tags">${listPopularQnA[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[1].subject}</div>
+											<div class="tags">${listPopularInfo[1].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[1].subject}</div>
+											<div class="tags">${listPopularQnA[1].tags}</div>
+										</a>
+									</div>
+								</div>
+								<div id="firstClone_center" class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[0].subject}</div>
+											<div class="tags">${listPopularInfo[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[0].subject}</div>
+											<div class="tags">${listPopularQnA[0].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[1].subject}</div>
+											<div class="tags">${listPopularInfo[1].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[1].subject}</div>
+											<div class="tags">${listPopularQnA[1].tags}</div>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 						<button class="slideBtn_center prevBtn_center">
@@ -227,7 +467,48 @@
 					</svg>
 						</button>
 					</div>
-					<div id="mainUpperPart_right"></div>
+					<div id="mainUpperPart_right">
+						<div class="part_title">
+							추천 공고
+							<a class="part_title_link" href="${pageContext.request.contextPath}/rclist.do">공고 더보기</a>
+						</div>
+						<div class="part_right_block part_right_block_1">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[4].rc_name}','name','resizable=no width=600 height=500'); return false">
+								<div class="rc_name">${listRc[4].rc_name}</div>
+								<div class="rc_title">${listRc[4].rc_title}</div>
+								<div class="rc_salary">급여 ${listRc[4].rc_salary} 만원</div>
+								<div class="company_category">#${listCompany[4].m_gender}</div>
+								<div class="rc_date">${listRc[4].rc_date}</div>
+							</a>
+						</div>
+						<div class="part_right_block part_right_block_2">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[15].rc_name}','name','resizable=no width=600 height=500'); return false">
+								<div class="rc_name">${listRc[15].rc_name}</div>
+								<div class="rc_title">${listRc[15].rc_title}</div>
+								<div class="rc_salary">급여 ${listRc[15].rc_salary} 만원</div>
+								<div class="company_category">#${listCompany[15].m_gender}</div>
+								<div class="rc_date">${listRc[15].rc_date}</div>
+							</a>
+						</div>
+						<div class="part_right_block part_right_block_3">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[7].rc_name}','name','resizable=no width=600 height=500'); return false">
+								<div class="rc_name">${listRc[7].rc_name}</div>
+								<div class="rc_title">${listRc[7].rc_title}</div>
+								<div class="rc_salary">급여 ${listRc[7].rc_salary} 만원</div>
+								<div class="company_category">#${listCompany[7].m_gender}</div>
+								<div class="rc_date">${listRc[7].rc_date}</div>
+							</a>
+						</div>
+						<div class="part_right_block part_right_block_4">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?union=${listRc[2].rc_name}','name','resizable=no width=600 height=500'); return false">
+								<div class="rc_name">${listRc[2].rc_name}</div>
+								<div class="rc_title">${listRc[2].rc_title}</div>
+								<div class="rc_salary">급여 ${listRc[2].rc_salary} 만원</div>
+								<div class="company_category">#${listCompany[2].m_gender}</div>
+								<div class="rc_date">${listRc[2].rc_date}</div>
+							</a>
+						</div>
+					</div>
 				</div>
 				<div class="recruit_recommend_title">채용 공고</div>
 				<!-- 채용공고 -->

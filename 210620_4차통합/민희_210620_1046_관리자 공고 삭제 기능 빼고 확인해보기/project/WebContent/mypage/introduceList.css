@@ -1,0 +1,214 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+@font-face {
+	font-family: "Do Hyeon";
+	src:url("../image/DoHyeon-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal;
+}
+
+body {
+	padding : 30px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+
+header {
+	margin-top : 30px;
+	padding : 5px;
+	display: flex;
+	display: block;
+}	
+
+
+nav{
+	display: flex;    
+	background-color:  #002266;
+}
+
+nav a{
+	color: white;
+	padding: 20px 80px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;
+}
+ 		
+nav a:hover{
+	background-color: #235594;
+}
+
+
+#point {
+   position: relative;
+   margin-top : 5%;
+   margin-bottom: 3%; 
+   width:1300px;
+}
+
+#point h2 {
+   font-size: 60px;
+   margin-left: 24%;
+}
+
+#inform {
+    margin: 0 auto; 
+   width: 1200px;
+   height: 700px;
+   padding-top: 3%;
+
+} 
+
+table {
+   width:100%;
+   border-bottom: 1px solid gray;
+   border-top: 1px solid gray;
+}
+#inform input {
+ 
+    padding-left: 20px;
+   width: 160px;
+   height: 50px;
+    font-size: 20px;
+   border: 3px solid #EAEAEA;
+   position: relative;
+   left: 10%;
+}
+#inform select{
+   width: 165px;
+   height: 55px;
+    font-size: 20px;
+   border: 3px solid #EAEAEA;
+   position: relative;
+   left: 10%;
+} 
+
+table tbody #td1 {
+    height: 80px;
+    font-size: 30px;
+    text-align: center;
+  
+}
+table tbody td {
+    height: 80px;
+    font-size: 20px;
+
+  
+}
+#content tr {
+	border-radius: 80px / 40px;
+}
+
+.btn {
+	width: 150px;
+	height: 50px;
+	background: #002266;
+	border: 1px;
+	border-radius: 100px / 100px;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
+.btn:hover{
+	background-color: #235594;
+}
+
+.pageNum {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.pageNum ul {
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pageNum ul li {
+	/* background-color: #002266; */
+	padding: 5px 0px;
+	list-style: none;
+	margin: 10px;
+	font-size: 15pt;
+	width: 100%;
+	max-width: 40px;
+	float: left;
+}
+
+.pageNum a {
+	color: Gray;
+	text-decoration: none;
+	padding: 5px 10px;
+}
+
+.pageNum #pageSelected {
+    color: white;
+    background-color: #002266;
+    border-radius: 10px;
+    
+}
+
+aside {
+	flex-grow: 2;
+	width: 10%;
+	margin-right:1em;
+	float:right;  
+	position: fixed !important;
+    top: 45% !important;
+    right: 0px !important;
+    display:none;
+}
+aside ul li {
+	background-color:  #002266;
+	padding : 5px 10px;
+	list-style:none;
+	margin: 10px;
+	font-size : 17pt;
+	width: 100%;
+	max-width: 130px;
+	
+}
+
+aside a {	
+	color : white;
+	text-decoration: none; /* 링크에 밑줄 제거*/
+}
+
+
+aside ul li:hover {
+	background-color: #235594;
+}
+
+footer {
+	clear: both;
+	background-color : #D5D5D5;
+	color : white;
+	text-align: center;
+	padding : 1em 0px;
+}
+/*1300px 이하면 테이블 크기 변경.*/
+@media (max-width:1300px){ 
+	.pt_tb {
+		height: 400px;
+		width: 1000px;
+	}
+	
+	.ct_tb {
+		height: 280px;
+		width: 220px;
+		margin-right: 10px;
+	}
+}
+
+@media all and (max-width: 1200px){
+	#container, nav{
+		flex-direction: column;
+		}
+}
+@media (min-width:1300px){
+	#right{
+		display:block;
+	}
+}

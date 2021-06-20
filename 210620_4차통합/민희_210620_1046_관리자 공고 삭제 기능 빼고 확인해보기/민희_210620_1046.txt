@@ -1,0 +1,65 @@
+project0608
+
+1. dao 폴더
+  (1) MemberDao
+  - getTotalCnt
+  - mb_list
+  - tf_get
+  - tf_update
+  - tf_recover
+  - md_searching
+  - getTotalCnt(type, keyword)
+  - md_joinCnt
+  - md_wdCnt
+  - write_id
+  - read_id
+  - rc_date
+  - reg_date
+  - delete(int rc_num)
+  - 클래스 전역 변수
+
+  (2) AdminDao.java
+
+  (3) mb.rn 추가 (변수, 게터, 세터)
+
+2. service 폴더
+  (1) admin 폴더 전체
+      - AdminRecruitDeleteAjax (아직 구현 X)
+  (2) tfupdateAction.java
+
+3. webcontent - admin 폴더 전체
+  (1) adminMain.jsp 안 제일 밑 .button_delete_recruit btn (아직 구현X) => 구현 완료
+  (2) adminRecruitList.jsp안 제일 밑 td 'button_delete_recruit btn' (아직 구현X) => 구현 완료
+
+
+
+4. command.properties 추가
+/adminMain.do=service.admin.AdminMainAjax
+/adminMemberSearch.do=service.admin.AdminMemberSearchAjax
+/adminMemberUpdate.do=service.admin.AdminMemberUpdateAjax
+/adminMemberRecover.do=service.admin.AdminMemberRecoverAjax
+/adminCommunityList.do=service.admin.AdminCommunityListAjax
+/adminCommunityDelete.do=service.admin.AdminCommunityDeleteAjax
+/adminRecruitList.do=service.admin.AdminRecruitListAjax
+/tfupdate.do=service.TfUpdateAction
+/adminRecruitDelete.do=service.admin.AdminRecruitDeleteAjax
+
+5. 이미지 추가
+-  manager.png
+- 톱니바퀴5.gif
+- 톱니바퀴6.png
+- 가입회원3.png
+- 탈퇴회원3.png
+- 전체회원.png
+- 조회수5. png
+- 글작성3.png
+- 공고1.png
+- 날짜2.png
+- 전체회원1.png
+- 커뮤니티.png
+- 가입.png
+- 탈퇴.png
+- 커뮤니티 날짜1.png
+- 채용공고 날짜3.png
+
+6. nav에 관리자 메뉴

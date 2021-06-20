@@ -164,7 +164,7 @@ nav a:hover {
 	position: relative;
 	margin-top: 30px;
 	width: 100%;
-	margin-left: 60px;
+	margin-left: 36px;
 	margin-bottom: 10px;
 }
 
@@ -196,7 +196,7 @@ nav a:hover {
 
 #communityMainSearch {
 	color: #002266;
-	margin-left: 11%;
+    margin-left: 6%;
 	margin-top: 15px;
 	margin-bottom: -20px;
 	width: 100%;
@@ -268,7 +268,7 @@ nav a:hover {
 	clear: both;
 	float: left;
     margin-top: 34px;
-    margin-left: -52px;
+    margin-left: -13px;
 	color: black;
 	font-size: 20px;
 }
