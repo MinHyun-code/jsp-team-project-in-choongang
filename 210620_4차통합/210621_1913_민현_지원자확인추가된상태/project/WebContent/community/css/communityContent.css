@@ -1,0 +1,184 @@
+#point td {
+	/* 	line-height: 42px; */
+	line-height: 22px;
+}
+
+#td_subject {
+	min-width: 400px;
+}
+
+#td_m_id {
+	padding-top: 20px;
+	min-width: 200px;
+}
+
+#td_reg_date {
+	padding-right: 20px;
+	padding-top: 20px;
+	min-width: 200px;
+	text-align: right;
+}
+
+#td_hr {
+	height: 25px !important;
+	padding-bottom: 7px;
+}
+
+#td_content_my_btn {
+	width: 300px;
+}
+
+#comment {
+	/* 	padding-top: 70px; */
+	font-size: 40px;
+}
+
+.td_comment_content {
+	width: 520px;
+	padding-right: 30px;
+}
+
+.tr_comment>td {
+	vertical-align: bottom;
+}
+
+.pt {
+	width: 900px;
+}
+
+.pt_tb {
+	padding: 30px;
+	width: 1000px; /*temporary*/
+	border: none;
+	background-color: white;
+}
+
+.td_btn {
+	float: left;
+	margin-right: 7px;
+	margin-top: 0px;
+}
+
+.btn_comment_delete {
+	margin-top: 0px;
+}
+
+.btn_reply {
+	margin-top: 0px;
+	/* 	margin-bottom: 25px; */
+	margin-bottom: 17px;
+}
+
+.btn_reply2 {
+	display: none;
+}
+
+.comment_reply_box {
+	width: 0px;
+	display: none;
+	padding: 5px 10px;
+}
+
+.comment_reply_prefix {
+	color: #00226654;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.div_reply_box {
+	border: 1px solid black;
+	width: 100px;
+	display: inline-block;
+}
+
+.pt_tb_board {
+/* 	background-color: #adc8ff33; */
+/* 	box-shadow: 0 10px 18px 0 rgb(27 5 55/ 10%); */
+	margin-bottom: 50px;
+	border: 1px solid #dadada;
+	box-shadow: 0 10px 18px 0 rgb(0 75 151/ 10%);
+}
+
+.pt_tb_answer {
+	margin-top: -63px;
+}
+
+.pt_tb_comment {
+	
+}
+
+.form_box_answer {
+	resize: none;
+	height: 100px;
+}
+
+#content {
+	margin-top: -20px;
+	width: 894px;
+	padding: 15px;
+}
+
+textarea::placeholder {
+	color: lightgray;
+}
+
+.td_write_answer {
+	text-align: right;
+}
+
+.btn_write_answer {
+	margin-top: 3px;
+	margin-right: 19px;
+	margin-bottom: 26px;
+	font-size: 15px;
+}
+
+.td_answer_content {
+	width: 520px;
+	padding-right: 30px;
+}
+
+.td_answer_reg_date, .td_comment_reg_date {
+	padding-left: 20px;
+}
+
+.tr_answer td {
+	padding-bottom: 12px;
+}
+
+.td_answer_m_id, .td_comment_m_id {
+	padding-left: 15px;
+}
+
+.content_comment_write {
+	padding: 5px 10px;
+	width: 525px;
+}
+
+.btn_comment_write {
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+.show_size {
+	background-color: #00226617;
+	padding: 2px 8px 6px 8px;
+	border-radius: 10px;
+	font-size: 17px;
+	margin-right: 4px;
+}
+
+#td_board_image {
+	text-align: center;
+}
+
+#board_image {
+	height: 233px;
+	width: 370px;
+	margin: 20px;
+	margin-bottom: 45px;
+}
+
+#board_td_tags {
+	padding-top: 35px;
+}
