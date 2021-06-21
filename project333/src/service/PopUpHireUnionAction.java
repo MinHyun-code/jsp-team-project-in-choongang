@@ -15,7 +15,7 @@ public class PopUpHireUnionAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String num = request.getParameter("union");
+		String num = request.getParameter("rc_num");
 		System.out.println(num);
 		
 		try {
