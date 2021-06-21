@@ -133,15 +133,15 @@ public class RecruitDao {
 		return rclist; // 호출한 곳에 return 호출한곳은 오직 command뿐이므로 이 값이 command로 리턴된다라는 뜻이된다.
 	}
 
-	public RecruitDto popUpHireUnion(String name) throws SQLException {
+	public RecruitDto popUpHireUnion(String num) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from recruit where rc_name=?";
+		String sql = "select * from recruit where rc_num=?";
 
 		conn = getConnection();
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, name);
+		pstmt.setString(1, num);
 		rs = pstmt.executeQuery();
 		RecruitDto rdt = new RecruitDto();
 		try {
@@ -385,6 +385,49 @@ public class RecruitDao {
 		}
 		return result;
 	}
+	
+	//test
+	public int delete(int rc_num) throws SQLException {
+		int result = 0;
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
 		
+		String sqlInApply = "DELETE apply WHERE rc_num = ?";
+		String sqlInLike_company = "DELETE like_company WHERE rc_num = ?";
+		String sqlInClassify = "DELETE classify WHERE rc_num = ?";
+		String sql = "DELETE recruit WHERE rc_num = ?";
+		try {
+			conn = getConnection();
+			
+			pstmt = conn.prepareStatement(sqlInApply);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sqlInLike_company);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sqlInClassify);
+			pstmt.setInt(1, rc_num);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rc_num);
+			result = pstmt.executeUpdate();
+			pstmt.close();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return result;
+	}
+	
 	
 }

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+*{margin: 0 auto; padding: 0;}
+@font-face {
+	font-family: "Do Hyeon";
+	src:url("${pageContext.request.contextPath}/image/DoHyeon-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal;
+}
+body {
+	padding : 50px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+

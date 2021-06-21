@@ -1,6 +1,6 @@
 package service.community;
 
 public class CommunityGlobal {
-	final public static int INFO = 1;
-	final public static int QnA = 2;
+	public static final int INFO = 1;
+	public static final int QnA = 2;
 }

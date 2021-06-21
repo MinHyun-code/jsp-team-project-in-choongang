@@ -35,7 +35,7 @@
 
 .td_comment_content {
 	width: 520px;
-    padding-right: 30px;
+	padding-right: 30px;
 }
 
 .tr_comment>td {
@@ -92,9 +92,11 @@
 }
 
 .pt_tb_board {
-	background-color: rgb(215 209 239/ 15%);
-	box-shadow: 0 10px 18px 0 rgb(27 5 55/ 10%);
+/* 	background-color: #adc8ff33; */
+/* 	box-shadow: 0 10px 18px 0 rgb(27 5 55/ 10%); */
 	margin-bottom: 50px;
+	border: 1px solid #dadada;
+	box-shadow: 0 10px 18px 0 rgb(0 75 151/ 10%);
 }
 
 .pt_tb_answer {
@@ -133,7 +135,7 @@ textarea::placeholder {
 
 .td_answer_content {
 	width: 520px;
-    padding-right: 30px;
+	padding-right: 30px;
 }
 
 .td_answer_reg_date, .td_comment_reg_date {

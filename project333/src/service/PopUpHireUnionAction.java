@@ -15,13 +15,13 @@ public class PopUpHireUnionAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String name = request.getParameter("union");
-		System.out.println(name);
+		String num = request.getParameter("union");
+		System.out.println(num);
 		
 		try {
 			RecruitDao rda = RecruitDao.getInstance();
 
-			RecruitDto rdt = rda.popUpHireUnion(name);
+			RecruitDto rdt = rda.popUpHireUnion(num);
 			request.setAttribute("list",rdt);
 						
 		} catch (Exception e) {
