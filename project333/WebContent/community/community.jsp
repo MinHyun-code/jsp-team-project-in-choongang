@@ -164,7 +164,7 @@
 						<c:if test="${totCnt > 0 }">
 							<c:forEach var="board" items="${list }">
 								<tr>
-									<td>${board.bd_num}</td>
+									<td class="td_main_bd_num">${board.bd_num}</td>
 									<c:if test="${board.bd_code == 1 }">
 										<td class="td_main_subject">
 											<span class="bd_code">[정보공유]&nbsp;</span>
@@ -177,7 +177,7 @@
 											<a href='${pageContext.request.contextPath}/communityContent.do?bd_code=${board.bd_code}&bd_num=${board.bd_num}&pageNum=${currentPage}'>${board.subject}</a>
 										</td>
 									</c:if>
-									<td>${board.m_id}</td>
+									<td class="td_main_m_id">${board.m_id}</td>
 									<td class="td_main_reg_date">
 										<fmt:formatDate value="${board.reg_date}" pattern="YYYY-MM-dd" />
 									</td>

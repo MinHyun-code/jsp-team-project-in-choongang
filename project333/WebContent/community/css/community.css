@@ -462,13 +462,25 @@ article {
 	color: gray;
 }
 
+.td_main_bd_num {
+	width: 100px;
+}
+
 .td_main_subject {
 	text-align: left !important;
 	width: 380px;
 }
 
+.td_main_m_id {
+	width: 75px;
+}
+
 .td_main_reg_date {
 	width: 100px;
+}
+
+.td_main_read_count {
+	width: 50px;
 }
 
 /* aside */
