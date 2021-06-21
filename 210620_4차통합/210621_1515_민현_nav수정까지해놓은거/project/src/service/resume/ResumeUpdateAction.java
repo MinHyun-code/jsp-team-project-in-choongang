@@ -75,6 +75,16 @@ public class ResumeUpdateAction implements CommandProcess {
 			String[] splited4_5 = list_career_cr_sdate.split(",");
 			String[] splited4_6 = list_career_cr_edate.split(",");
 			
+			System.out.println("splited4_");
+			for(int i = 0; i< splited4_1.length; i++) {
+				System.out.println(splited4_1[i]);
+				System.out.println(splited4_2[i]);
+				System.out.println(splited4_3[i]);
+				System.out.println(splited4_4[i]);
+				System.out.println(splited4_5[i]);
+				System.out.println(splited4_6[i]);	
+			}
+
 			if (!list_career_cr_name.equals("")) {
 				for(int i = 0; i < splited4_1.length; i++) {
 					md.resumeCareerAdd(r_num, splited4_1[i], splited4_2[i] , Integer.parseInt(splited4_3[i]), splited4_4[i], splited4_5[i], splited4_6[i]);
@@ -104,6 +114,7 @@ public class ResumeUpdateAction implements CommandProcess {
 			request.setAttribute("result", result);
 
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		

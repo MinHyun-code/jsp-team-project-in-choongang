@@ -273,7 +273,7 @@
 		inform.list_myedu_edate.value = inform.list_myedu_edate.value.replace(myedu_edate+',',""); 
 	}
 	
-	function addList_career_num(cr_name, cr_grade, cr_salary, cr_job, cr_edate, cr_edate){
+	function addList_career_num(cr_name, cr_grade, cr_salary, cr_job, cr_sdate, cr_edate){
 		inform.list_career_cr_name.value += cr_name + ",";
 		inform.list_career_cr_grade.value += cr_grade + ",";
 		inform.list_career_cr_salary.value += cr_salary + ",";
@@ -281,7 +281,7 @@
 		inform.list_career_cr_sdate.value += cr_edate + ",";
 		inform.list_career_cr_edate.value += cr_edate + ",";
 	}
-	function deleteList_career_num(cr_name, cr_grade, cr_salary, cr_job, cr_edate, cr_edate) {
+	function deleteList_career_num(cr_name, cr_grade, cr_salary, cr_job, cr_sdate, cr_edate) {
 		inform.list_career_cr_name.value = inform.list_career_cr_name.value.replace(cr_name+',',""); 
 		inform.list_career_cr_grade.value = inform.list_career_cr_grade.value.replace(cr_grade+',',""); 
 		inform.list_career_cr_salary.value = inform.list_career_cr_salary.value.replace(cr_salary+',',""); 
@@ -579,17 +579,17 @@
 							<tr>
 								<td>${career_list.cr_name }</td>
 								<td>${career_list.cr_job }</td>
-								<td>${career_list.cr_grade }</td>
 								<td>${career_list.cr_salary }</td>
+								<td>${career_list.cr_grade }</td>
 								<td>${career_list.cr_sdate }</td>
 								<td>${career_list.cr_edate }</td>
 								<td style="width: 100px">
 									<input type="button" value="-" style="font-size: 25px;"
-										class="btn_delete" onclick='javascript:rowDel_2(this); deleteList_career_num(${career_list.cr_name},${career_list.cr_job},${career_list.cr_grade},${career_list.cr_salary },${career_list.cr_sdate},${career_list.cr_edate});'>
+										class="btn_delete" onclick="javascript:rowDel_2(this); deleteList_career_num('${career_list.cr_name}', '${career_list.cr_grade}', '${career_list.cr_salary }', '${career_list.cr_job}', '${career_list.cr_sdate}', '${career_list.cr_edate}');">
 								</td>
 							</tr>
 							<script>
-								addList_career_num(${career_list.cr_name},${career_list.cr_job},${career_list.cr_grade},${career_list.cr_salary },'${career_list.cr_sdate}','${career_list.cr_edate}');
+								addList_career_num('${career_list.cr_name}', '${career_list.cr_grade}', '${career_list.cr_salary }', '${career_list.cr_job}','${career_list.cr_sdate}','${career_list.cr_edate}');
 							</script>
 						</c:forEach>
 					</table>
