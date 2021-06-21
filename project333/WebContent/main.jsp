@@ -137,7 +137,7 @@
 									<div class="company_info">- 사원수: ${listCompany[2].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[2].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 
@@ -149,7 +149,7 @@
 									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 
@@ -161,7 +161,7 @@
 									<div class="company_info">- 사원수: ${listCompany[8].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[8].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[8].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[8].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 
@@ -173,7 +173,7 @@
 									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 
@@ -185,7 +185,7 @@
 									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 
@@ -197,7 +197,7 @@
 									<div class="company_info">- 사원수: ${listCompany[2].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[2].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[2].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[2].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 
@@ -209,7 +209,7 @@
 									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
 									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
 									<div class="company_rc_link">
-										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=600 height=500'); return false"> 회사 공고 보러가기 </a>
+										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
 								</div>
 							</div>
@@ -476,7 +476,7 @@
 							<a class="part_title_link" href="${pageContext.request.contextPath}/rclist.do">공고 더보기</a>
 						</div>
 						<div class="part_right_block part_right_block_1">
-							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[4].rc_num}','name','resizable=no width=600 height=500'); return false">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[4].rc_num}','name','resizable=no width=1050 height=1200'); return false">
 								<div class="rc_name">${listRc[4].rc_name}</div>
 								<div class="rc_title">${listRc[4].rc_title}</div>
 								<div class="rc_salary">급여 ${listRc[4].rc_salary} 만원</div>
@@ -485,7 +485,7 @@
 							</a>
 						</div>
 						<div class="part_right_block part_right_block_2">
-							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[15].rc_num}','name','resizable=no width=600 height=500'); return false">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[15].rc_num}','name','resizable=no width=1050 height=1200'); return false">
 								<div class="rc_name">${listRc[15].rc_name}</div>
 								<div class="rc_title">${listRc[15].rc_title}</div>
 								<div class="rc_salary">급여 ${listRc[15].rc_salary} 만원</div>
@@ -494,7 +494,7 @@
 							</a>
 						</div>
 						<div class="part_right_block part_right_block_3">
-							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[7].rc_num}','name','resizable=no width=600 height=500'); return false">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[7].rc_num}','name','resizable=no width=1050 height=1200'); return false">
 								<div class="rc_name">${listRc[7].rc_name}</div>
 								<div class="rc_title">${listRc[7].rc_title}</div>
 								<div class="rc_salary">급여 ${listRc[7].rc_salary} 만원</div>
@@ -503,7 +503,7 @@
 							</a>
 						</div>
 						<div class="part_right_block part_right_block_4">
-							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[2].rc_num}','name','resizable=no width=600 height=500'); return false">
+							<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[2].rc_num}','name','resizable=no width=1050 height=1200'); return false">
 								<div class="rc_name">${listRc[2].rc_name}</div>
 								<div class="rc_title">${listRc[2].rc_title}</div>
 								<div class="rc_salary">급여 ${listRc[2].rc_salary} 만원</div>
@@ -518,7 +518,7 @@
 				<div id="recruit_recommend_container">
 
 					<c:forEach items="${listRc}" var="rdt" begin="0" end="99" varStatus="status">
-						<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${rdt.rc_num}','name','resizable=no width=600 height=500'); return false">
+						<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${rdt.rc_num}','name','resizable=no width=1050 height=1200'); return false">
 							<div class="recruit_recommend_division recruit_recommend_division_${status.index}">
 								<div class="recruit_recommend_block">
 									<div class="recruit_recommend_block_img">
