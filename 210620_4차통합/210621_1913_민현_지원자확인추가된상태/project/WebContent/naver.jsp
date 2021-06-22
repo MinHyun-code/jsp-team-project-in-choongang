@@ -28,7 +28,7 @@
 		dataType:'text',
 		success:function(data){
 			 alert("로그인 되었습니다.");
-			 window.opener.location.href="${pageContext.request.contextPath}/main.jsp";
+			 window.opener.location.href="${pageContext.request.contextPath}/main.do";
 				self.close();
 		}
 	});

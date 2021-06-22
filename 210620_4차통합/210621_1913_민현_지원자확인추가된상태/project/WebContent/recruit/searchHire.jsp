@@ -264,15 +264,15 @@
 		<div style="text-align: center;">
 			<c:if test="${startPage > blockSize }">
 				<a
-					href='${pageContext.request.contextPath}/searchHire.do?pageNum=${startPage-blockSize}'>[이전]</a>
+					href='${pageContext.request.contextPath}/searchHire.do?pageNum=${startPage-blockSize}' style="color: Gray; text-decoration: none; padding: 5px 10px;">[이전]</a>
 			</c:if>
 			<c:forEach var="i" begin="${startPage}" end="${endPage}">
 				<a
-					href='${pageContext.request.contextPath}/searchHire.do?pageNum=${i}'>[${i}]</a>
+					href='${pageContext.request.contextPath}/searchHire.do?pageNum=${i}' style="color: Gray; text-decoration: none; padding: 5px 10px;">[${i}]</a>
 			</c:forEach>
 			<c:if test="${endPage < pageCnt }">
 				<a
-					href='${pageContext.request.contextPath}/searchHire.do?pageNum=${startPage+blockSize}'>[다음]</a>
+					href='${pageContext.request.contextPath}/searchHire.do?pageNum=${startPage+blockSize}' style="color: Gray; text-decoration: none; padding: 5px 10px;">[다음]</a>
 			</c:if>
 		</div>
 

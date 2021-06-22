@@ -9,7 +9,7 @@
 </head>
 <body>
  <script type="text/javascript">
-	location.href="login.do";  
+	location.href="${pageContext.request.contextPath}/main.do";  
 </script>
 </body>
 </html>
