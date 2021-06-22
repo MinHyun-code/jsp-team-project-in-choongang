@@ -29,7 +29,7 @@ public class CommunityListAction implements CommandProcess {
 			List<Board> list = null;
 			
 			//정보공유, 취준톡톡
-			if (request.getParameter("bd_code") != null && !request.getParameter("bd_code").equals("")) {
+			if (request.getParameter("bd_code") != null && !request.getParameter("bd_code").equals("") && !request.getParameter("bd_code").equals("0")) {
 				int bd_code = Integer.parseInt(request.getParameter("bd_code"));
 				request.setAttribute("bd_code", bd_code);
 				totCnt = bd.getTotalCnt(bd_code);

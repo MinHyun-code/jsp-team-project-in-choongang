@@ -128,10 +128,11 @@ console.log(company_lon);
 
 
 
-
+					<c:if test="${sessionM_TF == '1' }">
 						<td rowspan="2"><input type="hidden" name="rc_num"
 							value="${list.rc_num }"> <input type="submit"
 							value="입사지원" id="jiwon" style="margin-right: 50px;"></td>
+					</c:if>
 					</tr>
 					<c:set var="mclass" value="${mclass }" />
 					<c:if test="${mclass == '10'}">

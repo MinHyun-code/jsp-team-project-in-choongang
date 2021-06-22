@@ -1,0 +1,122 @@
+drop table classify;
+drop table commoncode;
+drop table recruit;
+
+create table commoncode (bclass number(10), mclass number(10),clvalue varchar2(20));
+
+create table recruit (rc_num number(30),
+                      rc_name varchar2(20),
+                      rc_title varchar2(100),
+                      rc_content varchar2(300),
+                      rc_scrap varchar2(4000),
+                      rc_salary number(30),
+                      rc_link varchar2(200),
+                      rc_date Date
+                      rc_view number);
+
+create table classify (rc_num number(30), bclass number(10), mclass number(10));
+
+insert into COMMONCODE values(10,00,'지역');
+insert into commoncode values(10,10,'서울');
+insert into commoncode values(10,11,'대전');
+insert into commoncode values(10,12,'대구');
+insert into commoncode values(10,13,'부산');
+insert into commoncode values(10,14,'광주');
+insert into commoncode values(10,15,'경기');
+insert into commoncode values(10,16,'강원');
+insert into commoncode values(10,17,'충청');
+insert into commoncode values(10,18,'호남');
+insert into commoncode values(10,19,'영남');
+insert into commoncode values(10,20,'제주');
+insert into commoncode values(20,00,'업종');
+insert into commoncode values(20,10,'IT');
+insert into commoncode values(20,11,'금융');
+insert into commoncode values(20,12,'의료');
+insert into commoncode values(20,13,'서비스');
+insert into commoncode values(30,00,'근무형태');
+insert into commoncode values(30,10,'정규직');
+insert into commoncode values(30,11,'계약직');
+insert into commoncode values(30,12,'인턴');
+
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1000,'신세계 푸드','안전관리자 정규직 채용','./image/hireLogo.png','./image/hire.png',3500,'www.shinsegaefood.com',to_date('21/05/02','RR/MM/DD'),3754533981270502329);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1001,'쿠팡','풀스택 개발자 채용','./image/copanglogo.png','./image/copanghire.png',4500,'https://rocketyourcareer.kr.coupang.com/%ec%a7%81%eb%ac%b4/-/principal-web-full-stack-engineer-coupang-play/24450/19446668',to_date('21/04/28','RR/MM/DD'),3751581481270989293);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1002,'이마트','STAFF채용','./image/emartlogo.png','./image/emarthire.png',2700,'https://rocketyourcareer.kr.coupang.com/%ec%a7%81%eb%ac%b4/-/principal-web-full-stack-engineer-coupang-play/24450/19446668',to_date('21/05/30','RR/MM/DD'),3757132071270227761);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1003,'마키나락스','백엔드 개발자 채용','./image/makinarockslogo.png','./image/markinarockshire.png',5400,'https://www.makinarocks.ai/',to_date('21/05/26','RR/MM/DD'),3750056551270254046);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1004,'현대IT','개발자 채용','./image/Hyundailogo.png','./image/Hyundaihire.png',2800,'http://www.hyundai-ite.com/index.jsp',to_date('21/03/16','RR/MM/DD'),3750731961270621945);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1005,'중앙대병원','간호사 계약직 채용','./image/caulogo.png','./image/cauhire.png',4400,'http://recruit.caumc.or.kr/index.asp',to_date('21/04/15','RR/MM/DD'),3750680941269608074);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1006,'에버랜드','의상팀 담당 채용','./image/everlandlogo.png','./image/everlandhire.png',3000,'https://www.everland.com/',to_date('21/05/05','RR/MM/DD'),3729449111272034936);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1007,'롯데월드','캐스트 채용','./image/lotteworldlogo.png','./image/lotteworldhire.png',2800,'https://adventure.lotteworld.com/',to_date('21/04/13','RR/MM/DD'),3751111581270981670);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1008,'삼성화재','자산 인프라 투자 운용 채용','./image/samsaunglogo.png','./image/samsunghire.png',6000,'http://www.samsungcareers.com/rec/apply/ComResumeServlet?cmd=pstMain#',to_date('21/05/09','RR/MM/DD'),3749599921270263614);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1009,'버거킹','캐스트 채용','./image/bugerlogo.png','./image/bugerhire.png',4000,'https://www.burgerking.co.kr/#/home',to_date('21/04/14','RR/MM/DD'),3750315491270492977);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1010,'하나은행','대학생 인턴모집 ','./image/hanalogo.png','./image/hanahire.png',2500,'https://www.kebhana.com/ ',to_date('21/04/15','RR/MM/DD'),3751082021270218835);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1011,'한화솔루션','정규직 통합 채용','./image/hanhwalogo.png','./image/hanhwahire.png',5000,'https://www.hanwhasolutions.com/ko/ ',to_date('21/04/16','RR/MM/DD'),3756750631269859413);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1012,'트리플제이','각 부문 정규 채용','./image/JJJlogo.png','./image/JJJhire.png',3800,'https://www.jobkorea.co.kr/Recruit/Co_Read/C/triplej0108/Company_name/%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%A0%9C%EC%9D%B4%E3%88%9C ',to_date('21/04/17','RR/MM/DD'),3757326431270154353);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1013,'루이비통','신입/경력 채용','./image/loulogo.png','./image/louhire.png',4700,'https://kr.louisvuitton.com/kor-kr/homepage ',to_date('21/04/18','RR/MM/DD'),3756096112698120330);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1014,'농협','채용형 인턴','./image/nonglogo.png','./image/nonghire.png',2400,'https://banking.nonghyup.com/nhbank.html ',to_date('21/04/19','RR/MM/DD'),3755896361269755734);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1015,'여기어때','전직군 모집','./image/ylogo.png','./image/yhire.png',3000,'https://www.gccompany.co.kr/ ',to_date('21/04/20','RR/MM/DD'),3751310341270527679);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1016,'유니드','신입사원 채용','./image/youneedlogo.png','./image/youneedhire.png',2800,'http://www.unid.co.kr/kor/index.php ',to_date('21/04/21','RR/MM/DD'),3758717811270025525);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1017,'리치몬트','판매직 모집','./image/richlogo.png','./image/richhire.png',4500,'https://www.richemont.com/en/home/ ',to_date('21/06/11','RR/MM/DD'),3586459971277656784);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1018,'이안한방병원','간호조무사 모집','./image/eanlogo.png','./image/eanhire.png',3700,'http://ianclinic.co.kr/ ',to_date('21/06/01','RR/MM/DD'),3612631721283384182);
+Insert into RECRUIT (RC_NUM,RC_NAME,RC_TITLE,RC_CONTENT,RC_SCRAP,RC_SALARY,RC_LINK,RC_DATE,RC_VIEW) values (1019,'엔아이티','개발자 채용','./image/nitlogo.png','./image/nithire.png',5500,'http://www.nitgs.com/',to_date('21/06/06','RR/MM/DD'),3597083112657831060);
+
+
+insert into classify values(1000,10,10);
+insert into classify values(1000,20,13);
+insert into classify values(1000,30,10);
+insert into classify values(1001,10,10);
+insert into classify values(1001,20,10);
+insert into classify values(1001,30,10);
+insert into classify values(1002,10,10);
+insert into classify values(1002,20,13);
+insert into classify values(1002,30,11);
+insert into classify values(1003,10,10);
+insert into classify values(1003,20,10);
+insert into classify values(1003,30,10);
+insert into classify values(1004,10,16);
+insert into classify values(1004,20,10);
+insert into classify values(1004,30,12);
+insert into classify values(1005,10,18);
+insert into classify values(1005,20,12);
+insert into classify values(1005,30,11);
+insert into classify values(1006,10,15);
+insert into classify values(1006,20,13);
+insert into classify values(1006,30,10);
+insert into classify values(1007,10,10);
+insert into classify values(1007,20,13);
+insert into classify values(1007,30,10);
+insert into classify values(1008,10,10);
+insert into classify values(1008,20,11);
+insert into classify values(1008,30,10);
+insert into classify values(1009,10,14);
+insert into classify values(1009,20,13);
+insert into classify values(1009,30,10);
+insert into classify values(1010,10,15);
+insert into classify values(1010,20,11);
+insert into classify values(1010,30,12);
+insert into classify values(1011,10,16);
+insert into classify values(1011,20,13);
+insert into classify values(1011,30,10);
+insert into classify values(1012,10,15);
+insert into classify values(1012,20,13);
+insert into classify values(1012,30,10);
+insert into classify values(1013,10,13);
+insert into classify values(1013,20,13);
+insert into classify values(1013,30,10);
+insert into classify values(1014,10,18);
+insert into classify values(1014,20,11);
+insert into classify values(1014,30,12);
+insert into classify values(1015,10,13);
+insert into classify values(1015,20,13);
+insert into classify values(1015,30,10);
+insert into classify values(1016,10,13);
+insert into classify values(1016,20,13);
+insert into classify values(1016,30,10);
+insert into classify values(1017,10,10);
+insert into classify values(1017,20,13);
+insert into classify values(1017,30,10);
+insert into classify values(1018,10,19);
+insert into classify values(1018,20,12);
+insert into classify values(1018,30,10);
+insert into classify values(1019,10,20);
+insert into classify values(1019,20,10);
+insert into classify values(1019,30,10);

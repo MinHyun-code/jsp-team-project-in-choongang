@@ -159,7 +159,7 @@
 					<tr>
 						<td id="td1" style="background-color: #FFFFFF;">비밀번호</td>
 						<td style="background-color: #FFFFFF;"><input type="password"
-							placeholder="pawwsord" title="name" name="m_pass"
+							placeholder="password" title="name" name="m_pass"
 							value="${member.m_pass }"></td>
 					</tr>
 

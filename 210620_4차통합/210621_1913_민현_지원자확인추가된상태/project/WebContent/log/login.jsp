@@ -73,7 +73,7 @@
 								dataType: 'text',
 								success: function(data) {
 									alert("로그인 되었습니다.");
-									location.href = "../main.jsp";
+									location.href = "${pageContext.request.contextPath}/main.do";
 								}
 							});
 

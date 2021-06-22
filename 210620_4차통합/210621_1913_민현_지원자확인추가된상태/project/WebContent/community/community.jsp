@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Community Page</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/community.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/community/css/communityMain.css">
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/community.js"></script>
 </head>

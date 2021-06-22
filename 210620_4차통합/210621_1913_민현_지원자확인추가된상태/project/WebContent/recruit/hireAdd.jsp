@@ -11,6 +11,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+input {
+	padding-left: 19px;
+}
+</style>
 </head>
 <body>
 	<div id="page">
@@ -147,14 +152,14 @@
 					</tr>
 					<tr>
 						<td style="padding-left: 110px; font-size: 30px;">기업 로고</td>
-						<td colspan="2"><input type="file" name="rc_content" id="rc_content" style="width: 600px;"></td>
+						<td colspan="2"><input type="file" name="rc_content" id="rc_content" style="width: 600px; padding-top: 26px; height: 74px; border: none;"></td>
 					</tr>
 					<tr>
 						<td style="padding-left: 110px; font-size: 30px;">공고 스크랩</td>
-						<td colspan="2"><input type="file" name="rc_scrap" id="rc_scrap" style="width: 600px;"></td>
+						<td colspan="2"><input type="file" name="rc_scrap" id="rc_scrap" style="width: 600px; padding-top: 26px; height: 74px; border: none;"></td>
 					</tr>
 					<tr>
-						<td style="padding-left: 110px; font-size: 30px;">채용 연봉</td>
+						<td style="padding-left: 110px; font-size: 30px;">채용 연봉 (만원)</td>
 						<td colspan="3"><input type="text" name="rc_salary"
 							id="rc_salary" required="required"></td>
 					</tr>
@@ -166,13 +171,13 @@
 					<tr>
 						<td style="padding-left: 110px; font-size: 30px;">지도좌표</td>
 						<td colspan="3"><input type="text" name="rc_view"
-							id="rc_view" required="required"></td>
+							id="rc_view" required="required" placeholder="예시: 37.5N 127.3E" style="padding-left: 19px;"></td>
 					</tr>
 					<tr>
 					
 						<td>
 							<div id="code">
-								<select name="code1" style="margin-left: 67px;">
+								<select name="code1" style="margin-left: 67px; margin-top: 50px;">
 									<option>지역</option>
 									<option value="10 10">서울</option>
 									<option value="10 11">대전</option>
@@ -190,7 +195,7 @@
 						</td>
 						<td>
 							<div id="code">
-								<select name="code2">
+								<select name="code2" style="margin-top: 50px;">
 									<option>업종</option>
 									<option value="20 10">IT</option>
 									<option value="20 11">금융</option>
@@ -201,7 +206,7 @@
 						</td>
 						<td>
 							<div id="code">
-								<select name="code3">
+								<select name="code3" style="margin-top: 50px;">
 									<option>근무형태</option>
 									<option value="30 10">정규직</option>
 									<option value="30 11">인턴</option>

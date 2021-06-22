@@ -410,7 +410,7 @@
 					<input type="hidden" name="list_career_cr_sdate" value="">
 					<input type="hidden" name="list_career_cr_edate" value="">
 					<article id="point">
-						<h2>이력서 추가</h2>
+						<h2 style="margin-left: 35%;">이력서 추가</h2>
 					</article>
 					<article class="tb_point">
 						<p>기본정보</p>
@@ -615,7 +615,7 @@
 						</c:forEach>
 					</table>
 
-					<input type="submit" value="저장" style="float: left;" class="btn	">
+					<input type="submit" value="저장" style="float: left;margin-bottom: 119px; margin-top: 34px;" class="btn">
 				</form>
 			</section>
 		</div>

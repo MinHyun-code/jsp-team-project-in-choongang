@@ -178,11 +178,11 @@
 
 								<div class="slide_item slide_item_3">
 									<div class="category">추천기업</div>
-									<div class="rc_name">${listRc[1].rc_name}</div>
+									<div class="rc_name">${listRc[11].rc_name}</div>
 									<div class="company_info_title">기업정보</div>
-									<div class="company_info">- 업종: ${listCompany[1].m_gender}</div>
-									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
-									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
+									<div class="company_info">- 업종: ${listCompany[11].m_gender}</div>
+									<div class="company_info">- 사원수: ${listCompany[11].m_email}</div>
+									<div class="company_info">- 매출액: ${listCompany[11].m_phone}</div>
 									<div class="company_rc_link">
 										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
@@ -190,11 +190,11 @@
 
 								<div class="slide_item slide_item_4">
 									<div class="category">추천기업</div>
-									<div class="rc_name">${listRc[1].rc_name}</div>
+									<div class="rc_name">${listRc[7].rc_name}</div>
 									<div class="company_info_title">기업정보</div>
-									<div class="company_info">- 업종: ${listCompany[1].m_gender}</div>
-									<div class="company_info">- 사원수: ${listCompany[1].m_email}</div>
-									<div class="company_info">- 매출액: ${listCompany[1].m_phone}</div>
+									<div class="company_info">- 업종: ${listCompany[7].m_gender}</div>
+									<div class="company_info">- 사원수: ${listCompany[7].m_email}</div>
+									<div class="company_info">- 매출액: ${listCompany[7].m_phone}</div>
 									<div class="company_rc_link">
 										<a href="#" target="_blank" onclick="window.open('${pageContext.request.contextPath}/popUpHireUnion.do?rc_num=${listRc[1].rc_num}','name','resizable=no width=1050 height=1200'); return false"> 회사 공고 보러가기 </a>
 									</div>
@@ -252,7 +252,40 @@
 					<div id="mainUpperPart_center">
 						<div class="slide_box_center">
 							<div class="slide_list_center">
-								<div id="lastClone_center" class="slide_item_center">5</div>
+								<div id="lastClone_center" class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[2].bd_code}&bd_num=${listPopularInfo[2].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[2].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[2].subject}</div>
+											<div class="tags">${listPopularInfo[2].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[2].bd_code}&bd_num=${listPopularQnA[2].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[2].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[2].subject}</div>
+											<div class="tags">${listPopularQnA[2].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[3].bd_code}&bd_num=${listPopularInfo[3].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[3].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[3].subject}</div>
+											<div class="tags">${listPopularInfo[3].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[3].bd_code}&bd_num=${listPopularQnA[3].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[3].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[3].subject}</div>
+											<div class="tags">${listPopularQnA[3].tags}</div>
+										</a>
+									</div>								
+								</div>
 
 								<div class="slide_item_center">
 									<div class="block">
@@ -285,6 +318,76 @@
 											<div class="bd_code bd_code_QnA">취준톡톡</div>
 											<div class="subject">${listPopularQnA[1].subject}</div>
 											<div class="tags">${listPopularQnA[1].tags}</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[2].bd_code}&bd_num=${listPopularInfo[2].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[2].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[2].subject}</div>
+											<div class="tags">${listPopularInfo[2].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[2].bd_code}&bd_num=${listPopularQnA[2].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[2].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[2].subject}</div>
+											<div class="tags">${listPopularQnA[2].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[3].bd_code}&bd_num=${listPopularInfo[3].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[3].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[3].subject}</div>
+											<div class="tags">${listPopularInfo[3].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[3].bd_code}&bd_num=${listPopularQnA[3].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[3].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[3].subject}</div>
+											<div class="tags">${listPopularQnA[3].tags}</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="slide_item_center">
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[4].bd_code}&bd_num=${listPopularInfo[4].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[4].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[4].subject}</div>
+											<div class="tags">${listPopularInfo[4].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[4].bd_code}&bd_num=${listPopularQnA[4].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[4].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[4].subject}</div>
+											<div class="tags">${listPopularQnA[4].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[5].bd_code}&bd_num=${listPopularInfo[5].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[5].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_info">정보공유</div>
+											<div class="subject">${listPopularInfo[5].subject}</div>
+											<div class="tags">${listPopularInfo[5].tags}</div>
+										</a>
+									</div>
+									<div class="block">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[5].bd_code}&bd_num=${listPopularQnA[5].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[5].file_name }" class="center_block_pic">
+											<div class="bd_code bd_code_QnA">취준톡톡</div>
+											<div class="subject">${listPopularQnA[5].subject}</div>
+											<div class="tags">${listPopularQnA[5].tags}</div>
 										</a>
 									</div>
 								</div>
@@ -326,108 +429,39 @@
 
 								<div class="slide_item_center">
 									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[2].bd_code}&bd_num=${listPopularInfo[2].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[2].file_name }" class="center_block_pic">
 											<div class="bd_code bd_code_info">정보공유</div>
-											<div class="subject">${listPopularInfo[0].subject}</div>
-											<div class="tags">${listPopularInfo[0].tags}</div>
+											<div class="subject">${listPopularInfo[2].subject}</div>
+											<div class="tags">${listPopularInfo[2].tags}</div>
 										</a>
 									</div>
 									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[2].bd_code}&bd_num=${listPopularQnA[2].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[2].file_name }" class="center_block_pic">
 											<div class="bd_code bd_code_QnA">취준톡톡</div>
-											<div class="subject">${listPopularQnA[0].subject}</div>
-											<div class="tags">${listPopularQnA[0].tags}</div>
+											<div class="subject">${listPopularQnA[2].subject}</div>
+											<div class="tags">${listPopularQnA[2].tags}</div>
 										</a>
 									</div>
 									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[3].bd_code}&bd_num=${listPopularInfo[3].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularInfo[3].file_name }" class="center_block_pic">
 											<div class="bd_code bd_code_info">정보공유</div>
-											<div class="subject">${listPopularInfo[1].subject}</div>
-											<div class="tags">${listPopularInfo[1].tags}</div>
+											<div class="subject">${listPopularInfo[3].subject}</div>
+											<div class="tags">${listPopularInfo[3].tags}</div>
 										</a>
 									</div>
 									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
+										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[3].bd_code}&bd_num=${listPopularQnA[3].bd_num}">
+											<input type="image" name="file_pic" src="${listPopularQnA[3].file_name }" class="center_block_pic">
 											<div class="bd_code bd_code_QnA">취준톡톡</div>
-											<div class="subject">${listPopularQnA[1].subject}</div>
-											<div class="tags">${listPopularQnA[1].tags}</div>
+											<div class="subject">${listPopularQnA[3].subject}</div>
+											<div class="tags">${listPopularQnA[3].tags}</div>
 										</a>
 									</div>
 								</div>
-
-								<div class="slide_item_center">
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_info">정보공유</div>
-											<div class="subject">${listPopularInfo[0].subject}</div>
-											<div class="tags">${listPopularInfo[0].tags}</div>
-										</a>
-									</div>
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_QnA">취준톡톡</div>
-											<div class="subject">${listPopularQnA[0].subject}</div>
-											<div class="tags">${listPopularQnA[0].tags}</div>
-										</a>
-									</div>
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_info">정보공유</div>
-											<div class="subject">${listPopularInfo[1].subject}</div>
-											<div class="tags">${listPopularInfo[1].tags}</div>
-										</a>
-									</div>
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_QnA">취준톡톡</div>
-											<div class="subject">${listPopularQnA[1].subject}</div>
-											<div class="tags">${listPopularQnA[1].tags}</div>
-										</a>
-									</div>
-								</div>
-
-								<div class="slide_item_center">
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularInfo[0].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_info">정보공유</div>
-											<div class="subject">${listPopularInfo[0].subject}</div>
-											<div class="tags">${listPopularInfo[0].tags}</div>
-										</a>
-									</div>
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[0].bd_code}&bd_num=${listPopularQnA[0].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularQnA[0].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_QnA">취준톡톡</div>
-											<div class="subject">${listPopularQnA[0].subject}</div>
-											<div class="tags">${listPopularQnA[0].tags}</div>
-										</a>
-									</div>
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[1].bd_code}&bd_num=${listPopularInfo[1].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularInfo[1].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_info">정보공유</div>
-											<div class="subject">${listPopularInfo[1].subject}</div>
-											<div class="tags">${listPopularInfo[1].tags}</div>
-										</a>
-									</div>
-									<div class="block">
-										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularQnA[1].bd_code}&bd_num=${listPopularQnA[1].bd_num}">
-											<input type="image" name="file_pic" src="${listPopularQnA[1].file_name }" class="center_block_pic">
-											<div class="bd_code bd_code_QnA">취준톡톡</div>
-											<div class="subject">${listPopularQnA[1].subject}</div>
-											<div class="tags">${listPopularQnA[1].tags}</div>
-										</a>
-									</div>
-								</div>
+								
 								<div id="firstClone_center" class="slide_item_center">
 									<div class="block">
 										<a href="${pageContext.request.contextPath}/communityContent.do?bd_code=${listPopularInfo[0].bd_code}&bd_num=${listPopularInfo[0].bd_num}">
