@@ -1,0 +1,792 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0;}
+@font-face {
+	font-family: "Do Hyeon";
+	src:url("../image/DoHyeon-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal;
+}
+body {
+	padding : 30px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+
+header {
+	margin-top : 30px;
+	padding : 5px;
+	display: flex;
+	display: block;
+}	
+
+#nav {
+	margin-top: 230px;
+	
+}
+
+nav{
+	display: flex;    
+	background-color:  #002266;
+}
+
+nav a{
+	color: white;
+	padding: 20px 80px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;	
+	margin: 0 auto;
+}
+ 		
+nav a:hover{
+	background-color: #235594;
+}
+ 
+
+#point {
+	position: relative;
+	margin-top : 5%;
+	margin-bottom: 3%; 
+	width:1300px;
+}
+
+#point h2 {
+	font-size: 60px;
+	margin-left: 24%;
+}
+
+#inform {
+	 margin: 0 auto; 
+	width: 1200px;
+	height: 700px;
+	padding-top: 3%;
+
+} 
+
+table {
+	width:100%;
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+}
+#inform input {
+ 
+    padding-left: 20px;
+	width: 160px;
+	height: 50px;
+    font-size: 20px;
+	border: 3px solid #EAEAEA;
+	position: relative;
+	left: 10%;
+}
+#inform select{
+	width: 165px;
+	height: 55px;
+    font-size: 20px;
+	border: 3px solid #EAEAEA;
+	position: relative;
+	left: 10%;
+} 
+
+table tbody #td1 {
+    height: 80px;
+    font-size: 30px;
+    text-align: center;
+  
+}
+table tbody td {
+    height: 80px;
+    font-size: 20px;  
+}
+
+.title {		
+	margin-left: 6%;
+	margin-top: 5%;
+	font-size: 50px;
+}
+
+#top1 {
+	float:left;
+	position: relative;
+	width: 33%;
+}
+
+#top2 {
+	float:left;
+	width: 33%;
+	position: relative;
+	text-align: center;
+}
+
+#top2 h1 {
+	width: 500px;
+	height: 160px;
+}
+
+#top3 {
+	float:left;
+	width: 33%;
+}
+
+#top3 a {
+	text-decoration: none;
+}
+
+#top3_1 {
+	float:right;
+	position: relative;
+	width: 16%;
+	text-align: center;	
+}
+
+#top3_2 {
+	float:right;
+	text-align: center;
+	width: 16%;
+}
+
+.set {
+	margin-left: 8.5%;
+	margin-top: 3%;
+	height: 80px;
+}
+
+.set #tap1 {
+	font-size: 35px;
+	background-color: white;
+	color: gray;
+	position: relative;
+	float: left;
+	text-align: center;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count5 {
+	float:left;
+	position: relative;
+	text-align: center;
+	background-color: lightgray;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;	
+	color:white;
+	margin-left: 10px;
+	font-size: 27px;	
+    margin-right: 50px;
+	
+}
+
+.set #tap1_set {
+	display: none;
+}
+
+.set #tap1_1 {
+	font-size: 35px;
+	background-color: white;
+	color: black;
+	position: relative;
+	float: left;
+	text-align: center;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count5_1 {
+	float:left;
+	position: relative;
+	text-align: center;
+	background-color: black;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;	
+	color:white;
+	margin-left: 10px;
+	font-size: 27px;	
+    margin-right: 50px;
+	
+}
+
+.set #tap2 {
+	font-size: 35px;
+	background-color: white;
+	color: gray;
+	position: relative;
+	float: left;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count6 {
+	float:left;
+	position: relative;
+	text-align: center;
+	background-color: lightgray;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;
+	color:white;
+	font-size: 27px;
+	margin-left: 10px;
+	margin-right: 50px;	
+}
+
+.set #tap2_set2 {
+	display:none;
+}
+
+.set #tap2_1 {
+	font-size: 35px;
+	background-color: white;
+	color: black;
+	position: relative;
+	float: left;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count6_1 {
+	float:left;
+	position: relative;
+	text-align: center;
+	background-color: black;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;
+	color:white;
+	font-size: 27px;
+	margin-left: 10px;
+	margin-right: 50px;	
+}
+
+.set #tap3 {
+	font-size: 35px;
+	background-color: white;
+	color: gray;
+	position: relative;
+	float: left;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count7 {
+	float:left;
+	position: relative;
+	text-align: center;
+	background-color: lightgray;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;
+	color:white;
+	font-size: 27px;
+	margin-left: 10px;
+	margin-right: 50px;			
+}
+
+.set #tap3_set2 {
+	display: none;
+}
+
+.set #tap3_1 {
+	font-size: 35px;
+	background-color: white;
+	color: black;
+	position: relative;
+	float: left;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count7_1 {
+	float:left;
+	position: relative;
+	text-align: center;
+	background-color: black;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;
+	color:white;
+	font-size: 27px;
+	margin-left: 10px;
+	margin-right: 50px;			
+}
+
+.set #tap4 {
+	font-size: 35px;
+	background-color: white;
+	color: gray;
+	position: relative;
+	float: left;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count8 {
+	float:left;
+	text-align: center;
+	background-color: lightgray;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;
+	color:white;
+	font-size: 27px;
+	margin-left: 10px;	
+}
+
+.set #tap4_set2 {
+	display: none;
+}
+
+.set #tap4_1 {
+	font-size: 35px;
+	background-color: white;
+	color: black;
+	position: relative;
+	float: left;
+	font-family: "Do Hyeon";
+	border: 0px;
+}
+
+.set #count8_1 {
+	float:left;
+	text-align: center;
+	background-color: black;
+	height: 35px;
+	line-height: 35px;
+	width:50px;
+	border-radius: 40%;
+	color:white;
+	font-size: 27px;
+	margin-left: 10px;	
+}
+
+.wrap {
+	height: 150px;
+}
+
+.wrap ul {
+	list-style: none;
+	margin-left: 10%;
+	margin-top: 2%;
+	height: 200px;
+	width: 100%;	
+}
+
+.wrap ul li {
+	float: left;
+	font-size: 80px;
+	width: 10%;
+	margin-right: 5%;
+	height: 20%;	
+}
+
+
+/* #count {
+	background-color: lightgray;
+    width: 40px;
+    height: 40px;
+    border-radius: 35%;
+    position: relative;
+    margin-left: 57%;
+    margin-top: 7%;
+    line-height: 40px;
+    float: left;
+}
+
+#count2 {
+	background-color: lightgray;
+    width: 13%;
+    height: 35px;
+    border-radius: 35%;
+    position: relative;
+    margin-left: 73%;
+    margin-top: 8%;
+    line-height: 35px;
+}
+
+#count3 {
+	background-color: lightgray;
+    width: 13%;
+    height: 35px;
+    border-radius: 35%;
+    position: relative;
+    margin-left: 73%;
+    margin-top: 8%;
+    line-height: 35px;
+}
+
+#count4 {
+	background-color: lightgray;
+    width: 13%;
+    height: 35px;
+    border-radius: 35%;
+    position: relative;
+    margin-left: 73%;
+    margin-top: 8%;
+    line-height: 35px;
+}
+ */
+.tabwrap #apply {
+	float:left;
+	position: relative;
+}
+
+.wrap {
+	height: 110px;
+}
+
+.wrap .tap1 {
+	font-size: 35px;
+	background-color: white;
+	border: 1px solid white;
+	font-family: "Do Hyeon";
+	background-color: white;
+	color: black;
+	width: 60%;
+	height: 80px;
+	position: relative;
+	float: left;
+}
+
+.wrap .tap2 {
+	font-size: 35px;
+	background-color: white;
+	border: 1px solid white;
+	font-family: "Do Hyeon";
+	background-color: white;
+	color: black;
+	width: 60%;
+	height: 120%;
+	position: relative;
+	float: left;
+}
+
+.wrap .tap3 {
+	font-size: 35px;
+	background-color: white;
+	border: 1px solid white;
+	font-family: "Do Hyeon";
+	background-color: white;
+	color: black;
+	width: 60%;
+	height: 120%;
+	position: relative;
+	float: left;
+}
+
+.wrap .tap4 {
+	font-size: 35px;
+	background-color: white;
+	border: 1px solid white;
+	font-family: "Do Hyeon";
+	background-color: white;
+	color: black;
+	width: 60%;
+	height: 120%;
+	position: relative;
+	float: left;
+}
+
+.tab {
+	border: 0px;
+	width: 100%;
+	margin-left: 8%;
+	text-align: center;
+}
+
+.wrap #tap1 {
+	float:left;
+	width: 15%;
+	text-align: center;
+}
+
+.wrap #tap2 {
+	float:left;
+	width:20%;
+	text-align: center;
+}
+
+.wrap #tap3 {
+	float:left;
+	width:20%;
+	text-align: center;
+}
+
+.wrap #tap4 {
+	float:left;
+	width:20%;
+	text-align: center;
+}
+
+#wrap {
+	height: 250px;
+}
+
+#wrap_ap {
+	height: 200px;
+ 	width: 100%; 
+	margin-left: 8%;
+	margin-bottom: 5%;
+	position: absolute;
+}
+
+
+#wrap_ap #ap {
+	color:black;
+	width: 18%;
+	height: 180px;
+	float : left;
+	margin-right: 2%;
+	padding-bottom: 1%;
+	font-size: 150%;
+/* 	border: 4px solid #002266; */
+	border-radius: 10%;
+	background-color: #B2CCFF;
+	display: block;
+	text-align: center;
+}
+
+#wrap_ap #ap:hover {
+	background-color: white;
+}
+
+#wrap_in {
+	height: 200px;
+	width: 100%;
+	margin-left: 8%;
+	margin-bottom: 5%;
+	position: absolute;
+	display: none;
+}
+
+
+#wrap_in #in {
+	color:black;
+	width: 18%;
+	height: 180px;
+	float : left;
+	margin-right: 2%;
+	padding-bottom: 1%;
+	font-size: 150%;
+	border-radius: 10%;
+	background-color: #CEFBC9;
+	text-align: center;
+}
+
+#wrap_in #in:hover {
+	background-color: white;
+} 
+
+#wrap_re {
+	height: 200px;
+	width: 100%;
+	margin-left: 8%;
+	margin-bottom: 5%;
+	position: absolute; 
+	display: none;
+}
+
+
+#wrap_re #re {
+	color:black;
+	width: 18%;
+	height: 180px;
+	float : left;
+	margin-right: 2%;
+	padding-bottom: 1%;
+	font-size: 150%;
+	border-radius: 10%;
+	background-color: #FAF4C0;
+	text-align: center;
+}
+
+#wrap_re .re {
+	height: 20px;
+}
+
+#wrap_re #re:hover {
+	background-color: white;
+} 
+
+#wrap_my {
+	height: 200px;
+	width: 100%;
+	margin-left: 8%;
+	margin-bottom: 5%;
+	position: absolute;
+	display: none;
+}
+
+
+#wrap_my #my {
+	color:black;
+	width: 18%;
+	height: 180px;
+	float : left;
+	margin-right: 2%;
+	padding-bottom: 1%;
+	font-size: 150%;
+	border-radius: 10%;
+	background-color: #DAD9FF;
+	text-align: center;
+}
+
+#wrap_my #my:hover {
+	background-color: white;
+}
+
+.ct {
+	float: left;
+	margin-right: 40px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	height: 188px;
+}
+
+#double {
+	border: 1px solid gray;
+}
+
+#text {
+	text-align: center;
+}
+
+#res {
+	margin: 0 5% 0 9.3%;
+	height: 650px;
+}
+
+.h1 {
+	margin-left: 8%;
+	font-size: 30px;	
+	position: relative;
+	margin-top: 30px;
+}
+
+.h1 #next {
+	float:left;
+	border: 4px solid #002266;
+	background-color: #002266;
+	color:white;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+}
+
+.h1 #bt1 {
+	display:block;
+	float:left;
+	margin-left: 10px;
+	color: #002266;
+	margin-top: 3px;
+}
+.h1 #bt1:hover {
+	color:#B2CCFF;
+}
+
+.h1 #bt2 {
+	display: none;
+	float:left;
+	margin-left: 10px;
+	color: #002266;
+	margin-top: 3px;	
+}
+
+.h1 #bt2:hover {
+	color:#CEFBC9;
+}
+
+.h1 #bt3 {
+	display: none;
+	float:left;
+	margin-left: 10px;
+	color: #002266;
+	margin-top: 3px;	
+}
+
+.h1 #bt3:hover {
+	color:#FAF4C0;
+}
+
+.h1 #bt4 {
+	display: none;
+	float:left;
+	margin-left: 10px;
+	color: #002266;
+	margin-top: 3px;	
+}
+
+.h1 #bt4:hover {
+	color: #DAD9FF;
+}
+
+hr {
+	background-color: black;
+	width: 80%;
+	margin-left: 8%;
+}
+#save input {
+	width:70px;
+	height:40px;
+	margin-right: 250px;
+	font-size: 20px;
+	background-color: #002266;
+	float: right;
+	font-weight:bolder;
+	color:white;
+	border-radius: 10px;
+	margin-bottom:20%;
+	margin-right:18.5%;
+}
+
+#save2 input {
+	width:70px;
+	height:40px;
+	margin-right: 10px;
+	margin-bottom:20%;	
+	font-weight:bolder;
+	font-size: 20px;
+	background-color: #002266;
+	float: right;
+	color:white;
+	border-radius: 10px;
+}
+
+
+footer {
+	clear: both;
+	background-color : #D5D5D5;
+	color : white;
+	text-align: center;
+	padding : 1em 0px;
+}
+/*1300px 이하면 테이블 크기 변경.*/
+@media (max-width:1300px){ 
+	.pt_tb {
+		height: 400px;
+		width: 1000px;
+	}
+	
+	.ct_tb {
+		height: 280px;
+		width: 220px;
+		margin-right: 10px;
+	}
+}
+
+@media all and (max-width: 1200px){
+	#container, nav{
+		flex-direction: column;
+		}
+}
+@media (min-width:1300px){
+	#right{
+		display:block;
+	}
+}

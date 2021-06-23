@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+*{margin: 0 auto; padding: 0;}
+@font-face {
+	font-family: "Do Hyeon";
+	src:url("../image/DoHyeon-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal;
+}
+
+body {
+	padding : 30px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+
+header {
+	margin-top : 30px;
+	padding : 5px;
+	display: flex;
+	display: block;
+}	
+
+#logo {
+	top : 30px;
+	left : 30px;
+	margin-left: 42%;
+}
+
+#nav {
+	margin-top: 230px;
+	
+}
+
+nav{
+	display: flex;    
+	background-color:  #002266;
+}
+
+nav a{
+	color: white;
+	padding: 20px 80px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;	
+	margin: 0 auto;
+}
+ 		
+nav a:hover{
+	background-color: #235594;
+}
+
+#top1 {
+	float:left;
+	position: relative;
+	width: 33%;
+}
+
+#top2 {
+	float:left;
+	width: 33%;
+	position: relative;
+	text-align: center;
+}
+
+#top2 h1 {
+	width: 500px;
+	height: 160px;
+}
+
+#top3 {
+	float:left;
+	width: 33%;
+}
+
+#top3 a {
+	text-decoration: none;
+}
+
+#top3_1 {
+	float:right;
+	position: relative;
+	width: 16%;
+	text-align: center;	
+}
+
+#top3_2 {
+	float:right;
+	text-align: center;
+	width: 16%;
+}
+
+#material-icons {
+	font-size: 26;
+	color : #2980b9;
+}
+
+
+#searchBox{
+	margin: 0 auto;
+	margin-top: 80px;
+	position: relative;
+	width: 50%;
+	height: 47px;
+	border: 1px solid #235594;
+	padding : 0px 10px;
+	border-radius: 20px;
+}
+
+#table{
+	margin: 0 auto;
+	margin-top: 50px;
+	position: relative;
+	width: 90%;
+	height: 47px;
+	padding : 0px 10px;
+	border: 4px solid #235594;
+}
+
+ #search {
+ 	border : none;
+	padding : 0px 30px;
+	border-radius: 50px;
+	font-size: 18px;
+	font-family: "Nunito";
+	color : #424242;
+	font-weight: 500;
+	width: 90%;
+}
+
+#search:focus {
+	outline : none;
+}
+
+#searchimg {
+	width: 25px;
+	height: 20px;
+	padding-left: 20px;
+}
+
+#container {
+	margin-left: 40px;
+	margin-top: 30px;
+}
+
+.search_div1 {
+	background-color: #D5D5D5;
+	margin-right: 160px;
+}
+
+label{ display:inline-block; width:100px; line-height:50px; }
+
+input[type=checkbox] {
+
+transform : scale(1.5);
+}
+
+.ct {
+	float: left;
+	margin-right: 40px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.ct_tb {
+	height: 230px;
+	width: 280px;
+}
+
+.ct_tb:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
+#double {
+	border: 1px solid black;
+}
+
+
+
+#hyper {
+	text-decoration: none; 
+	color : black;
+}
+#hyper :hover {
+	 text-decoration: underline;
+	 color: blue;
+}
+
+#text {
+	text-align: center;
+}
+
+footer {
+	clear: both;
+	background-color: #D5D5D5;
+	color : white;
+	text-align: center;
+	padding : 1em 0px;
+}

@@ -1,0 +1,561 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: "Do Hyeon";
+	src: url("./DoHyeon-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+.form_box {
+	border-color: #0a294f5e;
+	border-radius: 5px;
+	border-width: 1px;
+	height: 25px;
+	border-style: solid;
+}
+
+body {
+	padding: 30px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+header {
+	margin-top: 30px;
+	padding: 5px;
+	display: flex;
+	display: block;
+}
+
+#logo {
+	top: 30px;
+	left: 30px;
+	margin-left: 42%;
+}
+
+#nav {
+	margin-top: 230px;
+}
+
+nav {
+	display: flex;
+	background-color: #002266;
+}
+
+nav a {
+	color: white;
+	background-color: #002266;
+	padding: 20px 70px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;
+	margin: 0 auto;
+	z-index: 99;
+	width: 250px;
+	transition: background-color 0.5s;
+}
+
+nav a:hover {
+	background-color: #235594;
+}
+
+#top1 {
+	float: left;
+	position: relative;
+	width: 33%;
+}
+
+#top2 {
+	float: left;
+	width: 33%;
+	position: relative;
+	text-align: center;
+}
+
+#top2 h1 {
+	width: 500px;
+	height: 160px;
+}
+
+#top3 {
+	float: left;
+	width: 33%;
+}
+
+#top3 a {
+	text-decoration: none;
+}
+
+#top3_1 {
+	float: right;
+	position: relative;
+	width: 16%;
+	text-align: center;
+}
+
+#top3_2 {
+	float: right;
+	text-align: center;
+	width: 16%;
+}
+
+/* drop-down menu */
+#main-menu, #sub-menu {
+	padding: 0;
+	list-style-type: none;
+	margin: 0 auto;
+}
+
+#main-menu>li, #sub-menu>li {
+	display: flex;
+	width: 240px;
+}
+
+#main-menu>li {
+	float: left;
+}
+
+#sub-menu {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+}
+
+#sub-menu>li:nth-child(n+2)>a {
+	background-color: #002266;
+	padding: 12px 50px;
+	width: 250px;
+}
+
+#main-menu>li:hover #sub-menu {
+	visibility: visible;
+	opacity: 1;
+}
+
+#main-menu>li:hover #sub-menu>li:nth-child(n+2)>a {
+	background-color: #002266;
+	visibility: visible;
+	opacity: 0.999;
+	transition: background-color 0.75s;
+}
+
+#main-menu>li:hover #sub-menu>li:nth-child(n+2)>a:hover {
+	background-color: #235594;
+	visibility: visible;
+	opacity: 1;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+}
+/**/
+
+/* point */
+#point {
+	position: relative;
+	margin-top: 30px;
+	width: 100%;
+	margin-left: 36px;
+	margin-bottom: 10px;
+}
+
+#point h2 {
+	margin-bottom: 20px;
+}
+
+#communityMainTag li {
+	background-color: white;
+	text-align: center;
+	border: 2px solid lightgray;
+	border-radius: 12px;
+	height: 20px;
+	line-height: 25px
+}
+
+#communityMainTag li a {
+	color: black;
+	font-size: 20px;
+}
+
+#communityMainTag li:hover {
+	background-color: black;
+}
+
+#communityMainTag li:hover a {
+	color: white;
+}
+
+#communityMainSearch {
+	color: #002266;
+    margin-left: 6%;
+	margin-top: 15px;
+	margin-bottom: -20px;
+	width: 100%;
+}
+
+#communityMainSearch h2 {
+	margin-bottom: -20px;
+	font-size: 27px;
+}
+
+#communityMainSearch ul li {
+	padding: 5px 7px;
+	list-style: none;
+	margin: 10px;
+	margin-top: 35px;
+	font-size: 20pt;
+	float: left;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+#communityMainSearch a {
+	color: black;
+	text-decoration: none;
+	/* 링크에 밑줄 제거*/
+}
+
+#searchBox {
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-right: 13%;
+    margin-bottom: 25px;
+	position: relative;
+	height: 20px;
+	border: 1px solid #cdd3e4;
+	padding: 0px 10px;
+	border-radius: 15px;
+	float: right;
+	/* 	clear: both; */
+}
+
+#material-icons {
+	font-size: 26;
+	color: #2980b9;
+}
+
+#search {
+	border: none;
+	padding: 0px 17px;
+	border-radius: 50px;
+	font-size: 15px;
+	font-family: "Nunito";
+	color: #424242;
+	font-weight: 500;
+	width: 175px;
+}
+
+#search:focus {
+	outline: none;
+}
+
+#searchimg {
+	width: 35px;
+	height: 20px;
+	padding-left: 20px;
+}
+
+#mainTitleTable {
+	clear: both;
+	float: left;
+    margin-top: 34px;
+    margin-left: -13px;
+	color: black;
+	font-size: 20px;
+}
+
+#communityMainTable {
+	position: relative;
+    margin-top: -23px;
+	margin-bottom: 50px;
+	width: 95%;
+}
+
+#communityMainTable table {
+	/* border: 4px solid #002266; */
+	margin: 0 auto;
+	width: 90%;
+	border-spacing: 0;
+	margin-top: 35px;
+	margin-bottom: 10px;
+	border-collapse: collapse;
+}
+
+#communityMainTable table td {
+	/* height: 30px; */
+	padding: 8px 10px;
+	text-align: center;
+	font-family: "Han sans";
+	font-size: 15px;
+}
+
+thead {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid lightgray;
+}
+
+.communityListTable tr:nth-child(even) {
+	background-color: rgb(242 215 250/ 10%);
+}
+
+.communityListTable tr:nth-child(odd) {
+	background-color: white;
+}
+
+.communityListTable tr:hover {
+	background-color: rgba(35, 85, 148, 0.1);
+}
+
+#communityMainTable th {
+	height: 30px;
+	font-size: 15px;
+	color: black;
+	background-color: white;
+}
+
+#communityMainTable .pageNum {
+	margin: 0 auto;
+	width: 100%;
+}
+
+#communityMainTable .pageNum ul {
+	width: 31%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#communityMainTable .pageNum ul li {
+	/* background-color: #002266; */
+	padding: 5px 0px;
+	list-style: none;
+	margin: 10px;
+	font-size: 15px;
+	width: 100%;
+	max-width: 40px;
+	float: left;
+}
+
+#communityMainTable .pageNum a {
+	color: Gray;
+	text-decoration: none;
+	padding: 5px 10px;
+}
+
+#communityMainTable .pageNum #pageSelected {
+	color: white;
+	background-color: #002266;
+	border-radius: 10px;
+}
+
+#content {
+	position: relative;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.pt {
+	float: left;
+	margin-right: 0px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 450px;
+}
+
+.pt2 {
+	float: right;
+	margin-right: 7%;
+}
+
+.ct {
+	float: left;
+	margin-right: 40px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.pt_tb {
+	height: 100px;
+	width: 380px;
+	/* border: 1px solid black; */
+	border: 4px solid #002266;
+	border-radius: 20px;
+	padding: 10px;
+	/* padding-bottom: 10px; */
+	/*     background-color: rgb(215 209 239 / 15%); */
+}
+
+.pt_tb a {
+	color: black;
+	text-decoration: none;
+	/* 링크에 밑줄 제거*/
+}
+
+.pt_tb a:hover {
+	text-decoration: underline;
+	color: #002266;
+}
+
+#point th {
+	height: 55px;
+	font-size: 25px;
+	color: #002266;
+	/* 	vertical-align: top; */
+}
+
+#point td {
+	height: 35px;
+	font-family: "Han sans";
+	font-size: 15px;
+}
+
+.ct_tb {
+	height: 450px;
+	width: 400px;
+}
+
+#container {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	width: 1050px;
+}
+
+article {
+	flex-grow: 8;
+}
+
+.btn {
+	margin-top: 22px;
+	background-color: white;
+	color: #002266;
+	padding: 4.5px 6.7px;
+	border: 0px solid #ced4da;
+	font-family: "Han sans";
+	font-size: 11px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.btn:hover {
+	background-color: #849ac4;;
+	color: white;
+}
+
+.btn_search {
+	margin: 0px;
+	border: 0px;
+	font-size: 16px;
+}
+
+.bd_code {
+	font-size: 10px;
+	color: gray;
+}
+
+.td_main_bd_num {
+	width: 100px;
+}
+
+.td_main_subject {
+	text-align: left !important;
+	width: 380px;
+}
+
+.td_main_m_id {
+	width: 75px;
+}
+
+.td_main_reg_date {
+	width: 100px;
+}
+
+.td_main_read_count {
+	width: 50px;
+}
+
+/* aside */
+aside {
+	flex-grow: 2;
+	width: 10%;
+	margin-right: 1em;
+	float: right;
+	position: fixed !important;
+	top: 45% !important;
+	right: 0px !important;
+	display: block;
+}
+
+aside ul li {
+	background-color: #002266;
+	padding: 5px 10px;
+	list-style: none;
+	margin: 10px;
+	font-size: 17pt;
+	width: 130px !important;
+	max-width: 130px;
+}
+
+aside a {
+	color: white;
+	text-decoration: none; /* 링크에 밑줄 제거*/
+}
+
+aside a:hover {
+	color: white;
+}
+
+aside ul li:hover {
+	background-color: #235594;
+}
+
+footer {
+	clear: both;
+	background-color: #D5D5D5;
+	color: white;
+	text-align: center;
+	padding: 1em 0px;
+}
+
+/*1300px 이하면 테이블 크기 변경.*/
+
+/*1300px 이하면 테이블 크기 변경.*/
+@media ( max-width :1300px) {
+	.ct_tb {
+		height: 280px;
+		width: 220px;
+		margin-right: 10px;
+	}
+	.pt {
+		float: left;
+	}
+}
+
+@media all and (max-width: 1200px) {
+	nav {
+		display: flex;
+		height: 100%;
+	}
+	#main-menu>li {
+		float: none;
+	}
+	#container, nav {
+		flex-direction: column;
+	}
+}
+
+@media ( min-width :1300px) {
+	#right {
+		/* 		display: block; */
+		display: none;
+	}
+}

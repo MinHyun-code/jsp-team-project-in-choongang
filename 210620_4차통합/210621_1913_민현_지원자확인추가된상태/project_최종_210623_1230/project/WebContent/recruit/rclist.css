@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+*{margin: 0 auto; padding: 0;}
+@font-face {
+	font-family: "Do Hyeon";
+	src:url("../image/DoHyeon-Regular.ttf") format("truetype");
+	font-style:normal;
+	font-weight:normal;
+}
+
+body {
+	padding : 30px;
+	font-family: "Do Hyeon";
+	font-size: 20px;
+}
+
+header {
+	margin-top : 30px;
+	padding : 5px;
+	display: flex;
+	display: block;
+}	
+
+#logo {
+	top : 30px;
+	left : 30px;
+	margin-left: 42%;
+}
+
+#nav {
+	margin-top: 230px;
+	
+}
+
+nav{
+	display: flex;    
+	background-color:  #002266;
+}
+
+nav a{
+	color: white;
+	padding: 20px 80px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.2em;	
+	margin: 0 auto;
+}
+ 		
+nav a:hover{
+	background-color: #235594;
+}
+
+#top1 {
+	float:left;
+	position: relative;
+	width: 33%;
+}
+
+#top2 {
+	float:left;
+	width: 33%;
+	position: relative;
+	text-align: center;
+}
+
+#top2 h1 {
+	width: 500px;
+	height: 160px;
+}
+
+#top3 {
+	float:left;
+	width: 33%;
+}
+
+#top3 a {
+	text-decoration: none;
+}
+
+#top3_1 {
+	float:right;
+	position: relative;
+	width: 16%;
+	text-align: center;	
+}
+
+#top3_2 {
+	float:right;
+	text-align: center;
+	width: 16%;
+}
+#material-icons {
+	font-size: 26;
+	color : #2980b9;
+}
+
+label{ display:inline-block; width:100px; line-height:50px; }
+
+input[type=checkbox] {
+
+transform : scale(1.5);
+}
+.ct {
+	float: left;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	margin-left: 20px;
+	position: absolute;
+}
+
+.ct_tb {
+	height: 230px;
+	width: 280px;
+}
+
+#double {
+	border: 2px solid #b7c3cc5c;
+	/* border-top: 8px solid #235594; */
+
+}
+
+
+#text {
+	text-align: center;
+	background-color: white;
+}
+#wrap{
+    margin-left: 160px;
+    margin-bottom: 200px;
+    margin-top: 64px;
+    position: relative;
+    height: 1500px;
+	 
+	
+}
+#mm{
+		background-color: white;
+		
+	
+}
+
+footer {
+	clear: both;
+	background-color: #D5D5D5;
+	color : white;
+	text-align: center;
+	padding : 1em 0px;
+}
+.ct:hover{
+     transition: all 0.2s linear;
+     transform: translate(-20px, -5%);
+       box-shadow: 5px 5px 5px 5px #BDBDBD; 
+       border: 3px solid #93afe6;
+  
+ }
+ 
