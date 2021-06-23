@@ -10,6 +10,33 @@
 	href="${pageContext.request.contextPath}/resume/resumeSelect.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/dropDown.css">
+<style>
+.submit_list{
+
+    border-radius: 100px / 100px;
+    cursor: pointer;
+
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border: 3px solid #EAEAEA;
+    color: black;
+    position: relative;
+    font-size: 25px;
+    text-align: center;
+    background: #EAEAEA;
+    margin-right: 30px;
+    font-family: "Do Hyeon";
+    float: right;
+    margin-top: 39px;
+    margin-bottom: 75px;
+    margin-right: 1px;
+
+
+
+}
+
+</style>
 </head>
 <body>
 	<div id="page">
@@ -333,7 +360,7 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<input type="submit" value="목록" style="float: left;">
+					<input type="submit" value="목록" class="submit_list">
 				</form>
 			</section>
 		</div>

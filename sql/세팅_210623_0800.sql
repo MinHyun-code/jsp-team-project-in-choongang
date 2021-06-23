@@ -1601,6 +1601,9 @@ Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (10,'jiho','�
 Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (11,'hoo999','이력서','fileSave/mypic3.jpg','fileSave/포트폴리오.show',to_date('21/04/22','RR/MM/DD'));
 Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (12,'junjun','이력서','fileSave/mypic2.jpg','fileSave/포트폴리오.show',to_date('21/04/22','RR/MM/DD'));
 Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (13,'iin110','이력서','fileSave/mypic4.jpg','fileSave/포트폴리오.show',to_date('21/04/22','RR/MM/DD'));
+Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (14,'sol333','임다솔 이력서','fileSave/sol333_picture.jpg','fileSave/포트폴리오.show',to_date('21/05/21','RR/MM/DD'));
+Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (15,'sol333','인사경력 2년 삼성 기업에 지원하는 임다솔입니다.','fileSave/sol333_picture.jpg','fileSave/포트폴리오.show',to_date('21/05/22','RR/MM/DD'));
+Insert into RESUME (R_NUM,M_ID,R_TITLE,R_PIC,R_FILE,R_DATE) values (16,'sol333','열심히 하겠습니다!','fileSave/sol333_picture.jpg','fileSave/포트폴리오.show',to_date('21/05/22','RR/MM/DD'));
 
 REM INSERTING into RE_SELF_REL
 SET DEFINE OFF;
@@ -1629,7 +1632,7 @@ Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (3,12
 Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (4,4,'2012-03-01','2015-02-28','1');
 Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (4,13,'2015-03-01','2019-02-28','1');
 Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (5,6,'2012-03-01','2015-02-28','1');
-Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (5,14,'2015-03-01','2019-02-28','1')
+Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (5,14,'2015-03-01','2019-02-28','1');
 Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (6,2,'2012-03-01','2015-02-28','1');
 Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (6,8,'2015-03-01','2019-02-28','1');
 Insert into MY_EDU (R_NUM,EDU_NUM,MYEDU_SDATE,MYEDU_EDATE,EDU_TYPE) values (7,4,'2012-03-01','2015-02-28','1');
@@ -1687,8 +1690,22 @@ Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('hoo999',1001,11,to_
 Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('junjun',1001,12,to_date('21/06/22','RR/MM/DD'),1);
 Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('iin110',1001,13,to_date('21/06/22','RR/MM/DD'),1);
 
+Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('sol333',1013,1,to_date('21/06/22','RR/MM/DD'),1);
+Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('sol333',1000,14,to_date('21/06/22','RR/MM/DD'),1);
+Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('sol333',1018,16,to_date('21/06/23','RR/MM/DD'),1);
+Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('sol333',1007,1,to_date('21/06/23','RR/MM/DD'),1);
+
 
 Insert into APPLY (M_ID,RC_NUM,R_NUM,A_DATE,AP_CNT) values ('mh777',1001,2,to_date('21/06/23','RR/MM/DD'),1);
+
+
+REM INSERTING into LIKE_COMPANY
+SET DEFINE OFF;
+Insert into LIKE_COMPANY (M_ID,RC_NUM,RC_CNT) values ('sol333',1006,1);
+Insert into LIKE_COMPANY (M_ID,RC_NUM,RC_CNT) values ('sol333',1017,1);
+Insert into LIKE_COMPANY (M_ID,RC_NUM,RC_CNT) values ('sol333',1013,1);
+Insert into LIKE_COMPANY (M_ID,RC_NUM,RC_CNT) values ('sol333',1007,1);
+Insert into LIKE_COMPANY (M_ID,RC_NUM,RC_CNT) values ('sol333',1015,1);
 
 -------------------
 
