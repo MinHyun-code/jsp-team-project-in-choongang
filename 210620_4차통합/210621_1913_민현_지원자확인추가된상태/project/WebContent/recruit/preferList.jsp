@@ -19,7 +19,7 @@ function cancel(a, b) {
 	
 	/*    이미 존재한 것을 삭제한 하러 감  */
 	if (b == 1) {
-		alert("지원이 취소되었습니다.");
+		alert("관심 등록이 취소되었습니다.");
 	}
 }
 </script>
@@ -147,7 +147,7 @@ function cancel(a, b) {
 			</div>
 		</header>
 		<div id="apply3">
-			<h2 style="font-weight: normal;">${member.m_name}님의관심공고입니다.</h2>
+			<h2 style="font-weight: normal;">${member.m_name}님의 관심공고입니다.</h2>
 		</div>
 		<div id="apply">
 			<div id="apply1">
@@ -165,7 +165,7 @@ function cancel(a, b) {
 						<th>&nbsp;연봉&nbsp;</th>
 						<th>&nbsp;채용제목&nbsp;</th>
 						<th>&nbsp;공고일&nbsp;</th>
-						<th>&nbsp;지원취소&nbsp;</th>
+						<th>&nbsp;관심취소&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>
