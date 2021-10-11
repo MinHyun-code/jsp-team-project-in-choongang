@@ -1,8 +1,0 @@
-# 메인 (Webcontent)
-- main.css
-- main.jsp
-- mainCarousel.js
-- mainRecruit.js
-
-# META-INF
-- context_sample 파일 2개

@@ -1,9 +1,0 @@
-1000	신세계 푸드	안전관리자 정규직 채용	./image/hireLogo.png	./image/hire.png	3500	www.shinsegaefood.com	21/05/02	3754533981270502329
-1001	쿠팡	풀스택 개발자 채용	./image/copanglogo.png	./image/copanghire.png	4500	https://rocketyourcareer.kr.coupang.com/%ec%a7%81%eb%ac%b4/-/principal-web-full-stack-engineer-coupang-play/24450/19446668	21/04/28	3751581481270989293
-1002	이마트	STAFF채용	./image/emartlogo.png	./image/emarthire.png	2700	https://rocketyourcareer.kr.coupang.com/%ec%a7%81%eb%ac%b4/-/principal-web-full-stack-engineer-coupang-play/24450/19446668	21/05/30	3757132071270227761
-1003	마키나락스	백엔드 개발자 채용	./image/makinarockslogo.png	./image/markinarockshire.png	5400	https://www.makinarocks.ai/	21/05/26	3750056551270254046
-1004	현대IT	개발자 채용	./image/Hyundailogo.png	./image/Hyundaihire.png	2800	http://www.hyundai-ite.com/index.jsp	21/03/16	3750731961270621945
-1005	중앙대병원	간호사 계약직 채용	./image/caulogo.png	./image/cauhire.png	4400	http://recruit.caumc.or.kr/index.asp	21/04/15	3750680941269608074
-1006	에버랜드	의상팀 담당 채용	./image/everlandlogo.png	./image/everlandhire.png	3000	https://www.everland.com/	21/05/05	3729449111272034936
-1007	롯데월드	캐스트 채용	./image/lotteworldlogo.png	./image/lotteworldhire.png	2800	https://adventure.lotteworld.com/	21/04/13	3751111581270981670
-1008	삼성화재	자산 인프라 투자 운용 채용	./image/samsaunglogo.png	./image/samsunghire.png	6000	http://www.samsungcareers.com/rec/apply/ComResumeServlet?cmd=pstMain#	21/05/09	3749599921270263614
